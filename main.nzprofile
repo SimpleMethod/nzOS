@@ -1,0 +1,79 @@
+{
+	"color_settings": {
+		"color_mode": 0,
+		"color_0": {
+			"color_G": 0,
+			"color_R": 127,
+			"color_B": 0
+		},
+		"color_1": {
+			"color_G": 127,
+			"color_R": 0,
+			"color_B": 0
+		},
+		"color_2": {
+			"color_G": 0,
+			"color_R": 0,
+			"color_B": 127
+		},
+		"color_3": {
+			"color_G": 9,
+			"color_R": 10,
+			"color_B": 11
+		},
+		"color_4": {
+			"color_G": 12,
+			"color_R": 13,
+			"color_B": 14
+		},
+		"color_5": {
+			"color_G": 15,
+			"color_R": 16,
+			"color_B": 17
+		},
+		"color_6": {
+			"color_G": 18,
+			"color_R": 19,
+			"color_B": 20
+		},
+		"color_7": {
+			"color_G": 254,
+			"color_R": 22,
+			"color_B": 23
+		},
+		"color_8": {
+			"color_G": 24,
+			"color_R": 25,
+			"color_B": 26
+		}
+	},
+	"pump_settings": {
+		"100_degrees": 100,
+		"50_degrees": 25,
+		"20_degrees": 25,
+		"70_degrees": 50,
+		"0_degrees": 25,
+		"90_degrees": 50,
+		"60_degrees": 50,
+		"30_degrees": 25,
+		"10_degrees": 25,
+		"40_degrees": 25,
+		"80_degrees": 50
+	},
+	"fan_settings": {
+		"100_degrees": 100,
+		"50_degrees": 100,
+		"20_degrees": 100,
+		"70_degrees": 100,
+		"0_degrees": 100,
+		"90_degrees": 100,
+		"60_degrees": 100,
+		"30_degrees": 100,
+		"10_degrees": 100,
+		"40_degrees": 100,
+		"80_degrees": 100
+	},
+	"id": 2222,
+	"nzreal_class_version": 4,
+	"temperature_warning": 20
+}
