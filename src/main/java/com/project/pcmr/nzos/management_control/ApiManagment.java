@@ -16,8 +16,7 @@ import java.util.List;
 
 public class ApiManagment extends Api implements InterfaceApiManagment {
     private static Logger logger = LogManager.getLogger(ApiManagment.class);
-
-
+    boolean firstusage = false;
     FileManagement<Long> FileM = new FileManagement<>();
     static CurrentValue CV = new CurrentValue();
 
@@ -72,18 +71,29 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
      * @return Zwraca listę zawierającą temperatury rdzeni procesora.
      */
     public List GetCpuTemps() {
+        SetTEMPS(CVTEMPS);
+        return CVTEMPS;
+    }
+
+    /**
+     * Metoda służaca do zwracania informacji o CPU.
+     */
+    public void GetCpuInfo() {
         Components components = JSensors.get.components();
-        List<Cpu> CPU = components.cpus;
-        List<Temperature> temps = GetTEMPS();
-        if (CPU != null) {
-            for (final Cpu cpu : CPU) {
+        List<Cpu> cpus = components.cpus;
+        if (cpus != null) {
+            for (final Cpu cpu : cpus) {
+                CPUNAME = cpu.name;
                 if (cpu.sensors != null) {
-                    temps = cpu.sensors.temperatures;
+                    CVTEMPS = cpu.sensors.temperatures;
+                    CVFAN = cpu.sensors.fans;
+                    CVLOAD = cpu.sensors.loads;
                 }
             }
         }
-        SetTEMPS(temps);
-        return temps;
+        CV.CURRENT_TEMPERATURE = GetCpuTemp().longValue();
+        CV.CURRENT_FAN_SPEED = Long.valueOf(GetFanSpeed());
+        CV.CURRENT_LIQUID_TEMPERATURE = Long.valueOf(GetLiquidTemp());
     }
 
     /**
@@ -92,12 +102,8 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
      * @return Zwraca wartość zawierającą uśrednioną temperaturę procesora.
      */
     public Double GetCpuTemp() {
-        List<Temperature> temperatures = GetCpuTemps();
-        Temperature temp = temperatures.get(temperatures.size() - 1);
-        CV.CURRENT_TEMPERATURE = temp.value.longValue();
-        CV.CURRENT_FAN_SPEED = Long.valueOf(GetFanSpeed());
-        CV.CURRENT_LIQUID_TEMPERATURE = Long.valueOf(GetLiquidTemp());
 
+        Temperature temp = CVTEMPS.get(CVTEMPS.size() - 1);
         return temp.value;
     }
 
@@ -105,6 +111,11 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
      * Metoda służaca monitorowania pracy nzOS.
      */
     public void TheardHelper() {
+        GetCpuInfo();
+        if (!firstusage) {
+            ChangingColor((int) (long) FileM.ReadingFile(GetDEFAULT_FILENAME(), "color_settings", "color_mode"));
+        }
+        firstusage = true;
         Long MathTemp = Math.round(GetCpuTemp() / 10.0) * 10;
         Long ResultFanSpeed, ResultPumpSpeed;
         if (MathTemp <= 0) {

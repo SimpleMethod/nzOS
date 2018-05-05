@@ -1,5 +1,8 @@
 package com.project.pcmr.nzos.web_controller;
 
+import com.profesorfalken.jsensors.model.sensors.Fan;
+import com.profesorfalken.jsensors.model.sensors.Load;
+import com.profesorfalken.jsensors.model.sensors.Temperature;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +28,64 @@ public class CurrentValueController extends CurrentValue {
     }
 
 
-    @RequestMapping(value = "currentmaininformation", produces = "application/json", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/information/cpu/temp", produces = "application/json", method = RequestMethod.GET)
+    public List<Long> getTempInformation() {
+        ArrayList<Long> al = new ArrayList<>();
+        al.add(GetCurrentTemperature());
+        return al;
+    }
+
+
+    @RequestMapping(value = "/information/cpu/temps", produces = "application/json", method = RequestMethod.GET)
+    public List<Double> getTempsInformation() {
+        ArrayList<Double> al = new ArrayList<>();
+        for (final Temperature temp : GetCVTEMPS()) {
+            al.add(temp.value);
+        }
+
+        return al;
+    }
+
+    @RequestMapping(value = "/information/cpu/loads", produces = "application/json", method = RequestMethod.GET)
+    public List<Double> getLoadsInformation() {
+        ArrayList<Double> al = new ArrayList<>();
+        for (final Load loads : GetCVLOAD()) {
+            al.add(loads.value);
+        }
+        return al;
+    }
+
+
+    @RequestMapping(value = "/information/cpu/fans", produces = "application/json", method = RequestMethod.GET)
+    public List<Double> getFanInformation() {
+        ArrayList<Double> al = new ArrayList<>();
+        for (final Fan fan : GetCVFAN()) {
+            al.add(fan.value);
+        }
+
+        return al;
+    }
+
+
+    @RequestMapping(value = "/information/nzos/fanspeed", produces = "application/json", method = RequestMethod.GET)
+    public List<Long> getFanSpeed() {
+        ArrayList<Long> al = new ArrayList<>();
+        al.add(GetCurrentFanSpeed());
+        return al;
+    }
+
+
+
+    @RequestMapping(value = "/information/nzos/liquidtemp", produces = "application/json", method = RequestMethod.GET)
+    public List<Long> getLiquidTemp() {
+        ArrayList<Long> al = new ArrayList<>();
+        al.add(GetCurrentLiquidTemp());
+        return al;
+    }
+
+
+    @RequestMapping(value = "/information/nzos/maininformation", produces = "application/json", method = RequestMethod.GET)
     public List<Long> getCriticalVariables() {
         ArrayList<Long> al = new ArrayList<>();
         al.add(GetCurrentTemperature());
@@ -35,7 +95,7 @@ public class CurrentValueController extends CurrentValue {
     }
 
 
-    @RequestMapping(value = "allinformation", produces = "application/json", method = RequestMethod.GET)
+    @RequestMapping(value = "/information/nzos/dumpsettings", produces = "application/json", method = RequestMethod.GET)
     public List<Long> getVariables() {
         ArrayList<Long> al = new ArrayList<>();
         al.add(GetCurrentSetFanSpeed());
@@ -45,11 +105,21 @@ public class CurrentValueController extends CurrentValue {
         return al;
     }
 
-    @RequestMapping(value = "colorinformation", produces = "application/json", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/information/nzos/colormode", produces = "application/json", method = RequestMethod.GET)
+    public List<ArrayList> getColorMode() {
+
+        ArrayList<Long> aMODE = new ArrayList<>();
+        aMODE.add(GetCurrentColorMode());
+        ArrayList<ArrayList> aall = new ArrayList<>();
+        aall.add(aMODE);
+        return aall;
+    }
+
+    @RequestMapping(value = "/information/nzos/colorarray", produces = "application/json", method = RequestMethod.GET)
     public List<ArrayList> getColor() {
 
         ArrayList<Long> a11 = new ArrayList<>();
-        ArrayList<Long> aMODE = new ArrayList<>();
         ArrayList<Long> a0 = new ArrayList<>();
         ArrayList<Long> a1 = new ArrayList<>();
         ArrayList<Long> a2 = new ArrayList<>();
@@ -61,11 +131,8 @@ public class CurrentValueController extends CurrentValue {
         ArrayList<Long> a8 = new ArrayList<>();
         ArrayList<ArrayList> aall = new ArrayList<>();
 
-        aMODE.add(GetCurrentColorMode());
         a11.add(GetCurrentColorMode());
         byte[] dump = GetColourPalette();
-
-
         a0.add(Long.valueOf(dump[0]));
         a0.add(Long.valueOf(dump[1]));
         a0.add(Long.valueOf(dump[2]));
@@ -93,8 +160,6 @@ public class CurrentValueController extends CurrentValue {
         a8.add(Long.valueOf(dump[24]));
         a8.add(Long.valueOf(dump[25]));
         a8.add(Long.valueOf(dump[26]));
-
-        aall.add(aMODE);
         aall.add(a0);
         aall.add(a1);
         aall.add(a2);
@@ -104,7 +169,6 @@ public class CurrentValueController extends CurrentValue {
         aall.add(a6);
         aall.add(a7);
         aall.add(a8);
-
         return aall;
     }
 }

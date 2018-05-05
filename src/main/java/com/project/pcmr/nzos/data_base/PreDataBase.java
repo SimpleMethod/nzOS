@@ -1,6 +1,8 @@
 package com.project.pcmr.nzos.data_base;
 
 
+import com.profesorfalken.jsensors.model.sensors.Fan;
+import com.profesorfalken.jsensors.model.sensors.Load;
 import com.profesorfalken.jsensors.model.sensors.Temperature;
 
 import java.util.List;
@@ -93,6 +95,28 @@ Dostępne tryby custom:
      * Zibieranie aktualnych informacji o systemie.
      */
     private static Integer[] CURRENT_VALUE;
+
+
+    /**
+     * Lista zawierająca temperaturę rdzeni procesora.
+     */
+    public static List<Temperature> CVTEMPS;
+
+    /**
+     * Lista zawierająca obciążenie rdzeni procesora.
+     */
+    public static List<Load> CVLOAD;
+
+    /**
+     * Lista zawierająca prędkość wentylatorów.
+     */
+    public  static List<Fan> CVFAN;
+    /**
+     * Pole zawierające nazwę CPU.
+     */
+    public static String CPUNAME;
+
+
 
 
     public PreDataBase() {

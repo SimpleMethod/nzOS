@@ -57,4 +57,9 @@ interface InterfaceApiManagment {
      * @return Zwraca prawdę w momencie, gdy aplikacja została uruchomiona z prawami administratora.
      */
     boolean isAdmin();
+
+    /**
+     * Deklacaja metody służacej do zwracania informacji o CPU.
+     */
+    void GetCpuInfo();
 }

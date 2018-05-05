@@ -1,11 +1,15 @@
 package com.project.pcmr.nzos.web_controller;
 
+import com.profesorfalken.jsensors.model.sensors.Fan;
+import com.profesorfalken.jsensors.model.sensors.Load;
+import com.profesorfalken.jsensors.model.sensors.Temperature;
 import com.project.pcmr.nzos.data_base.PreDataBase;
 import com.project.pcmr.nzos.json_reader.FileManagement;
 import com.project.pcmr.nzos.management_control.ApiManagment;
 import org.json.simple.JSONObject;
 
 import java.io.StringWriter;
+import java.util.List;
 
 public class CurrentValue extends PreDataBase {
 
@@ -32,6 +36,47 @@ public class CurrentValue extends PreDataBase {
 
     private byte[] ColourPalette;
 
+
+
+    /**
+     * Lista zawierająca temperaturę rdzeni procesora.
+     */
+    public  List<Temperature> TEMPS;
+
+    /**
+     * Lista zawierająca obciążenie rdzeni procesora.
+     */
+    public  List<Load> LOAD;
+
+    /**
+     * Lista zawierająca prędkość wentylatorów.
+     */
+    public  List<Fan> FAN;
+    /**
+     * Pole zawierające nazwę CPU.
+     */
+    public String CVCPUNAME;
+
+
+    public List<Temperature> GetCVTEMPS() {
+     TEMPS=CVTEMPS;
+        return TEMPS;
+    }
+
+    public List<Load> GetCVLOAD() {
+        LOAD=CVLOAD;
+        return LOAD;
+    }
+
+    public List<Fan> GetCVFAN() {
+        FAN=CVFAN;
+        return FAN;
+    }
+
+    public String getCVCPUNAME() {
+        CVCPUNAME=CPUNAME;
+        return CVCPUNAME;
+    }
 
     public CurrentValue() {
         super();

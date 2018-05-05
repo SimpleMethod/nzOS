@@ -12,9 +12,7 @@
             </PatternLayout>
         </Console>
         <File name="App-File-Appender" fileName="${log-path}/app_log.log" >
-            <DefaultRolloverStrategy max="20"/>
             <PatternLayout>
-                <DefaultRolloverStrategy max="20"/>
                 <pattern>
                     [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
                 </pattern>
