@@ -44,9 +44,17 @@ interface InterfaceApiManagment {
     void TheardHelper();
 
     /**
-     *  Deklacaja metody służacej do wyświetlania powiadomień.
-     * @param title Tytuł powiadomienia
+     * Deklacaja metody służacej do wyświetlania powiadomień.
+     *
+     * @param title    Tytuł powiadomienia
      * @param subtitle Treść powiadomienia
      */
     void sendNotification(String title, String subtitle);
+
+    /**
+     * Deklacaja metody sprawdzająca, czy aplikacja została uruchomiona z prawami administratora.
+     *
+     * @return Zwraca prawdę w momencie, gdy aplikacja została uruchomiona z prawami administratora.
+     */
+    boolean isAdmin();
 }

@@ -1,7 +1,8 @@
 package com.project.pcmr.nzos.usb_api;
 
-import com.project.pcmr.nzos.data_base.CurrentValue;
 import com.project.pcmr.nzos.data_base.PreDataBase;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.usb4java.BufferUtils;
 import org.usb4java.DeviceHandle;
 import org.usb4java.LibUsb;
@@ -12,7 +13,9 @@ import java.nio.ByteOrder;
 import java.nio.IntBuffer;
 
 public class Api extends PreDataBase implements InterfaceAPI {
+    private static Logger logger = LogManager.getLogger(Api.class);
     public byte[] READINDUMP = new byte[17];
+
     /**
      * Metoda służąca do wysłania bajtów.
      *
@@ -21,18 +24,20 @@ public class Api extends PreDataBase implements InterfaceAPI {
     public void WriteToDevice(byte[] Data) {
         int result = LibUsb.init(null);
         if (result != LibUsb.SUCCESS) {
+            logger.error("Libusb cannot be initiated.");
             throw new LibUsbException("Libusb cannot be initiated.", result);
         }
         // Otwarte urządzenie.
         DeviceHandle handle = LibUsb.openDeviceWithVidPid(null, GetVENDOR_ID(), GetPRODUCT_ID());
         if (handle == null) {
-            System.err.println("No test device found.");
+            logger.error("No test device found.");
             System.exit(1);
         }
         // Próba synchronizacji interfejsu.
         result = LibUsb.claimInterface(handle, GetINTERFACE());
         if (result != LibUsb.SUCCESS) {
-            throw new LibUsbException("The interface could not be synchronized..", result);
+            logger.error("The interface could not be synchronized.");
+            throw new LibUsbException("The interface could not be synchronized.", result);
         }
         // Wysyłanie danych.
         ByteBuffer buffer = BufferUtils.allocateByteBuffer(Data.length);
@@ -40,12 +45,16 @@ public class Api extends PreDataBase implements InterfaceAPI {
         IntBuffer transferred = BufferUtils.allocateIntBuffer();
         result = LibUsb.bulkTransfer(handle, GetOUT_ENDPOINT(), buffer, transferred, GetTIMEOUT());
         if (result != LibUsb.SUCCESS) {
-            throw new LibUsbException("Problem with sending information. \n", result);
+            logger.error("Problem with sending information.");
+            throw new LibUsbException("Problem with sending information.", result);
         }
-       // System.out.println("Przesłano: " + transferred.get() + " bajtów.");
+
+        logger.info(transferred.get() + " bytes were sent to the device.");
+
         result = LibUsb.releaseInterface(handle, GetINTERFACE());
         if (result != LibUsb.SUCCESS) {
-            throw new LibUsbException("The interface could not be released..", result);
+            logger.error("The interface could not be released.");
+            throw new LibUsbException("The interface could not be released.", result);
         }
         LibUsb.close(handle);
         // Zwolnienie biblioteki.
@@ -61,17 +70,19 @@ public class Api extends PreDataBase implements InterfaceAPI {
     public ByteBuffer ReadDataFromDevice(int size) {
         int result = LibUsb.init(null);
         if (result != LibUsb.SUCCESS) {
+            logger.error("Libusb cannot be initiated.");
             throw new LibUsbException("Libusb cannot be initiated.", result);
         }
         // Otwarte urządzenie.
         DeviceHandle handle = LibUsb.openDeviceWithVidPid(null, GetVENDOR_ID(), GetPRODUCT_ID());
         if (handle == null) {
-            System.err.println("No test device found.");
+            logger.error("No test device found.");
             System.exit(1);
         }
         // Próba synchronizacji interfejsu.
         result = LibUsb.claimInterface(handle, GetINTERFACE());
         if (result != LibUsb.SUCCESS) {
+            logger.error("The interface could not be synchronized.");
             throw new LibUsbException("The interface could not be synchronized..", result);
         }
         // Odbieranie danych.
@@ -79,14 +90,16 @@ public class Api extends PreDataBase implements InterfaceAPI {
         IntBuffer transferred = BufferUtils.allocateIntBuffer();
         result = LibUsb.bulkTransfer(handle, GetIN_ENDPOINT(), buffer, transferred, GetTIMEOUT());
         if (result != LibUsb.SUCCESS) {
+            logger.error("Problem with receiving information.");
             throw new LibUsbException("Problem with receiving information. \n", result);
         }
         buffer.rewind();
         buffer.get(READINDUMP, 0, 17);
         SetREADING_DUMP(READINDUMP);
-        OUT_DUMP=READINDUMP;
+        OUT_DUMP = READINDUMP;
         result = LibUsb.releaseInterface(handle, GetINTERFACE());
         if (result != LibUsb.SUCCESS) {
+            logger.error("The interface could not be released.");
             throw new LibUsbException("The interface could not be released..", result);
         }
         // Zamknięcie urządzenia.

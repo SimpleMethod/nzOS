@@ -14,16 +14,14 @@ import java.util.List;
 public class CurrentValueController extends CurrentValue {
 
     @RequestMapping("/")
-    public String test()
-    {
+    public String test() {
         return "<div id=\"d1\" style=\"width:100%; text-align:center\"><img id=\"d2\" src=\"http://seriouscat.com/serious_cat.jpg\"/></div>";
     }
 
 
-    @RequestMapping("/update/fanspeed/{value}")
-    public void updateValue(@PathVariable String value)
-    {
-        System.out.println(value);
+    @RequestMapping("/update/fanspeed/{value}/{value2}/{hashcode}")
+    public void updateValue(@PathVariable String value, @PathVariable String value2) {
+        System.out.println("Pierwszy" + value + " Drugi: " + value2);
     }
 
 

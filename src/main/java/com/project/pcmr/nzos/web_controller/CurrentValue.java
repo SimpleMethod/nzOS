@@ -7,7 +7,7 @@ import org.json.simple.JSONObject;
 
 import java.io.StringWriter;
 
-public class CurrentValue extends PreDataBase{
+public class CurrentValue extends PreDataBase {
 
     static com.project.pcmr.nzos.data_base.CurrentValue CV = new com.project.pcmr.nzos.data_base.CurrentValue();
     FileManagement<Long> FileMag = new FileManagement<>();
@@ -33,68 +33,61 @@ public class CurrentValue extends PreDataBase{
     private byte[] ColourPalette;
 
 
-    public CurrentValue ()
-    {
+    public CurrentValue() {
         super();
 
     }
 
-    public byte[] GetColourPalette()
-    {
-        ColourPalette=FileMag.ColorArray(GetDEFAULT_FILENAME());
+    public byte[] GetColourPalette() {
+        ColourPalette = FileMag.ColorArray(GetDEFAULT_FILENAME());
         return ColourPalette;
     }
-    public Long GetCurrentColorMode()
-    {
-        CurrentColorMode = CV.CURRENT_COLOR_MODE=FileMag.ReadingFile(GetDEFAULT_FILENAME(),"color_settings","color_mode");
-        return  CurrentColorMode;
+
+    public Long GetCurrentColorMode() {
+        CurrentColorMode = CV.CURRENT_COLOR_MODE = FileMag.ReadingFile(GetDEFAULT_FILENAME(), "color_settings", "color_mode");
+        return CurrentColorMode;
 
     }
 
-    public Long GetCurrentTemperature()
-    {
-        CurrentTemperature=CV.CURRENT_TEMPERATURE;
+    public Long GetCurrentTemperature() {
+        CurrentTemperature = CV.CURRENT_TEMPERATURE;
         return CurrentTemperature;
 
     }
-    public Long GetCurrentFanSpeed()
-    {
-        CurrentFanSpeed=CV.CURRENT_FAN_SPEED;
+
+    public Long GetCurrentFanSpeed() {
+        CurrentFanSpeed = CV.CURRENT_FAN_SPEED;
         return CurrentFanSpeed;
     }
 
     public Long GetCurrentLiquidTemp() {
-        CurrentLiquidTemp=CV.CURRENT_LIQUID_TEMPERATURE;
+        CurrentLiquidTemp = CV.CURRENT_LIQUID_TEMPERATURE;
         return CurrentLiquidTemp;
     }
 
-    public Long GetCurrentSetFanSpeed()
-    {
-        Long temp=Math.round(CurrentTemperature / 10.0) * 10;
-        CV.CURRENT_SETTINGS_FAN_SPEED=FileMag.ReadingFile(GetDEFAULT_FILENAME(),"fan_settings", temp+ "_degrees");
-        CurrentSetFanSpeed=CV.CURRENT_SETTINGS_FAN_SPEED;
+    public Long GetCurrentSetFanSpeed() {
+        Long temp = Math.round(CurrentTemperature / 10.0) * 10;
+        CV.CURRENT_SETTINGS_FAN_SPEED = FileMag.ReadingFile(GetDEFAULT_FILENAME(), "fan_settings", temp + "_degrees");
+        CurrentSetFanSpeed = CV.CURRENT_SETTINGS_FAN_SPEED;
         return CurrentSetFanSpeed;
     }
 
-    public Long GetCurrentSetPumpSpeed()
-    {
-        Long temp=Math.round(CurrentTemperature / 10.0) * 10;
-        CV.CURRENT_SETTINGS_PUMP_SPEED=FileMag.ReadingFile(GetDEFAULT_FILENAME(),"pump_settings", temp+ "_degrees");
-        CurrentSetPumpSpeed=CV.CURRENT_SETTINGS_PUMP_SPEED;
+    public Long GetCurrentSetPumpSpeed() {
+        Long temp = Math.round(CurrentTemperature / 10.0) * 10;
+        CV.CURRENT_SETTINGS_PUMP_SPEED = FileMag.ReadingFile(GetDEFAULT_FILENAME(), "pump_settings", temp + "_degrees");
+        CurrentSetPumpSpeed = CV.CURRENT_SETTINGS_PUMP_SPEED;
         return CurrentSetPumpSpeed;
     }
 
-    public Long GetCurrentProtocolVer()
-    {
-        CV.CURRENT_PROTOCOL_VERSION=FileMag.ReadingFile(GetDEFAULT_FILENAME(),"nzreal_class_version");
-        CurrentProtocolVer=CV.CURRENT_PROTOCOL_VERSION;
+    public Long GetCurrentProtocolVer() {
+        CV.CURRENT_PROTOCOL_VERSION = FileMag.ReadingFile(GetDEFAULT_FILENAME(), "nzreal_class_version");
+        CurrentProtocolVer = CV.CURRENT_PROTOCOL_VERSION;
         return CurrentProtocolVer;
     }
 
-    public Long GetCurrentSafeCode()
-    {
-        CV.CURRENT_SAFE_CODE=FileMag.ReadingFile(GetDEFAULT_FILENAME(),"id");
-        CurrentSafeCode=CV.CURRENT_SAFE_CODE;
+    public Long GetCurrentSafeCode() {
+        CV.CURRENT_SAFE_CODE = FileMag.ReadingFile(GetDEFAULT_FILENAME(), "id");
+        CurrentSafeCode = CV.CURRENT_SAFE_CODE;
         return CurrentSafeCode;
     }
 

@@ -1,4 +1,7 @@
 package com.project.pcmr.nzos.json_reader;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
@@ -10,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileManagement<T> implements InterfaceFileManagment<T> {
+    private static Logger logger = LogManager.getLogger(FileManagement.class);
     /**
      * Zmienna przechowująca scieżkę do katalogu systemowego.
      **/
@@ -32,6 +36,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
             name = (T) jsonObject.get(OBJECT);
 
         } catch (Exception e) {
+            logger.error("Problem with opening the file or no value in the file: " + e);
             e.printStackTrace();
         }
         return name;
@@ -56,6 +61,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
             name = (T) jsonObject1.get(ALTOBJECT);
 
         } catch (Exception e) {
+            logger.error("Problem with opening the file or no value in the file: " + e);
             e.printStackTrace();
         }
         return name;
@@ -82,6 +88,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
             name = (T) jsonObject2.get(ALTALTOBJECT);
 
         } catch (Exception e) {
+            logger.error("Problem with opening the file or no value in the file: " + e);
             e.printStackTrace();
         }
         return name;
@@ -102,6 +109,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
             jsonObject.put(OBJECT, VALUE);
             WritingFile(FILENAME, jsonObject);
         } catch (Exception e) {
+            logger.error("File saving problem or no search value in the file: " + e);
             e.printStackTrace();
         }
     }
@@ -123,6 +131,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
             jsonObject1.put(ALTOBJECT, VALUE);
             WritingFile(FILENAME, jsonObject);
         } catch (Exception e) {
+            logger.error("File saving problem or no search value in the file: " + e);
             e.printStackTrace();
         }
     }
@@ -147,6 +156,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
             WritingFile(FILENAME, jsonObject);
 
         } catch (Exception e) {
+            logger.error("File saving problem or no search value in the file: " + e);
             e.printStackTrace();
         }
     }
@@ -165,12 +175,14 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
                 file.write(JSON_OBJECT.toJSONString());
 
             } catch (Exception e) {
+                logger.error("File saving problem or no search value in the file: " + e);
                 e.printStackTrace();
             } finally {
                 file.flush();
                 file.close();
             }
         } catch (Exception e) {
+            logger.error("Problem with creating a file: " + e);
             e.printStackTrace();
         }
     }
@@ -201,19 +213,18 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
 
     /**
      * Metoda służaca do zamiany tablicy na listę.
-     * @param FILENAME Nazwa pliku do odczytu.
-     * @param OBJECT Nazwa obiektu do pobrania.
-     * @param ALTOBJECT  Nazwa obiektu do pobrania.
+     *
+     * @param FILENAME  Nazwa pliku do odczytu.
+     * @param OBJECT    Nazwa obiektu do pobrania.
+     * @param ALTOBJECT Nazwa obiektu do pobrania.
      * @return Lista z obiektami.
      */
-    public List<T> ArrayToList(String FILENAME, String OBJECT, String ALTOBJECT)
-    {
+    public List<T> ArrayToList(String FILENAME, String OBJECT, String ALTOBJECT) {
         List<T> List = new ArrayList();
         String AltObject;
 
-        for(int i=0;i<=100;i=i+10)
-        {
-            AltObject=i+ALTOBJECT;
+        for (int i = 0; i <= 100; i = i + 10) {
+            AltObject = i + ALTOBJECT;
             List.add(ReadingFile(FILENAME, OBJECT, AltObject));
         }
 

@@ -1,4 +1,5 @@
 package com.project.pcmr.nzos.json_reader;
+
 import org.json.simple.JSONObject;
 
 import java.util.List;
@@ -72,18 +73,20 @@ interface InterfaceFileManagment<T> {
      * @param JSON_OBJECT Wskaźnik na obiekt Json.
      */
     void WritingFile(String FILENAME, JSONObject JSON_OBJECT);
+
     /**
      * Deklaracja metody służącej do odczytu barw i zapisu jej do tablicy.
      *
-     * @param FILENAME    Nazwa pliku do odczytu.
+     * @param FILENAME Nazwa pliku do odczytu.
      */
-    byte[]  ColorArray(String FILENAME);
+    byte[] ColorArray(String FILENAME);
 
     /**
      * Deklaracja metody służącej do zamiany tablicy na listę.
-     * @param FILENAME Nazwa pliku do odczytu.
-     * @param OBJECT Nazwa obiektu do pobrania.
-     * @param ALTOBJECT  Nazwa obiektu do pobrania.
+     *
+     * @param FILENAME  Nazwa pliku do odczytu.
+     * @param OBJECT    Nazwa obiektu do pobrania.
+     * @param ALTOBJECT Nazwa obiektu do pobrania.
      * @return Lista z obiektami.
      */
     List<T> ArrayToList(String FILENAME, String OBJECT, String ALTOBJECT);

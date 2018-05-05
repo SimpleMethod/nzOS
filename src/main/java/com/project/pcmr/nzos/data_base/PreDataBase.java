@@ -6,6 +6,8 @@ import com.profesorfalken.jsensors.model.sensors.Temperature;
 import java.util.List;
 
 public class PreDataBase {
+
+
     /**
      * Sterowanie kolorem (Dodatkowe funkcje).
      */

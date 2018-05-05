@@ -7,12 +7,15 @@ import com.profesorfalken.jsensors.model.sensors.Temperature;
 import com.project.pcmr.nzos.data_base.CurrentValue;
 import com.project.pcmr.nzos.json_reader.FileManagement;
 import com.project.pcmr.nzos.usb_api.Api;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.awt.*;
 import java.util.List;
 
 
 public class ApiManagment extends Api implements InterfaceApiManagment {
+    private static Logger logger = LogManager.getLogger(ApiManagment.class);
 
 
     FileManagement<Long> FileM = new FileManagement<>();
@@ -30,10 +33,6 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
             WriteToDevice(PUMP);
         }
 
-        //  for (int j = 0; j < PUMP.length; j++) {
-        //     System.out.format("%02X ", PUMP[j]);
-        //  }
-        //  System.out.println();
     }
 
     /**
@@ -49,10 +48,6 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
             WriteToDevice(FAN);
         }
 
-        // for (int j = 0; j < FAN.length; j++) {
-        //     System.out.format(" %02X ", FAN[j]);
-        // }
-        // System.out.println();
     }
 
     /**
@@ -100,8 +95,8 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
         List<Temperature> temperatures = GetCpuTemps();
         Temperature temp = temperatures.get(temperatures.size() - 1);
         CV.CURRENT_TEMPERATURE = temp.value.longValue();
-        CV.CURRENT_FAN_SPEED=Long.valueOf(GetFanSpeed());
-        CV.CURRENT_LIQUID_TEMPERATURE=Long.valueOf(GetLiquidTemp());
+        CV.CURRENT_FAN_SPEED = Long.valueOf(GetFanSpeed());
+        CV.CURRENT_LIQUID_TEMPERATURE = Long.valueOf(GetLiquidTemp());
 
         return temp.value;
     }
@@ -113,6 +108,7 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
         Long MathTemp = Math.round(GetCpuTemp() / 10.0) * 10;
         Long ResultFanSpeed, ResultPumpSpeed;
         if (MathTemp <= 0) {
+            logger.error("The temperature can not be less than zero!");
             throw new ExceptionApiMonitoring("The temperature can not be less than zero!");
         }
         if (MathTemp > 100 || MathTemp == 0) {
@@ -124,7 +120,8 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
         ChangingFanSpeed(ResultFanSpeed);
         ChangingPumpSpeed(ResultPumpSpeed);
 
-        //System.out.println("Temp:" + GetCpuTemp() + " Fan speed:" + ResultFanSpeed + " Pump speed:" + ResultPumpSpeed);
+        logger.info("Temp:" + GetCpuTemp() + " Fan speed:" + ResultFanSpeed + " Pump speed:" + ResultPumpSpeed + " .");
+
     }
 
     /**
@@ -142,8 +139,27 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
             mainTray.add(mainTrayIcon);
             mainTrayIcon.displayMessage(title, subtitle, TrayIcon.MessageType.INFO);
         } catch (Exception e) {
+            logger.error("Problem with sending notification.");
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Metoda sprawdza, czy aplikacja została uruchomiona z prawami administratora.
+     *
+     * @return Zwraca prawdę w momencie, gdy aplikacja została uruchomiona z prawami administratora.
+     */
+    public boolean isAdmin() {
+        try {
+            String NTAuthority = "HKU\\S-1-5-19";
+            String command = "reg query \"" + NTAuthority + "\"";
+            Process p = Runtime.getRuntime().exec(command);
+            p.waitFor();
+            return (p.exitValue() == 0);
+        } catch (Exception e) {
+            logger.fatal("A user without administrator rights cannot use an application: " + e);
+        }
+        return false;
     }
 }
 
