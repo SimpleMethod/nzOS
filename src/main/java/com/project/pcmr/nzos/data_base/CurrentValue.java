@@ -1,6 +1,6 @@
 package com.project.pcmr.nzos.data_base;
 
-public class CurrentValue {
+public class CurrentValue extends PreDataBase {
 
     /**
      * Aktualna temperatura;

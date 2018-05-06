@@ -3,6 +3,7 @@ package com.project.pcmr.nzos.web_controller;
 import com.profesorfalken.jsensors.model.sensors.Fan;
 import com.profesorfalken.jsensors.model.sensors.Load;
 import com.profesorfalken.jsensors.model.sensors.Temperature;
+import com.project.pcmr.nzos.management_control.ApiManagment;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,21 +16,51 @@ import java.util.List;
 
 @RestController
 public class CurrentValueController extends CurrentValue {
-
+    ApiManagment Api = new ApiManagment();
     @RequestMapping("/")
     public String test() {
         return "<div id=\"d1\" style=\"width:100%; text-align:center\"><img id=\"d2\" src=\"http://seriouscat.com/serious_cat.jpg\"/></div>";
     }
 
+    @RequestMapping("/execution/color")
+    public void executionColor() {
+     Api.ChangingColor((int) (long)GetCurrentColorMode());
+    }
+    
+    @RequestMapping("/update/colorvalue/{range}/{range2}/{value}")
+    public void updateColorValue(@PathVariable Long range, @PathVariable String range2, @PathVariable Long value) {
+        WritingFile(GetDEFAULT_FILENAME(),"color_settings","color_"+range,"color_"+range2,value );
 
-    @RequestMapping("/update/fanspeed/{range}/{value2}/{hashcode}")
-    public void updateFansSeed(@PathVariable Long range, @PathVariable Long value2) {
-        System.out.println(range ^ (range >>> 16));
-        System.out.println("Pierwszy" + range + " Drugi: " + value2);
     }
 
+    @RequestMapping("/update/colormode/{value}")
+    public void updateColorMode(@PathVariable Long value) {
+        if((value>=0 && value<=32))
+        {
+            WritingFile(GetDEFAULT_FILENAME(),"color_settings","color_mode",value);
+        }
+    }
 
+    @RequestMapping("/update/pumpspeed/{range}/{value}")
+    public void updatePumpSpeed(@PathVariable Long range, @PathVariable Long value) {
+        if((range>=0 && range<=100) && (value>=25 && value<=100))
+        {
+            WritingFile(GetDEFAULT_FILENAME(),"pump_settings",range+"_degrees",value);
+        }
+    }
 
+    @RequestMapping("/update/fanspeed/{range}/{value}")
+    public void updateFanSpeed(@PathVariable Long range, @PathVariable Long value) {
+        if((range>=0 && range<=100) && (value>=25 && value<=100))
+        {
+            WritingFile(GetDEFAULT_FILENAME(),"fan_settings",range+"_degrees",value);
+        }
+    }
+
+    @RequestMapping(value = "/information/errors", produces = "application/json", method = RequestMethod.GET)
+    public List<String> getErrorInformation() {
+        return ERRORS;
+    }
 
     @RequestMapping(value = "/information/cpu/name", produces = "application/json", method = RequestMethod.GET)
     public List<String> getCpuNameInformation() {
@@ -38,14 +69,12 @@ public class CurrentValueController extends CurrentValue {
         return al;
     }
 
-
     @RequestMapping(value = "/information/cpu/temp", produces = "application/json", method = RequestMethod.GET)
     public List<Long> getTempInformation() {
         ArrayList<Long> al = new ArrayList<>();
         al.add(GetCurrentTemperature());
         return al;
     }
-
 
     @RequestMapping(value = "/information/cpu/temps", produces = "application/json", method = RequestMethod.GET)
     public List<Double> getTempsInformation() {
@@ -66,7 +95,6 @@ public class CurrentValueController extends CurrentValue {
         return al;
     }
 
-
     @RequestMapping(value = "/information/cpu/fans", produces = "application/json", method = RequestMethod.GET)
     public List<Double> getFanInformation() {
         ArrayList<Double> al = new ArrayList<>();
@@ -77,7 +105,6 @@ public class CurrentValueController extends CurrentValue {
         return al;
     }
 
-
     @RequestMapping(value = "/information/nzos/fanspeed", produces = "application/json", method = RequestMethod.GET)
     public List<Long> getFanSpeed() {
         ArrayList<Long> al = new ArrayList<>();
@@ -85,15 +112,12 @@ public class CurrentValueController extends CurrentValue {
         return al;
     }
 
-
-
     @RequestMapping(value = "/information/nzos/liquidtemp", produces = "application/json", method = RequestMethod.GET)
     public List<Long> getLiquidTemp() {
         ArrayList<Long> al = new ArrayList<>();
         al.add(GetCurrentLiquidTemp());
         return al;
     }
-
 
     @RequestMapping(value = "/information/nzos/maininformation", produces = "application/json", method = RequestMethod.GET)
     public List<Long> getCriticalVariables() {
@@ -114,7 +138,6 @@ public class CurrentValueController extends CurrentValue {
         al.add(GetCurrentSafeCode());
         return al;
     }
-
 
     @RequestMapping(value = "/information/nzos/colormode", produces = "application/json", method = RequestMethod.GET)
     public List<ArrayList> getColorMode() {
