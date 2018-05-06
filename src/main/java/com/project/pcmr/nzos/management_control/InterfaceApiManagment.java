@@ -49,7 +49,7 @@ interface InterfaceApiManagment {
      * @param title    Tytuł powiadomienia
      * @param subtitle Treść powiadomienia
      */
-    void sendNotification(String title, String subtitle);
+    void sendNotification(String title, String subtitle)  throws  Exception;
 
     /**
      * Deklacaja metody sprawdzająca, czy aplikacja została uruchomiona z prawami administratora.

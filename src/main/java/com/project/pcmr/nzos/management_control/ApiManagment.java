@@ -10,13 +10,18 @@ import com.project.pcmr.nzos.usb_api.Api;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.awt.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 
 public class ApiManagment extends Api implements InterfaceApiManagment {
     private static Logger logger = LogManager.getLogger(ApiManagment.class);
     boolean firstusage = false;
+    int counterwarning = 0;
     FileManagement<Long> FileM = new FileManagement<>();
     static CurrentValue CV = new CurrentValue();
 
@@ -104,6 +109,7 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
     public Double GetCpuTemp() {
 
         Temperature temp = CVTEMPS.get(CVTEMPS.size() - 1);
+
         return temp.value;
     }
 
@@ -113,9 +119,28 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
     public void TheardHelper() {
         GetCpuInfo();
         if (!firstusage) {
+
+            final  String DIR = System.getProperty("user.dir");
+            Path path = Paths.get(DIR + "\\"+ GetDEFAULT_FILENAME());
+            if (Files.notExists(path)) {
+                String defaultSettings="{\"color_settings\":{\"color_mode\":6,\"color_0\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_1\":{\"color_G\":0,\"color_R\":126,\"color_B\":0},\"color_2\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_3\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_4\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_5\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_6\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_7\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_8\":{\"color_G\":126,\"color_R\":126,\"color_B\":126}},\"pump_settings\":{\"100_degrees\":100,\"50_degrees\":100,\"20_degrees\":100,\"70_degrees\":100,\"0_degrees\":100,\"90_degrees\":100,\"60_degrees\":100,\"30_degrees\":100,\"10_degrees\":100,\"40_degrees\":100,\"80_degrees\":100},\"fan_settings\":{\"100_degrees\":100,\"50_degrees\":100,\"20_degrees\":100,\"70_degrees\":100,\"0_degrees\":100,\"90_degrees\":100,\"60_degrees\":100,\"30_degrees\":100,\"10_degrees\":100,\"40_degrees\":100,\"80_degrees\":100},\"id\":4444,\"nzreal_class_version\":4,\"temperature_warning\":89}";
+                WrittingFile(GetDEFAULT_FILENAME(),defaultSettings);
+            }
             ChangingColor((int) (long) FileM.ReadingFile(GetDEFAULT_FILENAME(), "color_settings", "color_mode"));
         }
         firstusage = true;
+        if (GetCpuTemp() > FileM.ReadingFile(GetDEFAULT_FILENAME(), "temperature_warning") && counterwarning == 0) {
+            try {
+                sendNotification("nzOS", "Your CPU temperature exceded " + GetCpuTemp() + "°C Prolonged use at this temperature may shorten the CPU lifespan.");
+            } catch (Exception e) {
+                logger.error("Message cannot be displayed");
+            }
+
+        }
+        counterwarning++;
+        if (counterwarning == 600) {
+            counterwarning = 0;
+        }
         Long MathTemp = Math.round(GetCpuTemp() / 10.0) * 10;
         Long ResultFanSpeed, ResultPumpSpeed;
         if (MathTemp <= 0) {
@@ -132,7 +157,6 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
         ChangingPumpSpeed(ResultPumpSpeed);
 
         logger.info("Temp:" + GetCpuTemp() + " Fan speed:" + ResultFanSpeed + " Pump speed:" + ResultPumpSpeed + " .");
-
     }
 
     /**
@@ -141,17 +165,19 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
      * @param title    Tytuł powiadomienia
      * @param subtitle Treść powiadomienia
      */
-    public void sendNotification(String title, String subtitle) {
-        SystemTray mainTray = SystemTray.getSystemTray();
-        Image trayIconImage = Toolkit.getDefaultToolkit().getImage("");
-        TrayIcon mainTrayIcon = new TrayIcon(trayIconImage);
-        mainTrayIcon.setImageAutoSize(true);
-        try {
-            mainTray.add(mainTrayIcon);
-            mainTrayIcon.displayMessage(title, subtitle, TrayIcon.MessageType.INFO);
-        } catch (Exception e) {
-            logger.error("Problem with sending notification.");
-            e.printStackTrace();
+    public void sendNotification(String title, String subtitle) throws Exception {
+        String powershell = "[reflection.assembly]::loadwithpartialname('System.Windows.Forms');[reflection.assembly]::loadwithpartialname('System.Drawing');$notify = new-object system.windows.forms.notifyicon;$notify.icon = [System.Drawing.SystemIcons]::Shield;$notify.visible = $true;$notify.showballoontip(3,'" + title + "','" + subtitle + "',[system.windows.forms.tooltipicon]::None)";
+        ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", "powershell -c \"" + powershell + "\"");
+        builder.redirectErrorStream(true);
+        Process p = builder.start();
+        BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
+        String line;
+        while (true) {
+            line = r.readLine();
+            if (line == null) {
+                break;
+            }
+            logger.info(line);
         }
     }
 

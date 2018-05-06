@@ -1,19 +1,21 @@
 package com.project.pcmr.nzos.json_reader;
 
+import com.project.pcmr.nzos.data_base.PreDataBase;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.LongBuffer;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class FileManagement<T> implements InterfaceFileManagment<T> {
     private static Logger logger = LogManager.getLogger(FileManagement.class);
+    public static PreDataBase pre = new PreDataBase();
     /**
      * Zmienna przechowująca scieżkę do katalogu systemowego.
      **/
@@ -184,6 +186,26 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
         } catch (Exception e) {
             logger.error("Problem with creating a file: " + e);
             e.printStackTrace();
+        }
+    }
+
+    /**
+     * Metoda służaca do zapisu pliku.
+     *
+     * @param FILENAME    Nazwa pliku do odczytu.
+     * @param TEXT Tekst do zapisu.
+     */
+    public void WrittingFile(String FILENAME,  String TEXT)
+    {
+        final  String DIR = System.getProperty("user.dir");
+        try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+                new FileOutputStream(DIR + "\\" + FILENAME), "utf-8"))) {
+            writer.write(TEXT);
+        }
+        catch (Exception e)
+        {
+            logger.error("Problem with creating a file: " + e);
+            pre.ERRORS.add("Problem with creating a file");
         }
     }
 

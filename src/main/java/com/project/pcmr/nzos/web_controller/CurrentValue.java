@@ -58,8 +58,15 @@ public class CurrentValue extends PreDataBase {
     public String CVCPUNAME;
 
 
+
+
+    public CurrentValue() {
+        super();
+
+    }
+
     public List<Temperature> GetCVTEMPS() {
-     TEMPS=CVTEMPS;
+        TEMPS=CVTEMPS;
         return TEMPS;
     }
 
@@ -78,10 +85,6 @@ public class CurrentValue extends PreDataBase {
         return CVCPUNAME;
     }
 
-    public CurrentValue() {
-        super();
-
-    }
 
     public byte[] GetColourPalette() {
         ColourPalette = FileMag.ColorArray(GetDEFAULT_FILENAME());

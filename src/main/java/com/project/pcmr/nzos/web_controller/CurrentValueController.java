@@ -22,11 +22,21 @@ public class CurrentValueController extends CurrentValue {
     }
 
 
-    @RequestMapping("/update/fanspeed/{value}/{value2}/{hashcode}")
-    public void updateValue(@PathVariable String value, @PathVariable String value2) {
-        System.out.println("Pierwszy" + value + " Drugi: " + value2);
+    @RequestMapping("/update/fanspeed/{range}/{value2}/{hashcode}")
+    public void updateFansSeed(@PathVariable Long range, @PathVariable Long value2) {
+        System.out.println(range ^ (range >>> 16));
+        System.out.println("Pierwszy" + range + " Drugi: " + value2);
     }
 
+
+
+
+    @RequestMapping(value = "/information/cpu/name", produces = "application/json", method = RequestMethod.GET)
+    public List<String> getCpuNameInformation() {
+        ArrayList<String> al = new ArrayList<>();
+        al.add(getCVCPUNAME());
+        return al;
+    }
 
 
     @RequestMapping(value = "/information/cpu/temp", produces = "application/json", method = RequestMethod.GET)
