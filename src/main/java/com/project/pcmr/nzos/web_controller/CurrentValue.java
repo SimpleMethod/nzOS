@@ -22,7 +22,6 @@ public class CurrentValue extends PreDataBase {
     }
 
     public List<Load> GetCVLOAD() {
-        ;
         return getLOAD();
     }
 
@@ -36,11 +35,11 @@ public class CurrentValue extends PreDataBase {
 
 
     public byte[] GetColourPalette() {
-        return FileMag.ColorArray(GetDEFAULT_FILENAME());
+        return FileMag.colorArray(getDEFAULT_FILENAME());
     }
 
     public Long GetCurrentColorMode() {
-        return FileMag.ReadingFile(GetDEFAULT_FILENAME(), "color_settings", "color_mode");
+        return FileMag.readingFile(getDEFAULT_FILENAME(), "color_settings", "color_mode");
     }
 
     public Long GetCurrentTemperature() {
@@ -57,20 +56,20 @@ public class CurrentValue extends PreDataBase {
 
     public Long GetCurrentSetFanSpeed() {
         Long temp = Math.round(getTEMP() / 10.0) * 10;
-        return FileMag.ReadingFile(GetDEFAULT_FILENAME(), "fan_settings", temp + "_degrees");
+        return FileMag.readingFile(getDEFAULT_FILENAME(), "fan_settings", temp + "_degrees");
     }
 
     public Long GetCurrentSetPumpSpeed() {
         Long temp = Math.round(getTEMP() / 10.0) * 10;
-        return FileMag.ReadingFile(GetDEFAULT_FILENAME(), "pump_settings", temp + "_degrees");
+        return FileMag.readingFile(getDEFAULT_FILENAME(), "pump_settings", temp + "_degrees");
     }
 
     public Long GetCurrentProtocolVer() {
-        return FileMag.ReadingFile(GetDEFAULT_FILENAME(), "nzreal_class_version");
+        return FileMag.readingFile(getDEFAULT_FILENAME(), "nzreal_class_version");
     }
 
     public Long GetCurrentSafeCode() {
-        return FileMag.ReadingFile(GetDEFAULT_FILENAME(), "id");
+        return FileMag.readingFile(getDEFAULT_FILENAME(), "id");
     }
 
 }

@@ -17,6 +17,7 @@ import java.util.List;
 @RestController
 public class CurrentValueController extends CurrentValue {
     ApiManagment Api = new ApiManagment();
+
     @RequestMapping("/")
     public String test() {
         return "<div id=\"d1\" style=\"width:100%; text-align:center\"><img id=\"d2\" src=\"http://seriouscat.com/serious_cat.jpg\"/></div>";
@@ -24,44 +25,42 @@ public class CurrentValueController extends CurrentValue {
 
     @RequestMapping("/execution/color")
     public void executionColor() {
-        Api.changingColor((int) (long)GetCurrentColorMode());
+        Api.changingColor((int) (long) GetCurrentColorMode());
     }
 
     @RequestMapping("/update/colorvalue/{range}/{range2}/{value}")
     public void updateColorValue(@PathVariable Long range, @PathVariable String range2, @PathVariable Long value) {
-        WritingFile(GetDEFAULT_FILENAME(),"color_settings","color_"+range,"color_"+range2,value );
+        writingFile(getDEFAULT_FILENAME(), "color_settings", "color_" + range, "color_" + range2, value);
 
     }
 
     @RequestMapping("/update/colormode/{value}")
     public void updateColorMode(@PathVariable Long value) {
-        if((value>=0 && value<=32))
-        {
-            WritingFile(GetDEFAULT_FILENAME(),"color_settings","color_mode",value);
+        if ((value >= 0 && value <= 32)) {
+            writingFile(getDEFAULT_FILENAME(), "color_settings", "color_mode", value);
         }
     }
 
     @RequestMapping("/update/pumpspeed/{range}/{value}")
     public void updatePumpSpeed(@PathVariable Long range, @PathVariable Long value) {
-        if((range>=0 && range<=100) && (value>=25 && value<=100))
-        {
-            WritingFile(GetDEFAULT_FILENAME(),"pump_settings",range+"_degrees",value);
+        if ((range >= 0 && range <= 100) && (value >= 25 && value <= 100)) {
+            writingFile(getDEFAULT_FILENAME(), "pump_settings", range + "_degrees", value);
         }
     }
 
     @RequestMapping("/update/fanspeed/{range}/{value}")
     public void updateFanSpeed(@PathVariable Long range, @PathVariable Long value) {
-        if((range>=0 && range<=100) && (value>=25 && value<=100))
-        {
-            WritingFile(GetDEFAULT_FILENAME(),"fan_settings",range+"_degrees",value);
+        if ((range >= 0 && range <= 100) && (value >= 25 && value <= 100)) {
+            writingFile(getDEFAULT_FILENAME(), "fan_settings", range + "_degrees", value);
         }
     }
-/*
-    @RequestMapping(value = "/show/errors", produces = "application/json", method = RequestMethod.GET)
-    public List<String> getErrorshow() {
-        return ERRORS;
-    }
-*/
+
+
+        @RequestMapping(value = "/show/errors", produces = "application/json", method = RequestMethod.GET)
+        public void getErrorshow() {
+             showLogFile("app_log.log");
+        }
+
     @RequestMapping(value = "/show/cpu/name", produces = "application/json", method = RequestMethod.GET)
     public List<String> getCpuNameshow() {
         ArrayList<String> al = new ArrayList<>();
@@ -150,7 +149,7 @@ public class CurrentValueController extends CurrentValue {
     @RequestMapping(value = "/show/nzos/colorarray", produces = "application/json", method = RequestMethod.GET)
     public List<ArrayList> getColor() {
 
-        ArrayList<Long> a11 = new ArrayList<>();
+        long[] dump = colorLongArray(getDefaultFilename());
         ArrayList<Long> a0 = new ArrayList<>();
         ArrayList<Long> a1 = new ArrayList<>();
         ArrayList<Long> a2 = new ArrayList<>();
@@ -160,10 +159,7 @@ public class CurrentValueController extends CurrentValue {
         ArrayList<Long> a6 = new ArrayList<>();
         ArrayList<Long> a7 = new ArrayList<>();
         ArrayList<Long> a8 = new ArrayList<>();
-        ArrayList<ArrayList> aall = new ArrayList<>();
-
-        a11.add(GetCurrentColorMode());
-        byte[] dump = GetColourPalette();
+        ArrayList<ArrayList> result = new ArrayList<>();
         a0.add(Long.valueOf(dump[0]));
         a0.add(Long.valueOf(dump[1]));
         a0.add(Long.valueOf(dump[2]));
@@ -191,15 +187,15 @@ public class CurrentValueController extends CurrentValue {
         a8.add(Long.valueOf(dump[24]));
         a8.add(Long.valueOf(dump[25]));
         a8.add(Long.valueOf(dump[26]));
-        aall.add(a0);
-        aall.add(a1);
-        aall.add(a2);
-        aall.add(a3);
-        aall.add(a4);
-        aall.add(a5);
-        aall.add(a6);
-        aall.add(a7);
-        aall.add(a8);
-        return aall;
+        result.add(a0);
+        result.add(a1);
+        result.add(a2);
+        result.add(a3);
+        result.add(a4);
+        result.add(a5);
+        result.add(a6);
+        result.add(a7);
+        result.add(a8);
+        return result;
     }
 }

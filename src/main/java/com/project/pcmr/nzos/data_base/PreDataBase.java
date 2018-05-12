@@ -127,7 +127,7 @@ Dostępne tryby custom:
      *
      * @return Zwraca domyślną nazwę pliku.
      */
-    public String GetDEFAULT_FILENAME() {
+    public String getDEFAULT_FILENAME() {
         return DEFAULT_FILENAME;
     }
 
@@ -249,70 +249,6 @@ Dostępne tryby custom:
         PreDataBase.TEMP = TEMP;
     }
 
-    @Override
-    public byte[] ColorArray(String FILENAME) {
-        return super.ColorArray(FILENAME);
-    }
-
-    @Override
-    public List<Long> ArrayToList(String FILENAME, String OBJECT, String ALTOBJECT) {
-        return super.ArrayToList(FILENAME, OBJECT, ALTOBJECT);
-    }
-
-    @Override
-    public Long ReadingFile(String FILENAME, String OBJECT) {
-        return super.ReadingFile(FILENAME, OBJECT);
-    }
-
-    @Override
-    public Long ReadingFile(String FILENAME, String OBJECT, String ALTOBJECT) {
-        return super.ReadingFile(FILENAME, OBJECT, ALTOBJECT);
-    }
-
-    @Override
-    public Long ReadingFile(String FILENAME, String OBJECT, String ALTOBJECT, String ALTALTOBJECT) {
-        return super.ReadingFile(FILENAME, OBJECT, ALTOBJECT, ALTALTOBJECT);
-    }
-
-    @Override
-    public void WritingFile(String FILENAME, String TEXT) {
-        super.WritingFile(FILENAME, TEXT);
-    }
-
-    @Override
-    public void WritingFile(String FILENAME, JSONObject JSON_OBJECT) {
-        super.WritingFile(FILENAME, JSON_OBJECT);
-    }
-
-    @Override
-    public void WritingFile(String FILENAME, String OBJECT, Long VALUE) {
-        super.WritingFile(FILENAME, OBJECT, VALUE);
-    }
-
-    @Override
-    public void WritingFile(String FILENAME, String OBJECT, String ALTOBJECT, Long VALUE) {
-        super.WritingFile(FILENAME, OBJECT, ALTOBJECT, VALUE);
-    }
-
-    @Override
-    public void WritingFile(String FILENAME, String OBJECT, String ALTOBJECT, String ALTALTOBJECT, Long VALUE) {
-        super.WritingFile(FILENAME, OBJECT, ALTOBJECT, ALTALTOBJECT, VALUE);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
-    }
 
 }
 

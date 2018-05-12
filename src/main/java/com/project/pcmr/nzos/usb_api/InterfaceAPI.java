@@ -6,9 +6,9 @@ interface InterfaceAPI {
     /**
      * Deklaracja metody służącej do wysłania bajtów.
      *
-     * @param Data Dane do wysłania do urządzenia.
+     * @param data Dane do wysłania do urządzenia.
      */
-    void writeToDevice(byte[] Data);
+    void writeToDevice(byte[] data);
 
     /**
      * Deklaracja metody służącej do odbieranie danych.

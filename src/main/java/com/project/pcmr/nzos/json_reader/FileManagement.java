@@ -1,6 +1,5 @@
 package com.project.pcmr.nzos.json_reader;
 
-import com.project.pcmr.nzos.data_base.PreDataBase;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONObject;
@@ -9,12 +8,13 @@ import org.json.simple.parser.JSONParser;
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.LongBuffer;
-
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
 
 public class FileManagement<T> implements InterfaceFileManagment<T> {
     private static Logger logger = LogManager.getLogger(FileManagement.class);
@@ -32,7 +32,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
      * @return Zwraca wartość zapisaną w obiekcie.
      */
     @Override
-    public T ReadingFile(String FILENAME, String OBJECT) {
+    public T readingFile(String FILENAME, String OBJECT) {
         T name = null;
         try {
             Object obj = parser.parse(new FileReader(DIR + "\\" + FILENAME));
@@ -55,7 +55,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
      * @return Zwraca wartość zapisaną w obiekcie.
      */
     @Override
-    public T ReadingFile(String FILENAME, String OBJECT, String ALTOBJECT) {
+    public T readingFile(String FILENAME, String OBJECT, String ALTOBJECT) {
         T name = null;
         try {
 
@@ -81,7 +81,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
      * @return Zwraca wartość zapisaną w obiekcie.
      */
     @Override
-    public T ReadingFile(String FILENAME, String OBJECT, String ALTOBJECT, String ALTALTOBJECT) {
+    public T readingFile(String FILENAME, String OBJECT, String ALTOBJECT, String ALTALTOBJECT) {
         T name = null;
         try {
 
@@ -106,12 +106,12 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
      * @param VALUE    Wartość do zapisu.
      */
     @Override
-    public void WritingFile(String FILENAME, String OBJECT, T VALUE) {
+    public void writingFile(String FILENAME, String OBJECT, T VALUE) {
         try {
             Object obj = parser.parse(new FileReader(DIR + "\\" + FILENAME));
             JSONObject jsonObject = (JSONObject) obj;
             jsonObject.put(OBJECT, VALUE);
-            WritingFile(FILENAME, jsonObject);
+            writingFile(FILENAME, jsonObject);
         } catch (Exception e) {
             logger.error("File saving problem or no search value in the file: " + e);
             e.printStackTrace();
@@ -127,13 +127,13 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
      * @param VALUE     Wartość do zapisu.
      */
     @Override
-    public void WritingFile(String FILENAME, String OBJECT, String ALTOBJECT, T VALUE) {
+    public void writingFile(String FILENAME, String OBJECT, String ALTOBJECT, T VALUE) {
         try {
             Object obj = parser.parse(new FileReader(DIR + "\\" + FILENAME));
             JSONObject jsonObject = (JSONObject) obj;
             JSONObject jsonObject1 = (JSONObject) jsonObject.get(OBJECT);
             jsonObject1.put(ALTOBJECT, VALUE);
-            WritingFile(FILENAME, jsonObject);
+            writingFile(FILENAME, jsonObject);
         } catch (Exception e) {
             logger.error("File saving problem or no search value in the file: " + e);
             e.printStackTrace();
@@ -150,14 +150,14 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
      * @param VALUE        Wartość do zapisu.
      */
     @Override
-    public void WritingFile(String FILENAME, String OBJECT, String ALTOBJECT, String ALTALTOBJECT, T VALUE) {
+    public void writingFile(String FILENAME, String OBJECT, String ALTOBJECT, String ALTALTOBJECT, T VALUE) {
         try {
             Object obj = parser.parse(new FileReader(DIR + "\\" + FILENAME));
             JSONObject jsonObject = (JSONObject) obj;
             JSONObject jsonObject1 = (JSONObject) jsonObject.get(OBJECT);
             JSONObject jsonObject2 = (JSONObject) jsonObject1.get(ALTOBJECT);
             jsonObject2.put(ALTALTOBJECT, VALUE);
-            WritingFile(FILENAME, jsonObject);
+            writingFile(FILENAME, jsonObject);
 
         } catch (Exception e) {
             logger.error("File saving problem or no search value in the file: " + e);
@@ -172,7 +172,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
      * @param JSON_OBJECT Wskaźnik na obiekt Json.
      */
     @Override
-    public void WritingFile(String FILENAME, JSONObject JSON_OBJECT) {
+    public void writingFile(String FILENAME, JSONObject JSON_OBJECT) {
         try {
             FileWriter file = new FileWriter(DIR + "\\" + FILENAME);
             try {
@@ -197,7 +197,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
      * @param FILENAME    Nazwa pliku do odczytu.
      * @param TEXT Tekst do zapisu.
      */
-    public void WritingFile(String FILENAME,  String TEXT)
+    public void writingFile(String FILENAME,  String TEXT)
     {
         final  String DIR = System.getProperty("user.dir");
         try (Writer writer = new BufferedWriter(new OutputStreamWriter(
@@ -215,14 +215,14 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
      *
      * @param FILENAME Nazwa pliku do odczytu.
      */
-    public byte[] ColorArray(String FILENAME) {
+    public byte[] colorArray(String FILENAME) {
         byte[] CALLBACK = new byte[27];
         ByteBuffer byteBuffer = ByteBuffer.allocate(216);
         LongBuffer intBuffer = byteBuffer.asLongBuffer();
         String[] temp = {"G", "R", "B"};
         for (int i = 0; i < 9; i++) {
             for (String s : temp) {
-                intBuffer.put((Long) ReadingFile(FILENAME, "color_settings", "color_" + i, "color_" + s));
+                intBuffer.put((Long) readingFile(FILENAME, "color_settings", "color_" + i, "color_" + s));
             }
         }
         byte[] array = byteBuffer.array();
@@ -234,6 +234,17 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
         return CALLBACK;
     }
 
+
+    public long[] colorLongArray(String FILENAME) {
+        LongBuffer byteBuffer = LongBuffer.allocate(27);
+        String[] temp = {"G", "R", "B"};
+        for (int i = 0; i < 9; i++) {
+            for (String s : temp) {
+                byteBuffer.put((Long) readingFile(FILENAME, "color_settings", "color_" + i, "color_" + s));
+            }
+        }
+        return byteBuffer.array();
+    }
     /**
      * Metoda służaca do zamiany tablicy na listę.
      *
@@ -242,16 +253,30 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
      * @param ALTOBJECT Nazwa obiektu do pobrania.
      * @return Lista z obiektami.
      */
-    public List<T> ArrayToList(String FILENAME, String OBJECT, String ALTOBJECT) {
+    public List<T> arrayToList(String FILENAME, String OBJECT, String ALTOBJECT) {
         List<T> List = new ArrayList();
         String AltObject;
 
         for (int i = 0; i <= 100; i = i + 10) {
             AltObject = i + ALTOBJECT;
-            List.add(ReadingFile(FILENAME, OBJECT, AltObject));
+            List.add(readingFile(FILENAME, OBJECT, AltObject));
         }
 
         return List;
     }
 
+
+    public void showLogFile(String FILENAME)
+    {
+        String fileName = DIR + "\\logs\\" + FILENAME;
+
+        //read file into stream, try-with-resources
+        try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
+
+            stream.forEach(System.out::println);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -7,22 +7,21 @@ import org.usb4java.BufferUtils;
 import org.usb4java.DeviceHandle;
 import org.usb4java.LibUsb;
 import org.usb4java.LibUsbException;
-
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
-import java.util.Arrays;
+
 
 public class Api extends PreDataBase implements InterfaceAPI {
     private static Logger logger = LogManager.getLogger(Api.class);
-    public byte[] READINDUMP = new byte[17];
+    public byte[] inDump = new byte[17];
 
     /**
      * Metoda służąca do wysłania bajtów.
      *
-     * @param Data Dane do wysłania do urządzenia.
+     * @param data Dane do wysłania do urządzenia.
      */
-    public void writeToDevice(byte[] Data) {
+    public void writeToDevice(byte[] data) {
         int result = LibUsb.init(null);
         if (result != LibUsb.SUCCESS) {
             logger.error("Libusb cannot be initiated.");
@@ -41,8 +40,8 @@ public class Api extends PreDataBase implements InterfaceAPI {
             throw new LibUsbException("The interface could not be synchronized.", result);
         }
         // Wysyłanie danych.
-        ByteBuffer buffer = BufferUtils.allocateByteBuffer(Data.length);
-        buffer.put(Data);
+        ByteBuffer buffer = BufferUtils.allocateByteBuffer(data.length);
+        buffer.put(data);
         IntBuffer transferred = BufferUtils.allocateIntBuffer();
         result = LibUsb.bulkTransfer(handle, getOutEndpoint(), buffer, transferred, getTIMEOUT());
         if (result != LibUsb.SUCCESS) {
@@ -95,8 +94,8 @@ public class Api extends PreDataBase implements InterfaceAPI {
             throw new LibUsbException("Problem with receiving information. \n", result);
         }
         buffer.rewind();
-        buffer.get(READINDUMP, 0, 17);
-        setOutDump(READINDUMP);
+        buffer.get(inDump, 0, 17);
+        setOutDump(inDump);
         result = LibUsb.releaseInterface(handle, getINTERFACE());
         if (result != LibUsb.SUCCESS) {
             logger.error("The interface could not be released.");
@@ -115,7 +114,7 @@ public class Api extends PreDataBase implements InterfaceAPI {
      * @return Zwraca temp. płynu.
      */
     public long getLiquidTemp() {
-        return READINDUMP[1];
+        return inDump[1];
     }
 
     /**
@@ -124,7 +123,7 @@ public class Api extends PreDataBase implements InterfaceAPI {
      * @return Zwraca wartości obrotów wentylatorów.
      */
     public long getFanSpeed() {
-        byte[] temp = READINDUMP;
+        byte[] temp = inDump;
         return (temp[3] & 0xFF) * (temp[10] & 0xFF) * (temp[14] & 0xFF);
     }
 }

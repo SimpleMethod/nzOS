@@ -6,23 +6,23 @@ interface InterfaceApiManagment {
     /**
      * Deklacaja metody służacej do zmiany pracy pompy.
      *
-     * @param VALUE Wartość w zakresie 60-100.
+     * @param value Wartość w zakresie 60-100.
      */
-    void changingPumpSpeed(Long VALUE);
+    void changingPumpSpeed(Long value);
 
     /**
      * Deklacaja metody służacej do zmiany pracy wentylator.
      *
-     * @param VALUE Wartość w zakresie 25-100.
+     * @param value Wartość w zakresie 25-100.
      */
-    void changingFanSpeed(Long VALUE);
+    void changingFanSpeed(Long value);
 
     /**
      * Deklacaja metody służacej do zmiany braw.
      *
-     * @param COLOR_MODE Tryb zmiany kolorów.
+     * @param colorMode Tryb zmiany kolorów.
      */
-    void changingColor(Integer COLOR_MODE);
+    void changingColor(Integer colorMode);
 
     /**
      * Deklacaja metody służacej do zwracania temperatury CPU.
@@ -43,11 +43,13 @@ interface InterfaceApiManagment {
      */
     void theardHelper();
 
+
     /**
      * Deklacaja metody służacej do wyświetlania powiadomień.
      *
      * @param title    Tytuł powiadomienia
      * @param subtitle Treść powiadomienia
+     * @throws Exception Wyjątek obsługujący problem z wyświetleniem komunikatu
      */
     void sendNotification(String title, String subtitle)  throws  Exception;
 

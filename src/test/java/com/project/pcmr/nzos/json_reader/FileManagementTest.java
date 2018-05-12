@@ -21,7 +21,7 @@ class FileManagementTest {
         FileManagement<Long> UnitTest1 = new FileManagement<>();
         Long result;
         String Input[] = {"main.nzprofile", "nzreal_class_version"};
-        result = UnitTest1.ReadingFile(Input[0], Input[1]);
+        result = UnitTest1.readingFile(Input[0], Input[1]);
         System.out.println("Result: " + result);
         int result1;
         if (result > 0) {
@@ -39,7 +39,7 @@ class FileManagementTest {
         FileManagement<Long> UnitTest1 = new FileManagement<>();
         Long result;
         String Input[] = {"main.nzprofile", "pump_settings", "100_degrees"};
-        result = UnitTest1.ReadingFile(Input[0], Input[1], Input[2]);
+        result = UnitTest1.readingFile(Input[0], Input[1], Input[2]);
         System.out.println("Result: " + result);
         int result1;
         if (result > 0) {
@@ -56,7 +56,7 @@ class FileManagementTest {
         FileManagement<Long> UnitTest1 = new FileManagement<>();
         Long result;
         String Input[] = {"main.nzprofile", "color_settings", "color_0", "color_G"};
-        result = UnitTest1.ReadingFile(Input[0], Input[1], Input[2], Input[3]);
+        result = UnitTest1.readingFile(Input[0], Input[1], Input[2], Input[3]);
         System.out.println("Result: " + result);
 
         int result1;
@@ -78,8 +78,8 @@ class FileManagementTest {
         String Input[] = {"main.nzprofile.test.test", "nzOS"};
         exceptions.expect(IOException.class);
         exceptions.expectMessage(containsString("IO exception"));
-        UnitTest1.WritingFile(Input[0], json);
-        Long result = UnitTest1.ReadingFile(Input[0], Input[1]);
+        UnitTest1.writingFile(Input[0], json);
+        Long result = UnitTest1.readingFile(Input[0], Input[1]);
         assertEquals(Long.valueOf(testResult), result);
 
     }
@@ -91,8 +91,8 @@ class FileManagementTest {
         String Input[] = {"main.nzprofile.test.test", "nzOS"};
         exceptions.expect(IOException.class);
         exceptions.expectMessage(containsString("IO exception"));
-        UnitTest1.WritingFile(Input[0],Input[1], testResult);
-        Long result = UnitTest1.ReadingFile(Input[0], Input[1]);
+        UnitTest1.writingFile(Input[0],Input[1], testResult);
+        Long result = UnitTest1.readingFile(Input[0], Input[1]);
         assertEquals(Long.valueOf(testResult), result);
     }
 
@@ -105,8 +105,8 @@ class FileManagementTest {
         String Input[] = {"main.nzprofile.test", "fan_settings","100_degrees"};
         exceptions.expect(IOException.class);
         exceptions.expectMessage(containsString("IO exception"));
-        UnitTest1.WritingFile(Input[0], Input[1],Input[2], testResult);
-        Long result = UnitTest1.ReadingFile(Input[0], Input[1],Input[2]);
+        UnitTest1.writingFile(Input[0], Input[1],Input[2], testResult);
+        Long result = UnitTest1.readingFile(Input[0], Input[1],Input[2]);
         assertEquals(Long.valueOf(testResult), result);
     }
 
@@ -119,8 +119,8 @@ class FileManagementTest {
         String Input[] = {"main.nzprofile.test", "color_settings","color_0","color_G"};
         exceptions.expect(IOException.class);
         exceptions.expectMessage(containsString("IO exception"));
-        UnitTest1.WritingFile(Input[0], Input[1],Input[2],Input[3], testResult);
-        Long result = UnitTest1.ReadingFile(Input[0], Input[1],Input[2],Input[3]);
+        UnitTest1.writingFile(Input[0], Input[1],Input[2],Input[3], testResult);
+        Long result = UnitTest1.readingFile(Input[0], Input[1],Input[2],Input[3]);
         assertEquals(Long.valueOf(testResult), result);
     }
 
@@ -128,7 +128,7 @@ class FileManagementTest {
     void colorArray() {
         FileManagement<Long> UnitTest1 = new FileManagement<>();
         String Input[] = {"main.nzprofile.test"};
-        assertNotNull(UnitTest1.ColorArray(Input[0]));
+        assertNotNull(UnitTest1.colorArray(Input[0]));
     }
 
     @Test
@@ -137,6 +137,6 @@ class FileManagementTest {
         exceptions.expectMessage(containsString("Arithmetic exception"));
         FileManagement<Long> UnitTest1 = new FileManagement<>();
         String Input[] = {"main.nzprofile.test", "fan_settings","_degrees"};
-        UnitTest1.ArrayToList(Input[0],Input[1],Input[2]);
+        UnitTest1.arrayToList(Input[0],Input[1],Input[2]);
     }
 }
