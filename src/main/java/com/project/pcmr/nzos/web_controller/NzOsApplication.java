@@ -27,6 +27,7 @@ public class NzOsApplication {
         start.monitoringTemperature();
         try {
             openUrl();
+
         } catch (Exception e) {
             logger.info("Problem with opening a web browser: "+e);
         }

@@ -55,11 +55,15 @@ public class CurrentValueController extends CurrentValue {
         }
     }
 
+    @RequestMapping(value = "/show/errors", produces = "application/json", method = RequestMethod.GET)
+    public ArrayList<String> getErrorShow() {
+        return showLogFile("app_log.log");
+    }
 
-        @RequestMapping(value = "/show/errors", produces = "application/json", method = RequestMethod.GET)
-        public void getErrorshow() {
-             showLogFile("app_log.log");
-        }
+    @RequestMapping(value = "/show/logs/{value}", produces = "application/json", method = RequestMethod.GET)
+    public ArrayList<String> getLogsShow(@PathVariable String value) {
+        return showLogFile(value + ".log");
+    }
 
     @RequestMapping(value = "/show/cpu/name", produces = "application/json", method = RequestMethod.GET)
     public List<String> getCpuNameshow() {

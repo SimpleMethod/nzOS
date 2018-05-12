@@ -4,16 +4,13 @@ import com.profesorfalken.jsensors.JSensors;
 import com.profesorfalken.jsensors.model.components.Components;
 import com.profesorfalken.jsensors.model.components.Cpu;
 import com.profesorfalken.jsensors.model.sensors.Temperature;
-import com.project.pcmr.nzos.json_reader.FileManagement;
+
 import com.project.pcmr.nzos.usb_api.Api;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 
@@ -112,15 +109,7 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
     public void theardHelper() {
         getCpuInfo();
         if (!firstUsage) {
-            final String DIR = System.getProperty("user.dir");
-            Path path = Paths.get(DIR + "\\" + getDEFAULT_FILENAME());
-            if (Files.notExists(path)) {
-                logger.warn("No configuration file, the default file was created.");
-                String defaultSettings = "{\"color_settings\":{\"colorMode\":6,\"color_0\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_1\":{\"color_G\":0,\"color_R\":126,\"color_B\":0},\"color_2\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_3\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_4\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_5\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_6\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_7\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_8\":{\"color_G\":126,\"color_R\":126,\"color_B\":126}},\"pump_settings\":{\"100_degrees\":100,\"50_degrees\":100,\"20_degrees\":100,\"70_degrees\":100,\"0_degrees\":100,\"90_degrees\":100,\"60_degrees\":100,\"30_degrees\":100,\"10_degrees\":100,\"40_degrees\":100,\"80_degrees\":100},\"fan_settings\":{\"100_degrees\":100,\"50_degrees\":100,\"20_degrees\":100,\"70_degrees\":100,\"0_degrees\":100,\"90_degrees\":100,\"60_degrees\":100,\"30_degrees\":100,\"10_degrees\":100,\"40_degrees\":100,\"80_degrees\":100},\"id\":4444,\"nzreal_class_version\":4,\"temperature_warning\":89}";
-                writingFile(getDEFAULT_FILENAME(), defaultSettings);
-            }
             changingColor((int) (long)readingFile(getDEFAULT_FILENAME(), "color_settings", "color_mode"));
-
         }
         firstUsage = true;
         if (getCpuTemp() > readingFile(getDEFAULT_FILENAME(), "temperature_warning") && counterWarning == 0) {

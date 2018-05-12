@@ -4,6 +4,7 @@ import com.profesorfalken.jsensors.model.sensors.Fan;
 import com.profesorfalken.jsensors.model.sensors.Load;
 import com.profesorfalken.jsensors.model.sensors.Temperature;
 import com.project.pcmr.nzos.data_base.PreDataBase;
+
 import com.project.pcmr.nzos.json_reader.FileManagement;
 
 import java.util.List;

@@ -1,5 +1,0 @@
-com\project\pcmr\nzos\usb_api\ApiTest.class
-com\project\pcmr\nzos\json_reader\FileManagementTest.class
-com\project\pcmr\nzos\management_control\ApiManagmentTest.class
-com\project\pcmr\nzos\monitoring\ApiMonitoringTest.class
-com\project\pcmr\nzos\web_controller\NzOsApplicationTest.class

@@ -26,23 +26,23 @@
         </File>
     </Appenders>
     <Loggers>
-        <Logger name="com.project.pcmr.nzos.usb_api.Api" level="ALL" additivity="false">
+        <Logger name="com.project.pcmr.nzos.usb_api.Api" level="WARN" additivity="false">
             <AppenderRef ref="App-File-Appender"/>
             <AppenderRef ref="Console-Appender"/>
         </Logger>
-        <Logger name="com.project.pcmr.nzos.monitoring.ApiMonitoring" level="ALL" additivity="false">
+        <Logger name="com.project.pcmr.nzos.monitoring.ApiMonitoring" level="WARN" additivity="false">
             <AppenderRef ref="App-File-Appender"/>
             <AppenderRef ref="Console-Appender"/>
         </Logger>
-        <Logger name="com.project.pcmr.nzos.management_control.ApiManagment" level="ALL" additivity="false">
+        <Logger name="com.project.pcmr.nzos.management_control.ApiManagment" level="WARN" additivity="false">
             <AppenderRef ref="App-File-Appender"/>
             <AppenderRef ref="Console-Appender"/>
         </Logger>
-        <Logger name="com.project.pcmr.nzos.json_reader.FileManagement" level="ALL" additivity="false">
+        <Logger name="com.project.pcmr.nzos.json_reader.FileManagement" level="WARN" additivity="false">
             <AppenderRef ref="App-File-Appender"/>
             <AppenderRef ref="Console-Appender"/>
         </Logger>
-        <Logger name="com.project.pcmr.nzos.web_controller.NzOsApplication" level="ALL" additivity="false">
+        <Logger name="com.project.pcmr.nzos.web_controller.NzOsApplication" level="WARN" additivity="false">
             <AppenderRef ref="App-File-Appender"/>
             <AppenderRef ref="Console-Appender"/>
         </Logger>
