@@ -14,7 +14,7 @@ public class ApiMonitoring extends  ApiManagment implements InterfaceApiMonitori
         ApiManagment Api = new ApiManagment();
 
         public void run() {
-            Api.TheardHelper();
+            Api.theardHelper();
             Api.ReadDataFromDevice(17);
         }
     }
@@ -25,7 +25,7 @@ public class ApiMonitoring extends  ApiManagment implements InterfaceApiMonitori
             Timer timer = new Timer();
             timer.schedule(new ReadingTimer(), 1000, 1000);
         } else {
-            ERRORS.add("A user without administrator rights cannot use an application!");
+            logger.error("A user without administrator rights cannot use an application!");
         }
     }
 

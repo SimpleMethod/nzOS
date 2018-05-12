@@ -17,7 +17,7 @@ class ApiManagmentTest {
     void getCpuTemp() {
         ApiManagment UnitTest1 = new ApiManagment();
 
-        double result = UnitTest1.GetCpuTemp();
+        double result = UnitTest1.getCpuTemp();
         int result1;
         if (result > 0) {
             result1 = 1;
@@ -26,13 +26,13 @@ class ApiManagmentTest {
             assert false : "The value must not be less than zero.";
         }
         assertEquals(1, result1);
-        assertNotNull(UnitTest1.GetCpuTemp());
+        assertNotNull(UnitTest1.getCpuTemp());
     }
 
     @Test
     void getCpuTemps() {
         ApiManagment UnitTest1 = new ApiManagment();
-        assertNotNull(UnitTest1.GetCpuTemps());
+        assertNotNull(UnitTest1.getCpuTemps());
     }
 
     @Test
@@ -41,7 +41,7 @@ class ApiManagmentTest {
         exceptions.expectMessage(containsString("Library exception"));
         ApiManagment UnitTest1 = new ApiManagment();
         Long test=100L;
-        UnitTest1.ChangingPumpSpeed(test);
+        UnitTest1.changingPumpSpeed(test);
     }
 
     @Test
@@ -50,7 +50,7 @@ class ApiManagmentTest {
         exceptions.expectMessage(containsString("Library exception"));
         ApiManagment UnitTest1 = new ApiManagment();
        Long test=100L;
-        UnitTest1.ChangingFanSpeed(test);
+        UnitTest1.changingFanSpeed(test);
     }
 
     @Test
@@ -59,7 +59,7 @@ class ApiManagmentTest {
         exceptions.expectMessage(containsString("IO exception"));
         ApiManagment UnitTest1 = new ApiManagment();
         int test=12;
-        UnitTest1.ChangingColor(test);
+        UnitTest1.changingColor(test);
     }
 
     @Test
@@ -67,6 +67,6 @@ class ApiManagmentTest {
         exceptions.expect(IllegalAccessError.class);
         exceptions.expectMessage(containsString("The temperature can not be less than zero!"));
         ApiManagment UnitTest1 = new ApiManagment();
-        UnitTest1.TheardHelper();
+        UnitTest1.theardHelper();
     }
 }

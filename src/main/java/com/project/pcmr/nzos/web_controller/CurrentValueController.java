@@ -24,9 +24,9 @@ public class CurrentValueController extends CurrentValue {
 
     @RequestMapping("/execution/color")
     public void executionColor() {
-     Api.ChangingColor((int) (long)GetCurrentColorMode());
+        Api.changingColor((int) (long)GetCurrentColorMode());
     }
-    
+
     @RequestMapping("/update/colorvalue/{range}/{range2}/{value}")
     public void updateColorValue(@PathVariable Long range, @PathVariable String range2, @PathVariable Long value) {
         WritingFile(GetDEFAULT_FILENAME(),"color_settings","color_"+range,"color_"+range2,value );
@@ -56,28 +56,28 @@ public class CurrentValueController extends CurrentValue {
             WritingFile(GetDEFAULT_FILENAME(),"fan_settings",range+"_degrees",value);
         }
     }
-
-    @RequestMapping(value = "/information/errors", produces = "application/json", method = RequestMethod.GET)
-    public List<String> getErrorInformation() {
+/*
+    @RequestMapping(value = "/show/errors", produces = "application/json", method = RequestMethod.GET)
+    public List<String> getErrorshow() {
         return ERRORS;
     }
-
-    @RequestMapping(value = "/information/cpu/name", produces = "application/json", method = RequestMethod.GET)
-    public List<String> getCpuNameInformation() {
+*/
+    @RequestMapping(value = "/show/cpu/name", produces = "application/json", method = RequestMethod.GET)
+    public List<String> getCpuNameshow() {
         ArrayList<String> al = new ArrayList<>();
         al.add(getCVCPUNAME());
         return al;
     }
 
-    @RequestMapping(value = "/information/cpu/temp", produces = "application/json", method = RequestMethod.GET)
-    public List<Long> getTempInformation() {
+    @RequestMapping(value = "/show/cpu/temp", produces = "application/json", method = RequestMethod.GET)
+    public List<Long> getTempshow() {
         ArrayList<Long> al = new ArrayList<>();
         al.add(GetCurrentTemperature());
         return al;
     }
 
-    @RequestMapping(value = "/information/cpu/temps", produces = "application/json", method = RequestMethod.GET)
-    public List<Double> getTempsInformation() {
+    @RequestMapping(value = "/show/cpu/temps", produces = "application/json", method = RequestMethod.GET)
+    public List<Double> getTempsshow() {
         ArrayList<Double> al = new ArrayList<>();
         for (final Temperature temp : GetCVTEMPS()) {
             al.add(temp.value);
@@ -86,8 +86,8 @@ public class CurrentValueController extends CurrentValue {
         return al;
     }
 
-    @RequestMapping(value = "/information/cpu/loads", produces = "application/json", method = RequestMethod.GET)
-    public List<Double> getLoadsInformation() {
+    @RequestMapping(value = "/show/cpu/loads", produces = "application/json", method = RequestMethod.GET)
+    public List<Double> getLoadsshow() {
         ArrayList<Double> al = new ArrayList<>();
         for (final Load loads : GetCVLOAD()) {
             al.add(loads.value);
@@ -95,8 +95,8 @@ public class CurrentValueController extends CurrentValue {
         return al;
     }
 
-    @RequestMapping(value = "/information/cpu/fans", produces = "application/json", method = RequestMethod.GET)
-    public List<Double> getFanInformation() {
+    @RequestMapping(value = "/show/cpu/fans", produces = "application/json", method = RequestMethod.GET)
+    public List<Double> getFanshow() {
         ArrayList<Double> al = new ArrayList<>();
         for (final Fan fan : GetCVFAN()) {
             al.add(fan.value);
@@ -105,21 +105,21 @@ public class CurrentValueController extends CurrentValue {
         return al;
     }
 
-    @RequestMapping(value = "/information/nzos/fanspeed", produces = "application/json", method = RequestMethod.GET)
+    @RequestMapping(value = "/show/nzos/fanspeed", produces = "application/json", method = RequestMethod.GET)
     public List<Long> getFanSpeed() {
         ArrayList<Long> al = new ArrayList<>();
         al.add(GetCurrentFanSpeed());
         return al;
     }
 
-    @RequestMapping(value = "/information/nzos/liquidtemp", produces = "application/json", method = RequestMethod.GET)
+    @RequestMapping(value = "/show/nzos/liquidtemp", produces = "application/json", method = RequestMethod.GET)
     public List<Long> getLiquidTemp() {
         ArrayList<Long> al = new ArrayList<>();
         al.add(GetCurrentLiquidTemp());
         return al;
     }
 
-    @RequestMapping(value = "/information/nzos/maininformation", produces = "application/json", method = RequestMethod.GET)
+    @RequestMapping(value = "/show/nzos/mainshow", produces = "application/json", method = RequestMethod.GET)
     public List<Long> getCriticalVariables() {
         ArrayList<Long> al = new ArrayList<>();
         al.add(GetCurrentTemperature());
@@ -129,7 +129,7 @@ public class CurrentValueController extends CurrentValue {
     }
 
 
-    @RequestMapping(value = "/information/nzos/dumpsettings", produces = "application/json", method = RequestMethod.GET)
+    @RequestMapping(value = "/show/nzos/dumpsettings", produces = "application/json", method = RequestMethod.GET)
     public List<Long> getVariables() {
         ArrayList<Long> al = new ArrayList<>();
         al.add(GetCurrentSetFanSpeed());
@@ -139,17 +139,15 @@ public class CurrentValueController extends CurrentValue {
         return al;
     }
 
-    @RequestMapping(value = "/information/nzos/colormode", produces = "application/json", method = RequestMethod.GET)
-    public List<ArrayList> getColorMode() {
+    @RequestMapping(value = "/show/nzos/colormode", produces = "application/json", method = RequestMethod.GET)
+    public List<Long> getColorMode() {
 
         ArrayList<Long> aMODE = new ArrayList<>();
         aMODE.add(GetCurrentColorMode());
-        ArrayList<ArrayList> aall = new ArrayList<>();
-        aall.add(aMODE);
-        return aall;
+        return aMODE;
     }
 
-    @RequestMapping(value = "/information/nzos/colorarray", produces = "application/json", method = RequestMethod.GET)
+    @RequestMapping(value = "/show/nzos/colorarray", produces = "application/json", method = RequestMethod.GET)
     public List<ArrayList> getColor() {
 
         ArrayList<Long> a11 = new ArrayList<>();

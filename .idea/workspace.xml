@@ -4,8 +4,18 @@
     <list default="true" id="bf46123f-607d-4f2f-8e42-855dd03b234d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.nzprofile" beforeDir="false" afterPath="$PROJECT_DIR$/main.nzprofile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/data_base/CurrentValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/data_base/CurrentValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/data_base/CurrentValue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/data_base/PreDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/data_base/PreDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/json_reader/FileManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/json_reader/FileManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/ApiManagment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/ApiManagment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/InterfaceApiManagment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/InterfaceApiManagment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/monitoring/ApiMonitoring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/monitoring/ApiMonitoring.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/usb_api/Api.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/usb_api/Api.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/CurrentValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/CurrentValue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/CurrentValueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/CurrentValueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/NzOsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/NzOsApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/project/pcmr/nzos/management_control/ApiManagmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/project/pcmr/nzos/management_control/ApiManagmentTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -21,20 +31,8 @@
       <file leaf-file-name="Api.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/usb_api/Api.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="36" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PreDataBase.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/data_base/PreDataBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+            <state relative-caret-position="192">
+              <caret line="98" column="31" selection-start-line="98" selection-start-column="31" selection-end-line="98" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -45,11 +43,22 @@
       <file leaf-file-name="ApiManagment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/ApiManagment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="61" column="29" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="29" />
+            <state relative-caret-position="270">
+              <caret line="127" column="32" selection-start-line="127" selection-start-column="20" selection-end-line="127" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2454#2455#0" expanded="true" />
+                <element signature="e#2487#2488#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProcessBuilder.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/lang/ProcessBuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="1127" selection-start-line="1127" selection-end-line="1127" />
             </state>
           </provider>
         </entry>
@@ -57,8 +66,47 @@
       <file leaf-file-name="CurrentValue.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/CurrentValue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="668">
-              <caret line="82" column="30" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="30" />
+            <state relative-caret-position="918">
+              <caret line="66" selection-start-line="66" selection-end-line="66" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1211#1212#0" expanded="true" />
+                <element signature="e#1243#1244#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NzOsApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/NzOsApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CurrentValueController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/CurrentValueController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="498">
+              <caret line="64" column="43" lean-forward="true" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="43" />
+              <folding>
+                <element signature="e#1042#1043#0" expanded="true" />
+                <element signature="e#1110#1111#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log4j2-spring.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/log4j2-spring.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="32" column="85" selection-start-line="32" selection-start-column="85" selection-end-line="32" selection-end-column="85" />
             </state>
           </provider>
         </entry>
@@ -68,15 +116,17 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
               <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileManagement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/json_reader/FileManagement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="78" />
               <folding>
-                <element signature="e#151#152#0" expanded="true" />
-                <element signature="e#174#175#0" expanded="true" />
-                <element signature="e#227#228#0" expanded="true" />
-                <element signature="e#257#258#0" expanded="true" />
-                <element signature="e#327#328#0" expanded="true" />
-                <element signature="e#364#365#0" expanded="true" />
-                <element signature="e#418#419#0" expanded="true" />
-                <element signature="e#446#447#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -85,56 +135,8 @@
       <file leaf-file-name="ApiMonitoring.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/monitoring/ApiMonitoring.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CurrentValue.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/data_base/CurrentValue.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-114">
-              <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CurrentValueController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/CurrentValueController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2391">
-              <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
-              <folding>
-                <element signature="e#1043#1044#0" expanded="true" />
-                <element signature="e#1108#1109#0" expanded="true" />
-                <element signature="e#1307#1308#0" expanded="true" />
-                <element signature="e#1336#1337#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NzOsApplication.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/NzOsApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileManagement.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/json_reader/FileManagement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-324">
-              <caret line="197" column="28" selection-start-line="197" selection-start-column="16" selection-end-line="197" selection-end-column="28" />
+              <caret line="12" column="56" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -162,13 +164,24 @@
       <find>READINDUMP</find>
       <find>GetFanSpeed</find>
       <find>Przes</find>
-      <find>OUT_DUMP</find>
       <find>System.out</find>
-      <find>ColorArray</find>
       <find>Appenders</find>
       <find>GetCurrentTemperature</find>
       <find>drive</find>
       <find>color</find>
+      <find>ColorArray</find>
+      <find>GetColourPalette</find>
+      <find>errors</find>
+      <find>CURRENT_VALUE</find>
+      <find>TEMPS</find>
+      <find>getTIMEOUT</find>
+      <find>read</find>
+      <find>OUT_DUMP</find>
+      <find>getCPUNAME</find>
+      <find>setCPUNAME</find>
+      <find>information</find>
+      <find>ERRORS</find>
+      <find>sendNotification</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -188,20 +201,21 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/logback.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j2.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/log4j2-spring.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/json_reader/InterfaceFileManagment.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/ExceptionApiMonitoring.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/monitoring/InterfaceApiMonitoring.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/usb_api/Api.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/NzOsApplication.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/InterfaceApiManagment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/CurrentValue.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/monitoring/ApiMonitoring.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/data_base/PreDataBase.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/json_reader/FileManagement.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/data_base/CurrentValue.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/ApiManagment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/json_reader/FileManagement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/data_base/PreDataBase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/usb_api/Api.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/InterfaceApiManagment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/monitoring/ApiMonitoring.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/CurrentValueController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/project/pcmr/nzos/management_control/ApiManagmentTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/ApiManagment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/NzOsApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/log4j2-spring.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/CurrentValue.java" />
       </list>
     </option>
   </component>
@@ -237,7 +251,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="width" value="1294" />
     <option name="height" value="1407" />
@@ -247,8 +261,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -433,6 +445,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -590,6 +604,16 @@
       <workItem from="1525556596658" duration="2600000" />
       <workItem from="1525617631234" duration="2325000" />
       <workItem from="1525627194636" duration="9277000" />
+      <workItem from="1525683764250" duration="600000" />
+      <workItem from="1525687289420" duration="177000" />
+      <workItem from="1525706389092" duration="1245000" />
+      <workItem from="1525891708555" duration="1184000" />
+      <workItem from="1525893154611" duration="599000" />
+      <workItem from="1525985030777" duration="42000" />
+      <workItem from="1526018230348" duration="1873000" />
+      <workItem from="1526135757227" duration="621000" />
+      <workItem from="1526136391300" duration="4538000" />
+      <workItem from="1526141667092" duration="3334000" />
     </task>
     <servers />
   </component>
@@ -599,7 +623,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48500000" />
+    <option name="totallyTimeSpent" value="62713000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1294" height="1407" extended-state="0" />
@@ -611,14 +635,14 @@
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="3" visible="true" weight="7.824726E-4" />
+      <window_info anchor="right" id="Maven Projects" order="3" visible="true" weight="0.0070422534" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.36068112" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.36068112" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24960877" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.41627544" />
       <window_info anchor="right" id="Bean Validation" order="3" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Database" order="3" />
@@ -646,35 +670,14 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/project/pcmr/nzos/json_reader/FileManagementTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/NzOsApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/Authentication.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/project/pcmr/nzos/NzOsApplicationTests.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/ApiManagment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1666">
           <caret line="106" column="97" selection-start-line="106" selection-start-column="97" selection-end-line="106" selection-end-column="97" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2454#2455#0" expanded="true" />
+            <element signature="e#2487#2488#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -722,6 +725,8 @@
           <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2454#2455#0" expanded="true" />
+            <element signature="e#2487#2488#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -824,23 +829,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j2-spring.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/json_reader/InterfaceFileManagment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/monitoring/InterfaceApiMonitoring.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -855,27 +843,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/project/pcmr/nzos/management_control/ApiManagmentTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="64" column="9" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/Lab8.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-651">
           <caret line="148" column="30" selection-start-line="148" selection-start-column="25" selection-end-line="148" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2601">
+          <caret line="153" column="12" selection-start-line="153" selection-start-column="12" selection-end-line="153" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/data_base/CurrentValue.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/nio/Buffer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="695" selection-start-line="695" selection-end-line="695" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/nio/DirectByteBuffer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="276" selection-start-line="276" selection-end-line="276" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/data_base/PreDataBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-281">
+          <caret line="245" selection-start-line="245" selection-end-line="245" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/json_reader/InterfaceFileManagment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/InterfaceApiManagment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="53" column="7" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="7" />
+        <state relative-caret-position="255">
+          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/project/pcmr/nzos/management_control/ApiManagmentTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="57" column="31" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.desktop/java/awt/Desktop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="303" selection-start-line="303" selection-end-line="303" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/monitoring/ApiMonitoring.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="56" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/lang/ProcessBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="1127" selection-start-line="1127" selection-end-line="1127" />
         </state>
       </provider>
     </entry>
@@ -883,102 +931,77 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding>
-            <element signature="e#151#152#0" expanded="true" />
-            <element signature="e#174#175#0" expanded="true" />
-            <element signature="e#227#228#0" expanded="true" />
-            <element signature="e#257#258#0" expanded="true" />
-            <element signature="e#327#328#0" expanded="true" />
-            <element signature="e#364#365#0" expanded="true" />
-            <element signature="e#418#419#0" expanded="true" />
-            <element signature="e#446#447#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/usb_api/Api.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/ApiManagment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="36" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="36" />
+        <state relative-caret-position="270">
+          <caret line="127" column="32" selection-start-line="127" selection-start-column="20" selection-end-line="127" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/NzOsApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2454#2455#0" expanded="true" />
+            <element signature="e#2487#2488#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/json_reader/FileManagement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-324">
-          <caret line="197" column="28" selection-start-line="197" selection-start-column="16" selection-end-line="197" selection-end-column="28" />
+        <state relative-caret-position="272">
+          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="78" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/monitoring/ApiMonitoring.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/usb_api/Api.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="192">
+          <caret line="98" column="31" selection-start-line="98" selection-start-column="31" selection-end-line="98" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/ApiManagment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j2-spring.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="61" column="29" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/data_base/CurrentValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-114">
-          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/data_base/PreDataBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="22">
+          <caret line="32" column="85" selection-start-line="32" selection-start-column="85" selection-end-line="32" selection-end-column="85" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/CurrentValue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="82" column="30" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="30" />
+        <state relative-caret-position="918">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1211#1212#0" expanded="true" />
+            <element signature="e#1243#1244#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/NzOsApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/CurrentValueController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2391">
-          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+        <state relative-caret-position="498">
+          <caret line="64" column="43" lean-forward="true" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="43" />
           <folding>
-            <element signature="e#1043#1044#0" expanded="true" />
-            <element signature="e#1108#1109#0" expanded="true" />
-            <element signature="e#1307#1308#0" expanded="true" />
-            <element signature="e#1336#1337#0" expanded="true" />
+            <element signature="e#1042#1043#0" expanded="true" />
+            <element signature="e#1110#1111#0" expanded="true" />
           </folding>
         </state>
       </provider>

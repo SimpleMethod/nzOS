@@ -15,7 +15,6 @@ import java.util.List;
 
 public class FileManagement<T> implements InterfaceFileManagment<T> {
     private static Logger logger = LogManager.getLogger(FileManagement.class);
-    public static PreDataBase pre = new PreDataBase();
     /**
      * Zmienna przechowująca scieżkę do katalogu systemowego.
      **/
@@ -195,7 +194,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
      * @param FILENAME    Nazwa pliku do odczytu.
      * @param TEXT Tekst do zapisu.
      */
-    public void WrittingFile(String FILENAME,  String TEXT)
+    public void WritingFile(String FILENAME,  String TEXT)
     {
         final  String DIR = System.getProperty("user.dir");
         try (Writer writer = new BufferedWriter(new OutputStreamWriter(
@@ -205,7 +204,6 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
         catch (Exception e)
         {
             logger.error("Problem with creating a file: " + e);
-            pre.ERRORS.add("Problem with creating a file");
         }
     }
 

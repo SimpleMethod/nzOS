@@ -4,7 +4,6 @@ import com.profesorfalken.jsensors.JSensors;
 import com.profesorfalken.jsensors.model.components.Components;
 import com.profesorfalken.jsensors.model.components.Cpu;
 import com.profesorfalken.jsensors.model.sensors.Temperature;
-import com.project.pcmr.nzos.data_base.CurrentValue;
 import com.project.pcmr.nzos.json_reader.FileManagement;
 import com.project.pcmr.nzos.usb_api.Api;
 import org.apache.logging.log4j.LogManager;
@@ -20,23 +19,21 @@ import java.util.List;
 
 public class ApiManagment extends Api implements InterfaceApiManagment {
     private static Logger logger = LogManager.getLogger(ApiManagment.class);
-    boolean firstusage = false;
-    int counterwarning = 0;
+    boolean firstUsage = false;
+    int counterWarning = 0;
     FileManagement<Long> FileM = new FileManagement<>();
-    static CurrentValue CV = new CurrentValue();
 
     /**
      * Metoda służaca zmiany pracy pompy.
      *
      * @param VALUE Wartość w zakresie 60-100.
      */
-    public void ChangingPumpSpeed(Long VALUE) {
-        byte[] PUMP = GetPUMP_DATA();
+    public void changingPumpSpeed(Long VALUE) {
+        byte[] PUMP = getPumpData();
         PUMP[4] = (byte) VALUE.intValue();
         if (VALUE >= 60 && VALUE <= 100) {
             WriteToDevice(PUMP);
         }
-
     }
 
     /**
@@ -44,8 +41,8 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
      *
      * @param VALUE Wartość w zakresie 25-100.
      */
-    public void ChangingFanSpeed(Long VALUE) {
-        byte[] FAN = GetFAN_DATA();
+    public void changingFanSpeed(Long VALUE) {
+        byte[] FAN = getFanData();
         FAN[4] = (byte) VALUE.intValue();
 
         if (VALUE >= 25 && VALUE <= 100) {
@@ -59,7 +56,7 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
      *
      * @param COLOR_MODE Tryb zmiany kolorów.
      */
-    public void ChangingColor(Integer COLOR_MODE) {
+    public void changingColor(Integer COLOR_MODE) {
         byte[] CUSTOMCOLOR = new byte[]{0x02, 0x4c, 0x00, 0x01, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
         CUSTOMCOLOR[3] = COLOR_CUSTOM[COLOR_MODE];
         CUSTOMCOLOR[4] = COLOR_CUSTOM[COLOR_MODE + 1];
@@ -75,30 +72,29 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
      *
      * @return Zwraca listę zawierającą temperatury rdzeni procesora.
      */
-    public List GetCpuTemps() {
-        SetTEMPS(CVTEMPS);
-        return CVTEMPS;
+    public List getCpuTemps() {
+        return getTEMPS();
     }
 
     /**
      * Metoda służaca do zwracania informacji o CPU.
      */
-    public void GetCpuInfo() {
+    public void getCpuInfo() {
         Components components = JSensors.get.components();
         List<Cpu> cpus = components.cpus;
         if (cpus != null) {
             for (final Cpu cpu : cpus) {
-                CPUNAME = cpu.name;
+                setCPUNAME(cpu.name);
                 if (cpu.sensors != null) {
-                    CVTEMPS = cpu.sensors.temperatures;
-                    CVFAN = cpu.sensors.fans;
-                    CVLOAD = cpu.sensors.loads;
+                    setTEMPS(cpu.sensors.temperatures);
+                    setFANS(cpu.sensors.fans);
+                    setLOAD(cpu.sensors.loads);
                 }
             }
         }
-        CV.CURRENT_TEMPERATURE = GetCpuTemp().longValue();
-        CV.CURRENT_FAN_SPEED = Long.valueOf(GetFanSpeed());
-        CV.CURRENT_LIQUID_TEMPERATURE = Long.valueOf(GetLiquidTemp());
+        setTEMP(getCpuTemp().longValue());
+        setFAN(Long.valueOf(GetFanSpeed()));
+        setLIQUID(Long.valueOf(GetLiquidTemp()));
     }
 
     /**
@@ -106,42 +102,39 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
      *
      * @return Zwraca wartość zawierającą uśrednioną temperaturę procesora.
      */
-    public Double GetCpuTemp() {
-
-        Temperature temp = CVTEMPS.get(CVTEMPS.size() - 1);
-
+    public Double getCpuTemp() {
+        Temperature temp = getTEMPS().get(getTEMPS().size() - 1);
         return temp.value;
     }
 
     /**
      * Metoda służaca monitorowania pracy nzOS.
      */
-    public void TheardHelper() {
-        GetCpuInfo();
-        if (!firstusage) {
-
-            final  String DIR = System.getProperty("user.dir");
-            Path path = Paths.get(DIR + "\\"+ GetDEFAULT_FILENAME());
+    public void theardHelper() {
+        getCpuInfo();
+        if (!firstUsage) {
+            final String DIR = System.getProperty("user.dir");
+            Path path = Paths.get(DIR + "\\" + GetDEFAULT_FILENAME());
             if (Files.notExists(path)) {
-                String defaultSettings="{\"color_settings\":{\"color_mode\":6,\"color_0\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_1\":{\"color_G\":0,\"color_R\":126,\"color_B\":0},\"color_2\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_3\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_4\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_5\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_6\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_7\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_8\":{\"color_G\":126,\"color_R\":126,\"color_B\":126}},\"pump_settings\":{\"100_degrees\":100,\"50_degrees\":100,\"20_degrees\":100,\"70_degrees\":100,\"0_degrees\":100,\"90_degrees\":100,\"60_degrees\":100,\"30_degrees\":100,\"10_degrees\":100,\"40_degrees\":100,\"80_degrees\":100},\"fan_settings\":{\"100_degrees\":100,\"50_degrees\":100,\"20_degrees\":100,\"70_degrees\":100,\"0_degrees\":100,\"90_degrees\":100,\"60_degrees\":100,\"30_degrees\":100,\"10_degrees\":100,\"40_degrees\":100,\"80_degrees\":100},\"id\":4444,\"nzreal_class_version\":4,\"temperature_warning\":89}";
-                WrittingFile(GetDEFAULT_FILENAME(),defaultSettings);
+                String defaultSettings = "{\"color_settings\":{\"color_mode\":6,\"color_0\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_1\":{\"color_G\":0,\"color_R\":126,\"color_B\":0},\"color_2\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_3\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_4\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_5\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_6\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_7\":{\"color_G\":126,\"color_R\":126,\"color_B\":126},\"color_8\":{\"color_G\":126,\"color_R\":126,\"color_B\":126}},\"pump_settings\":{\"100_degrees\":100,\"50_degrees\":100,\"20_degrees\":100,\"70_degrees\":100,\"0_degrees\":100,\"90_degrees\":100,\"60_degrees\":100,\"30_degrees\":100,\"10_degrees\":100,\"40_degrees\":100,\"80_degrees\":100},\"fan_settings\":{\"100_degrees\":100,\"50_degrees\":100,\"20_degrees\":100,\"70_degrees\":100,\"0_degrees\":100,\"90_degrees\":100,\"60_degrees\":100,\"30_degrees\":100,\"10_degrees\":100,\"40_degrees\":100,\"80_degrees\":100},\"id\":4444,\"nzreal_class_version\":4,\"temperature_warning\":89}";
+                WritingFile(GetDEFAULT_FILENAME(), defaultSettings);
             }
-            ChangingColor((int) (long) FileM.ReadingFile(GetDEFAULT_FILENAME(), "color_settings", "color_mode"));
+            changingColor((int) (long) FileM.ReadingFile(GetDEFAULT_FILENAME(), "color_settings", "color_mode"));
         }
-        firstusage = true;
-        if (GetCpuTemp() > FileM.ReadingFile(GetDEFAULT_FILENAME(), "temperature_warning") && counterwarning == 0) {
+        firstUsage = true;
+        if (getCpuTemp() > FileM.ReadingFile(GetDEFAULT_FILENAME(), "temperature_warning") && counterWarning == 0) {
             try {
-                sendNotification("nzOS", "Your CPU temperature exceded " + GetCpuTemp() + "°C Prolonged use at this temperature may shorten the CPU lifespan.");
+                sendNotification("nzOS", "Your CPU temperature exceded " + getCpuTemp() + "°C Prolonged use at this temperature may shorten the CPU lifespan.");
             } catch (Exception e) {
                 logger.error("Message cannot be displayed");
             }
 
         }
-        counterwarning++;
-        if (counterwarning == 600) {
-            counterwarning = 0;
+        counterWarning++;
+        if (counterWarning == 600) {
+            counterWarning = 0;
         }
-        Long MathTemp = Math.round(GetCpuTemp() / 10.0) * 10;
+        Long MathTemp = Math.round(getCpuTemp() / 10.0) * 10;
         Long ResultFanSpeed, ResultPumpSpeed;
         if (MathTemp <= 0) {
             logger.error("The temperature can not be less than zero!");
@@ -153,10 +146,10 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
             ResultFanSpeed = FileM.ReadingFile(GetDEFAULT_FILENAME(), "fan_settings", MathTemp + "_degrees");
             ResultPumpSpeed = FileM.ReadingFile(GetDEFAULT_FILENAME(), "pump_settings", MathTemp + "_degrees");
         }
-        ChangingFanSpeed(ResultFanSpeed);
-        ChangingPumpSpeed(ResultPumpSpeed);
+        changingFanSpeed(ResultFanSpeed);
+        changingPumpSpeed(ResultPumpSpeed);
 
-        logger.info("Temp:" + GetCpuTemp() + " Fan speed:" + ResultFanSpeed + " Pump speed:" + ResultPumpSpeed + " .");
+        logger.info("CPU temperature:" + getCpuTemp() + "°C, fan speed:" + ResultFanSpeed + " percent, pump speed:" + ResultPumpSpeed + " percent.");
     }
 
     /**

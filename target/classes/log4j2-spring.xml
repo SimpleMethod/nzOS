@@ -27,36 +27,46 @@
         </File>
     </Appenders>
     <Loggers>
-        <Logger name="com.project.pcmr.nzos.usb_api.Api" level="ALL" additivity="false">
+        <Logger name="com.project.pcmr.nzos.usb_api.Api" level="ERROR" additivity="false">
             <AppenderRef ref="App-File-Appender"/>
+        </Logger>
+        <Logger name="com.project.pcmr.nzos.monitoring.ApiMonitoring" level="ERROR" additivity="false">
+            <AppenderRef ref="App-File-Appender"/>
+        </Logger>
+        <Logger name="com.project.pcmr.nzos.management_control.ApiManagment" level="ERROR" additivity="false">
+            <AppenderRef ref="App-File-Appender"/>
+        </Logger>
+        <Logger name="com.project.pcmr.nzos.json_reader.FileManagement" level="ERROR" additivity="false">
+            <AppenderRef ref="App-File-Appender"/>
+        </Logger>
+        <Logger name="com.project.pcmr.nzos.web_controller.NzOsApplication" level="ERROR" additivity="false">
+            <AppenderRef ref="App-File-Appender"/>
+        </Logger>
+        <Logger name="org.springframework.web" level="ERROR" additivity="false">
+            <AppenderRef ref="SpringBoot-File-Appender"/>
+        </Logger>
+
+        <Logger name="com.project.pcmr.nzos.usb_api.Api" level="ALL" additivity="false">
             <AppenderRef ref="Console-Appender"/>
         </Logger>
         <Logger name="com.project.pcmr.nzos.monitoring.ApiMonitoring" level="ALL" additivity="false">
-            <AppenderRef ref="App-File-Appender"/>
             <AppenderRef ref="Console-Appender"/>
         </Logger>
         <Logger name="com.project.pcmr.nzos.management_control.ApiManagment" level="ALL" additivity="false">
-            <AppenderRef ref="App-File-Appender"/>
             <AppenderRef ref="Console-Appender"/>
         </Logger>
         <Logger name="com.project.pcmr.nzos.json_reader.FileManagement" level="ALL" additivity="false">
-            <AppenderRef ref="App-File-Appender"/>
             <AppenderRef ref="Console-Appender"/>
         </Logger>
         <Logger name="com.project.pcmr.nzos.web_controller.NzOsApplication" level="ALL" additivity="false">
-            <AppenderRef ref="App-File-Appender"/>
-            <AppenderRef ref="Console-Appender"/>
-        </Logger>
-        <Logger name="com.project.pcmr.nzos.web_controller.CurrentValue" level="ALL" additivity="false">
-            <AppenderRef ref="App-File-Appender"/>
             <AppenderRef ref="Console-Appender"/>
         </Logger>
         <Logger name="org.springframework.web" level="ALL" additivity="false">
-            <AppenderRef ref="SpringBoot-File-Appender"/>
             <AppenderRef ref="Console-Appender"/>
         </Logger>
         <Root>
             <AppenderRef ref="Console-Appender"/>
         </Root>
+
     </Loggers>
 </Configuration>
