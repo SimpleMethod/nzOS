@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-
 @SpringBootApplication
 @ComponentScan
 @EnableAutoConfiguration
@@ -29,7 +28,7 @@ public class NzOsApplication {
         try {
             openUrl();
         } catch (Exception e) {
-            logger.warn("Problem with opening a web browser: "+e);
+            logger.info("Problem with opening a web browser: "+e);
         }
 
     }
