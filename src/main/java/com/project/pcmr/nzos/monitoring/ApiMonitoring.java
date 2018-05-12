@@ -1,6 +1,7 @@
 package com.project.pcmr.nzos.monitoring;
 
 import com.project.pcmr.nzos.management_control.ApiManagment;
+import org.apache.commons.lang3.SystemUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,17 +16,17 @@ public class ApiMonitoring extends  ApiManagment implements InterfaceApiMonitori
 
         public void run() {
             Api.theardHelper();
-            Api.ReadDataFromDevice(17);
+            Api.readDataFromDevice(17);
         }
     }
 
-    public void MonitoringTemperature() {
+    public void monitoringTemperature() {
         logger.info("The thread has been launched");
-        if (isAdmin()) {
+        if (isAdmin() && SystemUtils.IS_OS_WINDOWS) {
             Timer timer = new Timer();
             timer.schedule(new ReadingTimer(), 1000, 1000);
         } else {
-            logger.error("A user without administrator rights cannot use an application!");
+            logger.error("The user without administrator rights cannot use the application or the application has been launched on a different system than Windows.");
         }
     }
 

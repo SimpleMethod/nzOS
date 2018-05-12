@@ -21,21 +21,21 @@ class ApiTest {
         exceptions.expectMessage(containsString("Library exception"));
         Api UnitTest1 = new Api();
         byte[] test={0x02, 0x4d, 0x00, 0x00, 0x64};
-        UnitTest1.WriteToDevice(test);
+        UnitTest1.writeToDevice(test);
     }
 
     @Test
     void readDataFromDevice() {
         Api UnitTest1 = new Api();
         int variable=17;
-        assertNotNull(UnitTest1.ReadDataFromDevice(variable));
+        assertNotNull(UnitTest1.readDataFromDevice(variable));
     }
 
     @Test
     void getLiquidTemp() {
         Api UnitTest1 = new Api();
-        UnitTest1.ReadDataFromDevice(17);
-        int result = UnitTest1.GetLiquidTemp();
+        UnitTest1.readDataFromDevice(17);
+        long result = UnitTest1.getLiquidTemp();
         System.out.println("Result: " +result);
         int result1;
         if (result > 0) {
@@ -45,14 +45,14 @@ class ApiTest {
             assert false: "The value must not be less than zero.";
         }
         assertEquals(1, result1);
-        assertNotNull(UnitTest1.GetFanSpeed());
+        assertNotNull(UnitTest1.getFanSpeed());
     }
 
     @Test
     void getFanSpeed() {
         Api UnitTest1 = new Api();
-        UnitTest1.ReadDataFromDevice(17);
-        int result = UnitTest1.GetFanSpeed();
+        UnitTest1.readDataFromDevice(17);
+        long result = UnitTest1.getFanSpeed();
         System.out.println("Result: " +result);
         int result1;
         if (result > 0) {
@@ -62,7 +62,7 @@ class ApiTest {
             assert false: "The value must not be less than zero.";
         }
         assertEquals(1, result1);
-        assertNotNull(UnitTest1.GetFanSpeed());
+        assertNotNull(UnitTest1.getFanSpeed());
     }
 
 

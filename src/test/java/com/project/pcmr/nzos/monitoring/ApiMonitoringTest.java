@@ -14,7 +14,7 @@ class ApiMonitoringTest {
     void monitoringTemperature() {
         exceptions.expect(IllegalAccessError.class);
         ApiMonitoring UnitTest1 = new ApiMonitoring();
-        UnitTest1.MonitoringTemperature();
+        UnitTest1.monitoringTemperature();
     }
 
 }

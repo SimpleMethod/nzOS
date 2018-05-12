@@ -9,8 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 
-
-
 @SpringBootApplication
 @ComponentScan
 @EnableAutoConfiguration
@@ -24,15 +22,14 @@ public class NzOsApplication {
         p.destroy();
     }
 
-
     public static void main(String[] args) {
         SpringApplication.run(NzOsApplication.class, args);
         ApiMonitoring start = new ApiMonitoring();
-        start.MonitoringTemperature();
+        start.monitoringTemperature();
         try {
             openUrl();
         } catch (Exception e) {
-            logger.error("Problem with opening a web browser: "+e);
+            logger.warn("Problem with opening a web browser: "+e);
         }
 
     }

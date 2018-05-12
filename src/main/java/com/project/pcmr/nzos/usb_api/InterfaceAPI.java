@@ -8,7 +8,7 @@ interface InterfaceAPI {
      *
      * @param Data Dane do wysłania do urządzenia.
      */
-    void WriteToDevice(byte[] Data);
+    void writeToDevice(byte[] Data);
 
     /**
      * Deklaracja metody służącej do odbieranie danych.
@@ -16,19 +16,19 @@ interface InterfaceAPI {
      * @param size Rozmiar ramki do odczytu.
      * @return Zwraca odebrane bajty.
      */
-    ByteBuffer ReadDataFromDevice(int size);
+    ByteBuffer readDataFromDevice(int size);
 
     /**
      * Deklaracja metody służącej do zwracania temperatury płynu.
      *
      * @return Zwraca temp. płynu.
      */
-    int GetLiquidTemp();
+    long getLiquidTemp();
 
     /**
      * Deklaracja metody służącej do zwracania wartości obrotów wentylatorów.
      *
      * @return Zwraca wartości obrotów wentylatorów.
      */
-    int GetFanSpeed();
+    long getFanSpeed();
 }

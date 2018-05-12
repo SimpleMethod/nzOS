@@ -10,8 +10,11 @@ import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.LongBuffer;
 
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class FileManagement<T> implements InterfaceFileManagment<T> {
     private static Logger logger = LogManager.getLogger(FileManagement.class);
@@ -250,4 +253,5 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
 
         return List;
     }
+
 }

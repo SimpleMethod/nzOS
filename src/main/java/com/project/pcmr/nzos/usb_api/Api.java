@@ -22,7 +22,7 @@ public class Api extends PreDataBase implements InterfaceAPI {
      *
      * @param Data Dane do wysłania do urządzenia.
      */
-    public void WriteToDevice(byte[] Data) {
+    public void writeToDevice(byte[] Data) {
         int result = LibUsb.init(null);
         if (result != LibUsb.SUCCESS) {
             logger.error("Libusb cannot be initiated.");
@@ -68,7 +68,7 @@ public class Api extends PreDataBase implements InterfaceAPI {
      * @param size Rozmiar ramki do odczytu.
      * @return Zwraca odebrane bajty.
      */
-    public ByteBuffer ReadDataFromDevice(int size) {
+    public ByteBuffer readDataFromDevice(int size) {
         int result = LibUsb.init(null);
         if (result != LibUsb.SUCCESS) {
             logger.error("Libusb cannot be initiated.");
@@ -114,7 +114,7 @@ public class Api extends PreDataBase implements InterfaceAPI {
      *
      * @return Zwraca temp. płynu.
      */
-    public int GetLiquidTemp() {
+    public long getLiquidTemp() {
         return READINDUMP[1];
     }
 
@@ -123,7 +123,7 @@ public class Api extends PreDataBase implements InterfaceAPI {
      *
      * @return Zwraca wartości obrotów wentylatorów.
      */
-    public int GetFanSpeed() {
+    public long getFanSpeed() {
         byte[] temp = READINDUMP;
         return (temp[3] & 0xFF) * (temp[10] & 0xFF) * (temp[14] & 0xFF);
     }
