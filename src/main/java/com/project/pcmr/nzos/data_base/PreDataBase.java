@@ -117,10 +117,19 @@ Dostępne tryby custom:
      */
     private static String CPUNAME;
 
+    /**
+     * Pole zawierające temperaturę CPU.
+     */
     private static long TEMP;
 
+    /**
+     * Pole zawierające prędkość wentylatora wyrażoną w RPM.
+     */
     private static long FAN;
 
+    /**
+     * Pole zawierające temperaturę CPU.
+     */
     private static long LIQUID;
     /**
      * Metoda zwracająca domyślną nazwę pliku.
