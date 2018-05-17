@@ -46,7 +46,7 @@
             <AppenderRef ref="App-File-Appender"/>
             <AppenderRef ref="Console-Appender"/>
         </Logger>
-        <Logger name="org.springframework.web" level="ALL" additivity="false">
+        <Logger name="org.springframework.web" level="WARN" additivity="false">
             <AppenderRef ref="SpringBoot-File-Appender"/>
             <AppenderRef ref="Console-Appender"/>
         </Logger>
