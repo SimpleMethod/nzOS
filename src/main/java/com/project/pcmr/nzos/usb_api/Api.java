@@ -11,7 +11,9 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
 
-
+/**
+ * Klasa obsługi interfejsu urządzenia.
+ */
 public class Api extends PreDataBase implements InterfaceAPI {
     private static Logger logger = LogManager.getLogger(Api.class);
     public byte[] inDump = new byte[17];

@@ -19,14 +19,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-
+/**
+ * Klasa służaca do obsługi pliku z konfiguracją.
+ * @param <T> typ generyczny.
+ */
 public class FileManagement<T> implements InterfaceFileManagment<T> {
     private static Logger logger = LogManager.getLogger(FileManagement.class);
     /**
      * Zmienna przechowująca scieżkę do katalogu systemowego.
      **/
     final static String DIR = System.getProperty("user.dir");
-    JSONParser parser = new JSONParser();
+
 
     /**
      * Metoda służaca do czytania pojedynczych obiektów.
@@ -39,6 +42,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
     public T readingFile(String filename, String OBJECT) {
         T name = null;
         try {
+            JSONParser parser = new JSONParser();
             Object obj = parser.parse(new FileReader(DIR + "\\" + filename));
             JSONObject jsonObject = (JSONObject) obj;
             name = (T) jsonObject.get(OBJECT);
@@ -62,7 +66,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
     public T readingFile(String filename, String OBJECT, String ALTOBJECT) {
         T name = null;
         try {
-
+            JSONParser parser = new JSONParser();
             Object obj = parser.parse(new FileReader(DIR + "\\" + filename));
             JSONObject jsonObject = (JSONObject) obj;
             JSONObject jsonObject1 = (JSONObject) jsonObject.get(OBJECT);
@@ -88,7 +92,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
     public T readingFile(String filename, String OBJECT, String ALTOBJECT, String ALTALTOBJECT) {
         T name = null;
         try {
-
+            JSONParser parser = new JSONParser();
             Object obj = parser.parse(new FileReader(DIR + "\\" + filename));
             JSONObject jsonObject = (JSONObject) obj;
             JSONObject jsonObject1 = (JSONObject) jsonObject.get(OBJECT);
@@ -112,6 +116,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
     @Override
     public void writingFile(String filename, String OBJECT, T VALUE) {
         try {
+            JSONParser parser = new JSONParser();
             Object obj = parser.parse(new FileReader(DIR + "\\" + filename));
             JSONObject jsonObject = (JSONObject) obj;
             jsonObject.put(OBJECT, VALUE);
@@ -133,6 +138,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
     @Override
     public void writingFile(String filename, String OBJECT, String ALTOBJECT, T VALUE) {
         try {
+            JSONParser parser = new JSONParser();
             Object obj = parser.parse(new FileReader(DIR + "\\" + filename));
             JSONObject jsonObject = (JSONObject) obj;
             JSONObject jsonObject1 = (JSONObject) jsonObject.get(OBJECT);
@@ -156,6 +162,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
     @Override
     public void writingFile(String filename, String OBJECT, String ALTOBJECT, String ALTALTOBJECT, T VALUE) {
         try {
+            JSONParser parser = new JSONParser();
             Object obj = parser.parse(new FileReader(DIR + "\\" + filename));
             JSONObject jsonObject = (JSONObject) obj;
             JSONObject jsonObject1 = (JSONObject) jsonObject.get(OBJECT);
@@ -168,6 +175,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
             e.printStackTrace();
         }
     }
+
 
     /**
      * Metoda służaca do zapisu pliku.
@@ -235,7 +243,11 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
         return CALLBACK;
     }
 
-
+    /**
+     *  Metoda zwracająca tablicę z barwami odczytaną z pliku z konfiguracją.
+     * @param filename Nazwa pliku do odczytu.
+     * @return Zwraca listę z kolorami.
+     */
     public long[] colorLongArray(String filename) {
         LongBuffer byteBuffer = LongBuffer.allocate(27);
         String[] temp = {"G", "R", "B"};
@@ -267,7 +279,27 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
         return List;
     }
 
+    /**
+     * Metoda służaca do zamiany tablicy na listę.
+     *
+     * @param filename Nazwa pliku do odczytu.
+     * @param OBJECT   Nazwa obiektu do pobrania.
+     * @return Lista z obiektami.
+     */
+    public List<T> arrayToList(String filename, String OBJECT) {
+        List<T> List = new ArrayList();
+        for (int i = 0; i <= 100; i = i + 10) {
+            List.add(readingFile(filename, OBJECT, i + "_degrees"));
+        }
 
+        return List;
+    }
+
+    /**
+     *  Metoda odczytująca plik z logami błedów.
+     * @param filename Nazwa pliku do odczytu.
+     * @return zwraca tekst w postaci linii z błędami.
+     */
     public ArrayList<String> showLogFile(String filename) {
         String fileName = DIR + "\\logs\\" + filename;
         ArrayList<String> al = new ArrayList<>();
@@ -283,5 +315,55 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
             logger.error("Problem with log reading: " + ex);
         }
         return al;
+    }
+
+    /**
+     * Metoda zapisująca docelowy kolor w pliku konfiguracyjnym.
+     * @param filename Nazwa pliku do odczytu.
+     * @param OBJECT Obiekt do edycji.
+     * @param VALUE Wartość do edycji.
+     */
+    public void forceWritingFile(String filename, String OBJECT, T VALUE) {
+        try {
+            JSONParser parser = new JSONParser();
+            String[] temp = {"G", "R", "B"};
+            Object obj = parser.parse(new FileReader(DIR + "\\" + filename));
+            JSONObject jsonObject = (JSONObject) obj;
+            JSONObject jsonObject1 = (JSONObject) jsonObject.get(OBJECT);
+            for (int i = 0; i < 9; i++) {
+                for (String s : temp) {
+                    JSONObject jsonObject2 = (JSONObject) jsonObject1.get("color_" + i);
+                    jsonObject2.put("color_" + s, VALUE);
+                }
+            }
+            writingFile(filename, jsonObject);
+        } catch (Exception e) {
+            logger.error("File saving problem or no search value in the file: " + e);
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Metoda zapisująca docelowe kolory w pliku konfiguracyjnym.
+     * @param filename Nazwa pliku do odczytu.
+     * @param OBJECT Obiekt do edycji.
+     * @param Type Typ koloru do edycji.
+     * @param VALUE Wartość koloru do edycji.
+     */
+    public void forceWritingFile(String filename, String OBJECT,String Type, T VALUE) {
+        try {
+            JSONParser parser = new JSONParser();
+            Object obj = parser.parse(new FileReader(DIR + "\\" + filename));
+            JSONObject jsonObject = (JSONObject) obj;
+            JSONObject jsonObject1 = (JSONObject) jsonObject.get(OBJECT);
+            for (int i = 0; i < 9; i++) {
+                    JSONObject jsonObject2 = (JSONObject) jsonObject1.get("color_" + i);
+                    jsonObject2.put("color_" + Type, VALUE);
+            }
+            writingFile(filename, jsonObject);
+        } catch (Exception e) {
+            logger.error("File saving problem or no search value in the file: " + e);
+            e.printStackTrace();
+        }
     }
 }

@@ -2,11 +2,14 @@ package com.project.pcmr.nzos.monitoring;
 
 import java.io.IOException;
 
+/**
+ * Interfejs dla klasy ApiMonitoring
+ */
 interface InterfaceApiMonitoring {
 
     /**
-     * Deklacaja metody służacej do monitorowania temperatury.
+     * Deklacaja metody służacej startu wątku.
      */
-    void monitoringTemperature() throws IOException;
+    void startTheard() throws IOException;
     
 }

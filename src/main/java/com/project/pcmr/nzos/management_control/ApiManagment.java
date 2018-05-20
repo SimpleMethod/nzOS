@@ -13,7 +13,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.List;
 
-
+/**
+ * Klasa służaca jako interfejs dla obsługi urządzenia.
+ */
 public class ApiManagment extends Api implements InterfaceApiManagment {
     private static Logger logger = LogManager.getLogger(ApiManagment.class);
     boolean firstUsage = false;

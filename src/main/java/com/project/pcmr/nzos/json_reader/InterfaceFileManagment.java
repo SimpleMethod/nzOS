@@ -5,6 +5,10 @@ import org.json.simple.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Interfejs dla klasy FileManagment
+ * @param <T> Generyczny typ dla interfejsu.
+ */
 interface InterfaceFileManagment<T> {
 
     /**
@@ -92,6 +96,16 @@ interface InterfaceFileManagment<T> {
      */
     List<T> arrayToList(String filename, String OBJECT, String ALTOBJECT);
 
+
+    /**
+     * Deklaracja metody służącej do zamiany tablicy na listę.
+     *
+     * @param filename  Nazwa pliku do odczytu.
+     * @param OBJECT    Nazwa obiektu do pobrania.
+     * @return Lista z obiektami.
+     */
+    List<T> arrayToList(String filename, String OBJECT);
+
     /**
      * Deklaracja metody służącej do zamiany tablicy na listę.
      * @param filename azwa pliku do odczytu.
@@ -105,5 +119,22 @@ interface InterfaceFileManagment<T> {
      * @return Lista z obiektami.
      */
     ArrayList<String> showLogFile(String filename);
+
+    /**
+     * Deklaracja metody zapisującej docelowy kolor w pliku konfiguracyjnym.
+     * @param filename Nazwa pliku do odczytu.
+     * @param OBJECT Obiekt do edycji.
+     * @param VALUE Wartość do edycji.
+     */
+    void forceWritingFile(String filename, String OBJECT, T VALUE);
+
+    /**
+     * Deklaracja metody zapisującej docelowe kolory w pliku konfiguracyjnym.
+     * @param filename Nazwa pliku do odczytu.
+     * @param OBJECT Obiekt do edycji.
+     * @param Type Typ koloru do edycji.
+     * @param VALUE Wartość koloru do edycji.
+     */
+    void forceWritingFile(String filename, String OBJECT,String Type, T VALUE);
 }
 

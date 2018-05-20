@@ -2,6 +2,9 @@ package com.project.pcmr.nzos.management_control;
 
 import java.util.List;
 
+/**
+ * Interfejs do obsługi klasy ApiManagment.
+ */
 interface InterfaceApiManagment {
     /**
      * Deklacaja metody służacej do zmiany pracy pompy.
