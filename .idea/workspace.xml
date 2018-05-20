@@ -2,140 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf46123f-607d-4f2f-8e42-855dd03b234d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/target/classes/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/.idea/resources.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/log4j2-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/public/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/public/setLicense.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/admin.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap-grid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap-grid.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap-grid.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap-grid.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap-reboot.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap-reboot.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap-reboot.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap-reboot.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/fa-brands.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/fa-brands.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/fa-regular.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/fa-regular.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/fa-solid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/fa-solid.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/fontawesome-all.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/fontawesome-all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/fontawesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/fontawesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/images/Logo-Big.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/images/poster_error.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/js/Chart.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/js/Chart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/js/angular-route.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/js/angular.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/js/bootstrap.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/js/bootstrap.bundle.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/js/bootstrap.bundle.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/js/bootstrap.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/js/bootstrap.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/js/cookie.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/js/fast.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/js/jquery-3.2.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/js/jquery-3.3.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/js/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/less/_animated.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/less/_bordered-pulled.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/less/_core.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/less/_fixed-width.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/less/_icons.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/less/_larger.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/less/_list.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/less/_mixins.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/less/_rotated-flipped.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/less/_screen-reader.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/less/_stacked.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/less/_variables.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/less/fa-brands.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/less/fa-regular.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/less/fa-solid.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/less/fontawesome.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/pages/about.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/pages/credits.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/pages/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/pages/lighting.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/pages/settings.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/scss/_animated.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/scss/_bordered-pulled.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/scss/_core.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/scss/_fixed-width.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/scss/_icons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/scss/_larger.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/scss/_list.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/scss/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/scss/_rotated-flipped.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/scss/_screen-reader.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/scss/_stacked.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/scss/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/scss/fa-brands.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/scss/fa-regular.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/scss/fa-solid.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/scss/fontawesome.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/txt/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/txt/setLicense.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/webfonts/fa-brands-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/webfonts/fa-brands-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/webfonts/fa-brands-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/webfonts/fa-brands-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/webfonts/fa-brands-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/webfonts/fa-regular-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/webfonts/fa-regular-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/webfonts/fa-regular-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/webfonts/fa-regular-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/webfonts/fa-regular-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/webfonts/fa-solid-900.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/webfonts/fa-solid-900.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/webfonts/fa-solid-900.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/webfonts/fa-solid-900.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/webfonts/fa-solid-900.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/templates/error.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.nzprofile" beforeDir="false" afterPath="$PROJECT_DIR$/main.nzprofile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/data_base/PreDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/data_base/PreDataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/json_reader/FileManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/json_reader/FileManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/json_reader/InterfaceFileManagment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/json_reader/InterfaceFileManagment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/ApiManagment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/ApiManagment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/ExceptionApiManagment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/ExceptionApiManagment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/monitoring/ApiMonitoring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/monitoring/ApiMonitoring.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/monitoring/InterfaceApiMonitoring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/monitoring/InterfaceApiMonitoring.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/usb_api/Api.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/usb_api/Api.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/CurrentValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/CurrentValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/CurrentValueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/CurrentValueController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/NzOsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/NzOsApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/Chart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/pages/credits.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/pages/credits.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/pages/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/pages/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/pages/lighting.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/pages/lighting.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/pages/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/pages/settings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/project/pcmr/nzos/json_reader/FileManagementTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/project/pcmr/nzos/json_reader/FileManagementTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/project/pcmr/nzos/management_control/ApiManagmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/project/pcmr/nzos/management_control/ApiManagmentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/project/pcmr/nzos/monitoring/ApiMonitoringTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/project/pcmr/nzos/monitoring/ApiMonitoringTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/project/pcmr/nzos/usb_api/ApiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/project/pcmr/nzos/usb_api/ApiTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/project/pcmr/nzos/web_controller/NzOsApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/project/pcmr/nzos/web_controller/NzOsApplicationTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -148,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CurrentValueController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CurrentValueController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/CurrentValueController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1948">
-              <caret line="226" column="9" lean-forward="true" selection-start-line="226" selection-start-column="9" selection-end-line="226" selection-end-column="9" />
+            <state relative-caret-position="476">
+              <caret line="262" column="7" selection-start-line="262" selection-start-column="7" selection-end-line="262" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -160,10 +31,28 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/public/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="417">
+              <caret line="81" column="30" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="CurrentValue.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/CurrentValue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
+            <state relative-caret-position="901">
               <caret line="71" column="25" selection-start-line="71" selection-start-column="15" selection-end-line="71" selection-end-column="25" />
             </state>
           </provider>
@@ -172,7 +61,7 @@
       <file leaf-file-name="ApiManagment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/ApiManagment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
+            <state relative-caret-position="136">
               <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -184,8 +73,8 @@
       <file leaf-file-name="PreDataBase.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/data_base/PreDataBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1798">
-              <caret line="169" column="60" lean-forward="true" selection-start-line="169" selection-start-column="60" selection-end-line="169" selection-end-column="60" />
+            <state relative-caret-position="2431">
+              <caret line="169" column="60" selection-start-line="169" selection-start-column="60" selection-end-line="169" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3224#3225#0" expanded="true" />
@@ -195,19 +84,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Api.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/usb_api/Api.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="FileManagement.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/json_reader/FileManagement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
+            <state relative-caret-position="2584">
               <caret line="161" column="11" selection-start-line="161" selection-start-column="11" selection-end-line="161" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -219,17 +99,8 @@
       <file leaf-file-name="NzOsApplication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/NzOsApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
+            <state relative-caret-position="544">
               <caret line="41" column="48" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InterfaceFileManagment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/json_reader/InterfaceFileManagment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1309">
-              <caret line="80" selection-start-line="80" selection-end-line="80" />
             </state>
           </provider>
         </entry>
@@ -269,7 +140,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>CURRENT_VALUE</find>
       <find>TEMPS</find>
       <find>getTIMEOUT</find>
       <find>read</find>
@@ -299,6 +169,7 @@
       <find>getCPUNAME</find>
       <find>setCPUNAME</find>
       <find>cpu</find>
+      <find>1.0.0</find>
     </findStrings>
     <replaceStrings>
       <replace>value</replace>
@@ -330,13 +201,11 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/404.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/error.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/fast.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/public/app.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/JSON-to-Table.min.1.0.0.js" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j2-spring.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/usb_api/InterfaceAPI.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/InterfaceApiManagment.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/pages/home.html" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/project/pcmr/nzos/web_controller/NzOsApplicationTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/ExceptionApiManagment.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/ApiManagment.java" />
@@ -353,6 +222,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/data_base/PreDataBase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/NzOsApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/CurrentValueController.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/public/app.js" />
       </list>
     </option>
   </component>
@@ -399,7 +270,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1273" />
     <option name="width" value="1294" />
     <option name="height" value="1407" />
@@ -409,6 +280,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -680,8 +553,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -874,7 +745,8 @@
       <workItem from="1526711072613" duration="30805000" />
       <workItem from="1526809878239" duration="10154000" />
       <workItem from="1526840785567" duration="251000" />
-      <workItem from="1526841049631" duration="12810000" />
+      <workItem from="1526841049631" duration="13556000" />
+      <workItem from="1526855996573" duration="35000" />
     </task>
     <servers />
   </component>
@@ -890,22 +762,21 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="166090000" />
+    <option name="totallyTimeSpent" value="166871000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1416" extended-state="7" />
+    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49960938" weight="0.32820907" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50039065" side_tool="true" weight="0.32820907" />
-      <window_info anchor="right" id="Maven Projects" order="3" visible="true" weight="0.05859375" />
+      <window_info active="true" anchor="right" id="Maven Projects" order="3" visible="true" weight="0.05859375" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3620292" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3620292" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Designer" order="2" />
@@ -926,6 +797,7 @@
       <window_info anchor="bottom" id="Inspection Results" order="8" weight="0.3289777" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49960938" weight="0.32820907" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1061,13 +933,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/JSON-to-Table.min.1.0.0.js" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/public/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/popper.min.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1103,13 +968,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="39" lean-forward="true" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -1152,9 +1010,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1462">
           <caret line="94" column="25" selection-start-line="94" selection-start-column="25" selection-end-line="94" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1191,14 +1046,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/CurrentValue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
+        <state relative-caret-position="901">
           <caret line="71" column="25" selection-start-line="71" selection-start-column="15" selection-end-line="71" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/management_control/ApiManagment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
+        <state relative-caret-position="136">
           <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1208,7 +1063,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/json_reader/FileManagement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
+        <state relative-caret-position="2584">
           <caret line="161" column="11" selection-start-line="161" selection-start-column="11" selection-end-line="161" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1218,8 +1073,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/data_base/PreDataBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1798">
-          <caret line="169" column="60" lean-forward="true" selection-start-line="169" selection-start-column="60" selection-end-line="169" selection-end-column="60" />
+        <state relative-caret-position="2431">
+          <caret line="169" column="60" selection-start-line="169" selection-start-column="60" selection-end-line="169" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3224#3225#0" expanded="true" />
@@ -1230,18 +1085,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/NzOsApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
+        <state relative-caret-position="544">
           <caret line="41" column="48" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/project/pcmr/nzos/web_controller/CurrentValueController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1948">
-          <caret line="226" column="9" lean-forward="true" selection-start-line="226" selection-start-column="9" selection-end-line="226" selection-end-column="9" />
+        <state relative-caret-position="476">
+          <caret line="262" column="7" selection-start-line="262" selection-start-column="7" selection-end-line="262" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="81" column="30" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
         </state>
       </provider>
     </entry>
