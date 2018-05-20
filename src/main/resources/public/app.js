@@ -15,7 +15,7 @@ function readCookie(name) {
 var language = readCookie("language");
 var EN = {
     "nzos": "nzOS",
-    "numberOfVersion": "1.0.0",
+    "numberOfVersion": "v1.0.1",
     "version": "Version",
     "release_notes": "Release notes",
     "dashboard": "Dashboard",
@@ -79,7 +79,7 @@ var EN = {
 
 var PL = {
     "nzos": "nzOS",
-    "numberOfVersion": "1.0.0",
+    "numberOfVersion": "v1.0.1",
     "version": "Wersja",
     "release_notes": "Informacje o wersji",
     "dashboard": "Główny panel",
