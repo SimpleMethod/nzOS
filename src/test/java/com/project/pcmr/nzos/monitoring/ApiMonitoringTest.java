@@ -8,7 +8,7 @@ import org.junit.rules.ExpectedException;
 class ApiMonitoringTest {
 
     @Rule
-    public ExpectedException exceptions = ExpectedException.none();
+    public final ExpectedException exceptions = ExpectedException.none();
 
     @Test
     void monitoringTemperature() {

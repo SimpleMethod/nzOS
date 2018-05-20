@@ -9,11 +9,10 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.matchers.JUnitMatchers.containsString;
 
 class FileManagementTest {
     @Rule
-    public ExpectedException exceptions = ExpectedException.none();
+    public final ExpectedException exceptions = ExpectedException.none();
 
 
     @Test
@@ -77,7 +76,7 @@ class FileManagementTest {
         json.put("nzOS", testResult);
         String Input[] = {"main.nzprofile.test.test", "nzOS"};
         exceptions.expect(IOException.class);
-        exceptions.expectMessage(containsString("IO exception"));
+        exceptions.expectMessage(("IO exception"));
         UnitTest1.writingFile(Input[0], json);
         Long result = UnitTest1.readingFile(Input[0], Input[1]);
         assertEquals(Long.valueOf(testResult), result);
@@ -90,21 +89,21 @@ class FileManagementTest {
         FileManagement<Long> UnitTest1 = new FileManagement<>();
         String Input[] = {"main.nzprofile.test.test", "nzOS"};
         exceptions.expect(IOException.class);
-        exceptions.expectMessage(containsString("IO exception"));
+        exceptions.expectMessage(("IO exception"));
         UnitTest1.writingFile(Input[0],Input[1], testResult);
         Long result = UnitTest1.readingFile(Input[0], Input[1]);
-        assertEquals(Long.valueOf(testResult), result);
+        assertEquals(testResult, result);
     }
-
+    private final JSONObject json = new JSONObject();
     @Test
     void writingFile2() {
         Long testResult = (long)1;
         FileManagement<Long> UnitTest1 = new FileManagement<>();
-        JSONObject json = new JSONObject();
+
         json.put("nzOS", testResult);
         String Input[] = {"main.nzprofile.test", "fan_settings","100_degrees"};
         exceptions.expect(IOException.class);
-        exceptions.expectMessage(containsString("IO exception"));
+        exceptions.expectMessage(("IO exception"));
         UnitTest1.writingFile(Input[0], Input[1],Input[2], testResult);
         Long result = UnitTest1.readingFile(Input[0], Input[1],Input[2]);
         assertEquals(Long.valueOf(testResult), result);
@@ -114,11 +113,11 @@ class FileManagementTest {
     void writingFile3() {
         Long testResult = (long)1;
         FileManagement<Long> UnitTest1 = new FileManagement<>();
-        JSONObject json = new JSONObject();
+
         json.put("nzOS", testResult);
         String Input[] = {"main.nzprofile.test", "color_settings","color_0","color_G"};
         exceptions.expect(IOException.class);
-        exceptions.expectMessage(containsString("IO exception"));
+        exceptions.expectMessage(("IO exception"));
         UnitTest1.writingFile(Input[0], Input[1],Input[2],Input[3], testResult);
         Long result = UnitTest1.readingFile(Input[0], Input[1],Input[2],Input[3]);
         assertEquals(Long.valueOf(testResult), result);
@@ -134,7 +133,7 @@ class FileManagementTest {
     @Test
     void arrayToList() {
         exceptions.expect(ArithmeticException.class);
-        exceptions.expectMessage(containsString("Arithmetic exception"));
+        exceptions.expectMessage(("Arithmetic exception"));
         FileManagement<Long> UnitTest1 = new FileManagement<>();
         String Input[] = {"main.nzprofile.test", "fan_settings","_degrees"};
         UnitTest1.arrayToList(Input[0],Input[1],Input[2]);

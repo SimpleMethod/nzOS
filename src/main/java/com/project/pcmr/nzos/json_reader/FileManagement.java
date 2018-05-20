@@ -4,31 +4,24 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.junit.Assert;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.nio.ByteBuffer;
 import java.nio.LongBuffer;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Klasa służaca do obsługi pliku z konfiguracją.
  * @param <T> typ generyczny.
  */
+@SuppressWarnings("unchecked")
 public class FileManagement<T> implements InterfaceFileManagment<T> {
-    private static Logger logger = LogManager.getLogger(FileManagement.class);
+    private static final Logger logger = LogManager.getLogger(FileManagement.class);
     /**
      * Zmienna przechowująca scieżkę do katalogu systemowego.
      **/
-    final static String DIR = System.getProperty("user.dir");
+    final static private String DIR = System.getProperty("user.dir");
 
 
     /**
@@ -209,7 +202,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
      * @param filename Nazwa pliku do odczytu.
      * @param TEXT     Tekst do zapisu.
      */
-    public void writingFile(String filename, String TEXT) {
+    protected void writingFile(String filename, String TEXT) {
         final String DIR = System.getProperty("user.dir");
         try (Writer writer = new BufferedWriter(new OutputStreamWriter(
                 new FileOutputStream(DIR + "\\" + filename), "utf-8"))) {
@@ -306,7 +299,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
 
         try {
             BufferedReader lineReader = new BufferedReader(new FileReader(fileName));
-            String lineText = null;
+            String lineText;
             while ((lineText = lineReader.readLine()) != null) {
                 al.add(lineText);
             }

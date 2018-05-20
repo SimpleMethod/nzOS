@@ -9,6 +9,7 @@ interface InterfaceApiMonitoring {
 
     /**
      * Deklacaja metody służacej startu wątku.
+     * @throws IOException wyjątek interfejsu.
      */
     void startTheard() throws IOException;
     

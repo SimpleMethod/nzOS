@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class CurrentValue extends PreDataBase {
 
-    FileManagement<Long> FileMag = new FileManagement<>();
+    private final FileManagement<Long> FileMag = new FileManagement<>();
 
     /**
      * Deklaracja klasy.
@@ -28,7 +28,7 @@ public class CurrentValue extends PreDataBase {
      * Metoda zwracająca ustawienia pompy.
      * @return zwraca ustawienia pompy.
      */
-    public List<Long> GetPumpSettings(){
+    List<Long> GetPumpSettings(){
         return FileMag.arrayToList(getDEFAULT_FILENAME(),"pump_settings");
     }
 
@@ -36,7 +36,7 @@ public class CurrentValue extends PreDataBase {
      * Metoda zwracająca ustawienia wentylatorów.
      * @return zwraca ustawienia wentylatorów.
      */
-    public List<Long> GetFanSettings(){
+    List<Long> GetFanSettings(){
       return FileMag.arrayToList(getDEFAULT_FILENAME(),"fan_settings");
     }
 
@@ -44,7 +44,7 @@ public class CurrentValue extends PreDataBase {
      * Metoda zwaca listę z temp. CPU.
      * @return lusta z temp. CPU.
      */
-    public List<Temperature> GetCVTEMPS() {
+    List<Temperature> GetCVTEMPS() {
         return getTEMPS();
     }
 
@@ -52,7 +52,7 @@ public class CurrentValue extends PreDataBase {
      * Metoda zwracająca obciążenie CPU.
      * @return obciążenie CPU.
      */
-    public List<Load> GetCVLOAD() {
+    List<Load> GetCVLOAD() {
         return getLOAD();
     }
 
@@ -60,7 +60,7 @@ public class CurrentValue extends PreDataBase {
      * Metoda zwracająca prędkość wentylatorów.
      * @return prędkość wentylatorów.
      */
-    public List<Fan> GetCVFAN() {
+    List<Fan> GetCVFAN() {
         return getFANS();
     }
 
@@ -68,7 +68,7 @@ public class CurrentValue extends PreDataBase {
      * Metoda zwracająca nazwę procesora.
      * @return nazwę procesora.
      */
-    public String getCVCPUNAME() {
+    String getCVCPUNAME() {
         return getCPUNAME();
     }
 
@@ -84,7 +84,7 @@ public class CurrentValue extends PreDataBase {
      * Metoda zwracająca aktualny tyb pracy oświetlenia.
      * @return aktualny tyb pracy oświetlenia.
      */
-    public Long GetCurrentColorMode() {
+    Long GetCurrentColorMode() {
         return FileMag.readingFile(getDEFAULT_FILENAME(), "color_settings", "color_mode");
     }
 
@@ -92,7 +92,7 @@ public class CurrentValue extends PreDataBase {
      * Metoda zwracająca temperaturę procesora.
      * @return  temperatura procesora.
      */
-    public Long GetCurrentTemperature() {
+    Long GetCurrentTemperature() {
         return getTEMP();
     }
 
@@ -100,7 +100,7 @@ public class CurrentValue extends PreDataBase {
      * Metoda zwracająca szybkość obrotów wentylatorów.
      * @return  szybkość obrotów wentylatorów.
      */
-    public Long GetCurrentFanSpeed() {
+    Long GetCurrentFanSpeed() {
         return getFAN();
     }
 
@@ -108,7 +108,7 @@ public class CurrentValue extends PreDataBase {
      * Metoda zwracająca temp. płynu chłodniczego.
      * @return temp. płynu chłodniczego.
      */
-    public Long GetCurrentLiquidTemp() {
+    Long GetCurrentLiquidTemp() {
         return getLIQUID();
     }
 
@@ -116,7 +116,7 @@ public class CurrentValue extends PreDataBase {
      * Metoda zwracając prędkosć wentylatora dla aktualnej temp.
      * @return  prędkosć wentylatora dla aktualnej temp.
      */
-    public Long GetCurrentSetFanSpeed() {
+    Long GetCurrentSetFanSpeed() {
         Long temp = Math.round(getTEMP() / 10.0) * 10;
         return FileMag.readingFile(getDEFAULT_FILENAME(), "fan_settings", temp + "_degrees");
     }
@@ -125,7 +125,7 @@ public class CurrentValue extends PreDataBase {
      * Metoda zwracając prędkosć pompy dla aktualnej temp.
      * @return  prędkosć pompy dla aktualnej temp.
      */
-    public Long GetCurrentSetPumpSpeed() {
+    Long GetCurrentSetPumpSpeed() {
         Long temp = Math.round(getTEMP() / 10.0) * 10;
         return FileMag.readingFile(getDEFAULT_FILENAME(), "pump_settings", temp + "_degrees");
     }
@@ -134,7 +134,7 @@ public class CurrentValue extends PreDataBase {
      * Metoda zwracająca wersję protokołu.
      * @return wersję protokołu.
      */
-    public Long GetCurrentProtocolVer() {
+    Long GetCurrentProtocolVer() {
         return FileMag.readingFile(getDEFAULT_FILENAME(), "nzreal_class_version");
     }
 
@@ -142,7 +142,7 @@ public class CurrentValue extends PreDataBase {
      * Metoda zwraca indentyfikator produktu.
      * @return indentyfikator produktu.
      */
-    public Long GetCurrentSafeCode() {
+    Long GetCurrentSafeCode() {
         return FileMag.readingFile(getDEFAULT_FILENAME(), "id");
     }
 
@@ -150,7 +150,7 @@ public class CurrentValue extends PreDataBase {
      * Metoda zwracająca temperaturę graniczną dla CPU.
      * @return temperaturę graniczną dla CPU.
      */
-    public Long GetWarningTemperature() {
+    Long GetWarningTemperature() {
         return FileMag.readingFile(getDEFAULT_FILENAME(), "temperature_warning");
     }
 }

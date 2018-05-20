@@ -6,11 +6,11 @@ import org.junit.rules.ExpectedException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.matchers.JUnitMatchers.containsString;
+
 
 class ApiManagmentTest {
     @Rule
-    public ExpectedException exceptions = ExpectedException.none();
+    public final ExpectedException exceptions = ExpectedException.none();
 
 
     @Test
@@ -38,7 +38,7 @@ class ApiManagmentTest {
     @Test
     void changingPumpSpeed() {
         exceptions.expect(IllegalAccessError.class);
-        exceptions.expectMessage(containsString("Library exception"));
+        exceptions.expectMessage(("Library exception"));
         ApiManagment UnitTest1 = new ApiManagment();
         Long test=100L;
         UnitTest1.changingPumpSpeed(test);
@@ -47,7 +47,7 @@ class ApiManagmentTest {
     @Test
     void changingFanSpeed() {
         exceptions.expect(IllegalAccessError.class);
-        exceptions.expectMessage(containsString("Library exception"));
+        exceptions.expectMessage(("Library exception"));
         ApiManagment UnitTest1 = new ApiManagment();
        Long test=100L;
         UnitTest1.changingFanSpeed(test);
@@ -56,7 +56,7 @@ class ApiManagmentTest {
     @Test
     void changingColor() {
         exceptions.expect(IllegalAccessError.class);
-        exceptions.expectMessage(containsString("IO exception"));
+        exceptions.expectMessage(("IO exception"));
         ApiManagment UnitTest1 = new ApiManagment();
         int test=12;
         UnitTest1.changingColor(test);
@@ -65,7 +65,7 @@ class ApiManagmentTest {
     @Test
     void theardHelper() {
         exceptions.expect(IllegalAccessError.class);
-        exceptions.expectMessage(containsString("The temperature can not be less than zero!"));
+        exceptions.expectMessage(("The temperature can not be less than zero!"));
         ApiManagment UnitTest1 = new ApiManagment();
         UnitTest1.theardHelper();
     }

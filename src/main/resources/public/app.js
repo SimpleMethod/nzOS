@@ -15,7 +15,7 @@ function readCookie(name) {
 var language = readCookie("language");
 var EN = {
     "nzos": "nzOS",
-    "numberOfVersion": "0.8.4",
+    "numberOfVersion": "1.0.0",
     "version": "Version",
     "release_notes": "Release notes",
     "dashboard": "Dashboard",
@@ -70,12 +70,16 @@ var EN = {
     "lighting_20": "Breathing - Normal level",
     "lighting_21": "Breathing - Fast level",
     "lighting_22": "Breathing - Fastest level",
-    "lighting_23": "Solid one colour alternative version"
+    "lighting_23": "Solid one colour alternative version",
+    "home_1":"Temperatures",
+    "home_2":"Load",
+    "home_3":"Liquid temperature",
+    "home_4":"Fan speed",
 };
 
 var PL = {
     "nzos": "nzOS",
-    "numberOfVersion": "0.8.4",
+    "numberOfVersion": "1.0.0",
     "version": "Wersja",
     "release_notes": "Informacje o wersji",
     "dashboard": "Główny panel",
@@ -130,7 +134,11 @@ var PL = {
     "lighting_20": "Oddychanie - Normalny poziom",
     "lighting_21": "Oddychanie - Szybki poziom",
     "lighting_22": "Oddychanie - Najszybszy poziom",
-    "lighting_23": "Stały jedna barwa alternatywny"
+    "lighting_23": "Stały jedna barwa alternatywny",
+    "home_1":"Temperatura",
+    "home_2":"Obciążenie",
+    "home_3":"Temperatura płynu",
+    "home_4":"Prędkość wentylatora"
 
 
 };
@@ -302,9 +310,32 @@ app.controller('HomeController', function ($scope) {
     if (language === "PL") {
         $scope.nzos = PL.nzos;
         $scope.type = PL.dashboard;
+        $scope.home_1=PL.home_1;
+        $scope.home_2=PL.home_2;
+        $scope.home_3=PL.home_3;
+        $scope.home_4=PL.home_4;
+        $scope.home_5=PL.home_5;
+        $scope.home_6=PL.home_6;
+        $scope.home_7=PL.home_7;
+        $scope.home_8=PL.home_8;
+        $scope.home_9=PL.home_9;
+        $scope.home_10=PL.home_10;
+        $scope.home_11=PL.home_11;
+
     } else {
         $scope.nzos = EN.nzos;
         $scope.type = EN.dashboard;
+        $scope.home_1=EN.home_1;
+        $scope.home_2=EN.home_2;
+        $scope.home_3=EN.home_3;
+        $scope.home_4=EN.home_4;
+        $scope.home_5=EN.home_5;
+        $scope.home_6=EN.home_6;
+        $scope.home_7=EN.home_7;
+        $scope.home_8=EN.home_8;
+        $scope.home_9=EN.home_9;
+        $scope.home_10=EN.home_10;
+        $scope.home_11=EN.home_11;
     }
 });
 

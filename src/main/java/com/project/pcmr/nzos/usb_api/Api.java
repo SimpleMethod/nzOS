@@ -15,8 +15,8 @@ import java.nio.IntBuffer;
  * Klasa obsługi interfejsu urządzenia.
  */
 public class Api extends PreDataBase implements InterfaceAPI {
-    private static Logger logger = LogManager.getLogger(Api.class);
-    public byte[] inDump = new byte[17];
+    private static final Logger logger = LogManager.getLogger(Api.class);
+    private final byte[] inDump = new byte[17];
 
     /**
      * Metoda służąca do wysłania bajtów.

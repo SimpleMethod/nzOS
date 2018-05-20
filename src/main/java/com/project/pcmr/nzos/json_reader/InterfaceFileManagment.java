@@ -81,8 +81,8 @@ interface InterfaceFileManagment<T> {
 
     /**
      * Deklaracja metody służącej do odczytu barw i zapisu jej do tablicy.
-     *
      * @param filename Nazwa pliku do odczytu.
+     * @return tablica z kolorami.
      */
     byte[] colorArray(String filename);
 

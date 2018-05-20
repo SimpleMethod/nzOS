@@ -15,13 +15,13 @@ import java.util.TimerTask;
  * Klasa do obsługi wątku.
  */
 public class ApiMonitoring extends  ApiManagment implements InterfaceApiMonitoring {
-    private static Logger logger = LogManager.getLogger(ApiMonitoring.class);
+    private static final Logger logger = LogManager.getLogger(ApiMonitoring.class);
 
     /**
      * Klasa do obsługi wątku.
      */
-    public static class ReadingTimer extends TimerTask {
-        ApiManagment Api = new ApiManagment();
+    private static class ReadingTimer extends TimerTask {
+        final ApiManagment Api = new ApiManagment();
 
         /**
          * Metoda do obsługi wątku.
