@@ -2,6 +2,9 @@ package com.project.pcmr.nzos.usb_api;
 
 import java.nio.ByteBuffer;
 
+/**
+ * Interfejs dla klasy Api
+ */
 interface InterfaceAPI {
     /**
      * Deklaracja metody służącej do wysłania bajtów.

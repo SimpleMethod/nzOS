@@ -11,8 +11,16 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan
 @EnableAutoConfiguration
+/**
+ * Główna klasa aplikacji.
+ */
 public class NzOsApplication {
     private static Logger logger = LogManager.getLogger(NzOsApplication.class);
+
+    /**
+     * Metoda otwieracją przeglądarkę.
+     * @throws Exception Wyjątek podczas otwierania przeglądarki.
+     */
     public static void openUrl() throws Exception {
         ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c start ", " http://127.0.0.1:8090/");
         builder.redirectErrorStream(true);
@@ -21,10 +29,14 @@ public class NzOsApplication {
         p.destroy();
     }
 
+    /**
+     * Główna metoda.
+     * @param args argumenty wywołania.
+     */
     public static void main(String[] args) {
         SpringApplication.run(NzOsApplication.class, args);
         ApiMonitoring start = new ApiMonitoring();
-        start.monitoringTemperature();
+        start.startTheard();
         try {
             openUrl();
 
