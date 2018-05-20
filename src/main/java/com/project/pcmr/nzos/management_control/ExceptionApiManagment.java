@@ -3,7 +3,7 @@ package com.project.pcmr.nzos.management_control;
 /**
  * Klasa służaca jako wyjątek.
  */
-public class ExceptionApiManagment extends RuntimeException {
+class ExceptionApiManagment extends RuntimeException {
 
     /**
      * Konstruktor klasy.

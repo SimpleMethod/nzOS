@@ -8,20 +8,20 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
+import java.io.OutputStream;
+import java.io.PrintStream;
+
 @SpringBootApplication
 @ComponentScan
 @EnableAutoConfiguration
-/**
- * Główna klasa aplikacji.
- */
 public class NzOsApplication {
-    private static Logger logger = LogManager.getLogger(NzOsApplication.class);
+    private static final Logger logger = LogManager.getLogger(NzOsApplication.class);
 
     /**
      * Metoda otwieracją przeglądarkę.
      * @throws Exception Wyjątek podczas otwierania przeglądarki.
      */
-    public static void openUrl() throws Exception {
+    private static void openUrl() throws Exception {
         ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c start ", " http://127.0.0.1:8090/");
         builder.redirectErrorStream(true);
         Process p = builder.start();
@@ -29,11 +29,23 @@ public class NzOsApplication {
         p.destroy();
     }
 
+
+
+
+
+
     /**
      * Główna metoda.
      * @param args argumenty wywołania.
      */
     public static void main(String[] args) {
+        PrintStream originalStream = System.out;
+        PrintStream dummyStream = new PrintStream(new OutputStream(){
+            public void write(int b) {
+
+            }
+        });
+        System.setOut(dummyStream);
         SpringApplication.run(NzOsApplication.class, args);
         ApiMonitoring start = new ApiMonitoring();
         start.startTheard();

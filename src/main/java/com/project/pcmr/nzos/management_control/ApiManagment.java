@@ -17,9 +17,9 @@ import java.util.List;
  * Klasa służaca jako interfejs dla obsługi urządzenia.
  */
 public class ApiManagment extends Api implements InterfaceApiManagment {
-    private static Logger logger = LogManager.getLogger(ApiManagment.class);
-    boolean firstUsage = false;
-    int counterWarning = 0;
+    private static final Logger logger = LogManager.getLogger(ApiManagment.class);
+    private boolean firstUsage = false;
+    private int counterWarning = 0;
 
     /**
      * Metoda służaca zmiany pracy pompy.
@@ -59,9 +59,7 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
         ctm[3] = COLOR_CUSTOM[colorMode];
         ctm[4] = COLOR_CUSTOM[colorMode + 1];
         byte[] CALLBACK = colorArray(getDEFAULT_FILENAME());
-        for (int i = 5; i <= 31; i++) {
-            ctm[i] = CALLBACK[i - 5];
-        }
+        System.arraycopy(CALLBACK, 0, ctm, 5, 27);
         writeToDevice(ctm);
     }
 
@@ -132,7 +130,7 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
             logger.error("The temperature can not be less than zero!");
             throw new ExceptionApiManagment("The temperature can not be less than zero!");
         }
-        if (MathTemp > 100 || MathTemp == 0) {
+        if (MathTemp > 100) {
             ResultPumpSpeed = ResultFanSpeed = 100L;
         } else {
             ResultFanSpeed = readingFile(getDEFAULT_FILENAME(), "fan_settings", MathTemp + "_degrees");

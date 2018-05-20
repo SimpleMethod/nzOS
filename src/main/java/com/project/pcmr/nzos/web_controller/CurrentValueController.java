@@ -4,14 +4,12 @@ import com.profesorfalken.jsensors.model.sensors.Fan;
 import com.profesorfalken.jsensors.model.sensors.Load;
 import com.profesorfalken.jsensors.model.sensors.Temperature;
 import com.project.pcmr.nzos.management_control.ApiManagment;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -20,11 +18,11 @@ import java.util.List;
  */
 @RestController
 public class CurrentValueController extends CurrentValue {
-    ApiManagment Api = new ApiManagment();
+   private final ApiManagment Api = new ApiManagment();
 
     /**
      *  Metoda do obsługi statycznych plików.
-     * @return
+     * @return zwraca plik index.html
      */
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index() {
@@ -184,7 +182,7 @@ public class CurrentValueController extends CurrentValue {
     @RequestMapping(value = "/show/cpu/name", produces = "application/json", method = RequestMethod.GET)
     public List<String> getCpuNameShow() {
         ArrayList<String> al = new ArrayList<>();
-        al.add(getCVCPUNAME());
+        al.add(getCPUNAME());
         return al;
     }
 
@@ -220,10 +218,18 @@ public class CurrentValueController extends CurrentValue {
     @RequestMapping(value = "/show/cpu/loads", produces = "application/json", method = RequestMethod.GET)
     public List<Double> getLoadsshow() {
         ArrayList<Double> al = new ArrayList<>();
-        for (final Load loads : GetCVLOAD()) {
-            al.add(loads.value);
+        if(GetCVLOAD()== null)
+        {
+            return null;
+
         }
-        return al;
+        else
+        {
+            for (final Load loads : GetCVLOAD()) {
+                al.add(loads.value);
+            }
+            return al;
+        }
     }
 
     /**
@@ -337,33 +343,33 @@ public class CurrentValueController extends CurrentValue {
         ArrayList<Long> a7 = new ArrayList<>();
         ArrayList<Long> a8 = new ArrayList<>();
         ArrayList<ArrayList> result = new ArrayList<>();
-        a0.add(Long.valueOf(dump[0]));
-        a0.add(Long.valueOf(dump[1]));
-        a0.add(Long.valueOf(dump[2]));
-        a1.add(Long.valueOf(dump[3]));
-        a1.add(Long.valueOf(dump[4]));
-        a1.add(Long.valueOf(dump[5]));
-        a2.add(Long.valueOf(dump[6]));
-        a2.add(Long.valueOf(dump[7]));
-        a2.add(Long.valueOf(dump[8]));
-        a3.add(Long.valueOf(dump[9]));
-        a3.add(Long.valueOf(dump[10]));
-        a3.add(Long.valueOf(dump[11]));
-        a4.add(Long.valueOf(dump[12]));
-        a4.add(Long.valueOf(dump[13]));
-        a4.add(Long.valueOf(dump[14]));
-        a5.add(Long.valueOf(dump[15]));
-        a5.add(Long.valueOf(dump[16]));
-        a5.add(Long.valueOf(dump[17]));
-        a6.add(Long.valueOf(dump[18]));
-        a6.add(Long.valueOf(dump[19]));
-        a6.add(Long.valueOf(dump[20]));
-        a7.add(Long.valueOf(dump[21]));
-        a7.add(Long.valueOf(dump[22]));
-        a7.add(Long.valueOf(dump[23]));
-        a8.add(Long.valueOf(dump[24]));
-        a8.add(Long.valueOf(dump[25]));
-        a8.add(Long.valueOf(dump[26]));
+        a0.add(dump[0]);
+        a0.add(dump[1]);
+        a0.add(dump[2]);
+        a1.add(dump[3]);
+        a1.add(dump[4]);
+        a1.add(dump[5]);
+        a2.add(dump[6]);
+        a2.add(dump[7]);
+        a2.add(dump[8]);
+        a3.add(dump[9]);
+        a3.add(dump[10]);
+        a3.add(dump[11]);
+        a4.add(dump[12]);
+        a4.add(dump[13]);
+        a4.add(dump[14]);
+        a5.add(dump[15]);
+        a5.add(dump[16]);
+        a5.add(dump[17]);
+        a6.add(dump[18]);
+        a6.add(dump[19]);
+        a6.add(dump[20]);
+        a7.add(dump[21]);
+        a7.add(dump[22]);
+        a7.add(dump[23]);
+        a8.add(dump[24]);
+        a8.add(dump[25]);
+        a8.add(dump[26]);
         result.add(a0);
         result.add(a1);
         result.add(a2);

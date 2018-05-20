@@ -20,11 +20,11 @@ public class PreDataBase extends FileManagement<Long> {
     protected static final byte[] COLOR_CUSTOM = new byte[]{0x04, 0x02, 0x06, 0x02, 0x07, 0x02, 0x02, 0x01, 0x00, 0x02, 0x01, 0x02, 0x0D, 0x00, 0x0D, 0x01, 0x0D, 0x02, 0x0D, 0x03, 0x0D, 0x04, 0x06, 0x00, 0x06, 0x01, 0x06, 0x02, 0x06, 0x03, 0x06, 0x04, 0x00, 0x01};
 
     public PreDataBase() {
-        this.DEFAULT_FILENAME = "main.nzprofile";
+        DEFAULT_FILENAME = "main.nzprofile";
     }
 
     public PreDataBase(String FILE_NAME) {
-        this.DEFAULT_FILENAME = FILE_NAME;
+        DEFAULT_FILENAME = FILE_NAME;
     }
 
     /**
@@ -106,7 +106,7 @@ public class PreDataBase extends FileManagement<Long> {
      *
      * @return Zwraca domyślną nazwę pliku.
      */
-    public String getDEFAULT_FILENAME() {
+    protected String getDEFAULT_FILENAME() {
         return DEFAULT_FILENAME;
     }
 
@@ -114,7 +114,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda zwaracają czas TIMEOUT dla urządzenia.
      * @return Zwraca czas TIMEOUT dla urządzenia.
      */
-    public static int getTIMEOUT() {
+    protected static int getTIMEOUT() {
         return TIMEOUT;
     }
 
@@ -122,7 +122,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda zapisująca nazwę procesora.
      * @param CPUNAME nazwa procesora.
      */
-    public static void setCPUNAME(String CPUNAME) {
+    protected static void setCPUNAME(String CPUNAME) {
         PreDataBase.CPUNAME = CPUNAME;
     }
 
@@ -130,7 +130,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda zwaracają bajt wejściowy.
      * @return bajt wejściowy.
      */
-    public static byte getInEndpoint() {
+    protected static byte getInEndpoint() {
         return IN_ENDPOINT;
     }
 
@@ -138,7 +138,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda zwracająca numer interfejsu urządzenia.
      * @return numer interfejsu.
      */
-    public static byte getINTERFACE() {
+    protected static byte getINTERFACE() {
         return INTERFACE;
     }
 
@@ -146,7 +146,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda zwaracają bajt wyjściowy.
      * @return bajt wyjściowy.
      */
-    public static byte getOutEndpoint() {
+    protected static byte getOutEndpoint() {
         return OUT_ENDPOINT;
     }
 
@@ -162,7 +162,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda pobierająca informacje o wentylatorze.
      * @return zwraca informacje o wentylatorze.
      */
-    public static byte[] getFanData() {
+    protected static byte[] getFanData() {
         return FAN_DATA;
     }
 
@@ -178,7 +178,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda zwraca informacje o pracy pompy.
      * @return  informacje o pracy pompy.
      */
-    public static byte[] getPumpData() {
+    protected static byte[] getPumpData() {
         return PUMP_DATA;
     }
 
@@ -186,7 +186,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda zwracajaca informacje o wentylatorach zamontowanych w komputerze.
      * @return zwraca listę z wentylatorami.
      */
-    public static List<Fan> getFANS() {
+    protected static List<Fan> getFANS() {
         return FANS;
     }
 
@@ -194,7 +194,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda zwraca obciążenie każdego z rdzeni procesora.
      * @return zwraca listę użyciem rdzieni procesora.
      */
-    public static List<Load> getLOAD() {
+    protected static List<Load> getLOAD() {
         return LOAD;
     }
 
@@ -202,7 +202,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda zwraca listę z temperaturami procesora.
      * @return zwraca listę z temperaturami procesora.
      */
-    public static List<Temperature> getTEMPS() {
+    protected static List<Temperature> getTEMPS() {
         return TEMPS;
     }
 
@@ -210,7 +210,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda zwraca identyfikator chłodzenia.
      * @return zwraca indentyfikator chłodzenia.
      */
-    public static short getProductId() {
+    protected static short getProductId() {
         return PRODUCT_ID;
     }
 
@@ -218,7 +218,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda zwraca vendor urządzenia.
      * @return  vendor urządzenia.
      */
-    public static short getVendorId() {
+    protected static short getVendorId() {
         return VENDOR_ID;
     }
 
@@ -226,7 +226,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda zwracająca nazwę procesora.
      * @return zwraca nazwę cpu.
      */
-    public static String getCPUNAME() {
+    protected static String getCPUNAME() {
         return CPUNAME;
     }
 
@@ -234,7 +234,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda pobierająca nazwę pliku z konfiguracjami.
      * @return nazwa pliku z konfiguracją.
      */
-    public static String getDefaultFilename() {
+    protected static String getDefaultFilename() {
         return DEFAULT_FILENAME;
     }
 
@@ -258,7 +258,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda do przypisania informacji o wentylatorach.
      * @param FANS lista z wentylatorami.
      */
-    public static void setFANS(List<Fan> FANS) {
+    protected static void setFANS(List<Fan> FANS) {
         PreDataBase.FANS = FANS;
     }
 
@@ -266,7 +266,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda do przypisania obciążenia rdzenii cpu.
      * @param LOAD lista z obciążeniami rdzenii cpu.
      */
-    public static void setLOAD(List<Load> LOAD) {
+    protected static void setLOAD(List<Load> LOAD) {
         PreDataBase.LOAD = LOAD;
     }
 
@@ -275,7 +275,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda przypisania dumpu odebranych informacji.
      * @param outDump informacje odebrane od chłodzenia.
      */
-    public static void setOutDump(byte[] outDump) {
+    protected static void setOutDump(byte[] outDump) {
         OUT_DUMP = outDump;
     }
 
@@ -291,7 +291,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda zapisująca listę z temperaturami rdzenii procesora.
      * @param TEMPS zmienna do przypisania temp.
      */
-    public static void setTEMPS(List<Temperature> TEMPS) {
+    protected static void setTEMPS(List<Temperature> TEMPS) {
         PreDataBase.TEMPS = TEMPS;
     }
 
@@ -299,7 +299,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda zwracająca temperaturę procesora.
      * @return zwraca temp. procesora.
      */
-    public static long getTEMP() {
+    protected static long getTEMP() {
         return TEMP;
     }
 
@@ -307,7 +307,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda zwracająca prędkość wentylatorów.
      * @return zwraca prędkość wentylatorów.
      */
-    public static long getFAN() {
+    protected static long getFAN() {
         return FAN;
     }
 
@@ -315,7 +315,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda zwracająca temperaturę płynu chłodniczego.
      * @return temperatura płynu chłodniczego.
      */
-    public static long getLIQUID() {
+    protected static long getLIQUID() {
         return LIQUID;
     }
 
@@ -323,7 +323,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda przypisania prędkości wentylatorów.
      * @param FAN prędkość wentylatorów.
      */
-    public static void setFAN(long FAN) {
+    protected static void setFAN(long FAN) {
         PreDataBase.FAN = FAN;
     }
 
@@ -331,7 +331,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda przypisująca temperaturę płynu chłodzniczego.
      * @param LIQUID zmienna z temperaturą płynu chłodniczego.
      */
-    public static void setLIQUID(long LIQUID) {
+    protected static void setLIQUID(long LIQUID) {
         PreDataBase.LIQUID = LIQUID;
     }
 
@@ -339,7 +339,7 @@ public class PreDataBase extends FileManagement<Long> {
      * Metoda zapisująca średnią temperaturę CPU.
      * @param TEMP parametr z temperaturą.
      */
-    public static void setTEMP(long TEMP) {
+    protected static void setTEMP(long TEMP) {
         PreDataBase.TEMP = TEMP;
     }
 

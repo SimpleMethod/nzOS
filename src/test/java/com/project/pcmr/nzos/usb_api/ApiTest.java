@@ -7,18 +7,18 @@ import org.usb4java.LibUsbException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.matchers.JUnitMatchers.containsString;
+
 
 class ApiTest {
 
     @Rule
-    public ExpectedException exceptions = ExpectedException.none();
+    public final ExpectedException exceptions = ExpectedException.none();
 
 
     @Test
     void writeToDevice() {
         exceptions.expect(LibUsbException.class);
-        exceptions.expectMessage(containsString("Library exception"));
+        exceptions.expectMessage(("Library exception"));
         Api UnitTest1 = new Api();
         byte[] test={0x02, 0x4d, 0x00, 0x00, 0x64};
         UnitTest1.writeToDevice(test);

@@ -1,4 +1,290 @@
 <script>
+
+    $(document).ready(function () {
+
+        setInterval(function () {
+            var jqxhr = $.getJSON("/show/cpu/name", function (result) {
+            }).done(function (result) {
+                $("#cpuname").html(result[0]);
+                var jqxhr = $.getJSON("/show/cpu/temp", function (result) {
+                }).done(function (result) {
+                    updateDatatempChart(result[0]);
+                });
+                var jqxhr = $.getJSON("/show/cpu/loads", function (result) {
+                }).done(function (result) {
+                    updateDataloadChart(result[7]);
+
+                });
+                var jqxhr = $.getJSON("/show/nzos/fanspeed ", function (result) {
+                }).done(function (result) {
+                    updateDatafanChart(result[0]);
+                });
+                var jqxhr = $.getJSON("/show/nzos/liquidtemp", function (result) {
+                }).done(function (result) {
+                    updateDataliquidChart(result[0]);
+                });
+            }, 5000);
+
+        });
+
+        $.getJSON("/show/errors", function (data) {
+            var html = '',
+                el = document.getElementById("errors");
+            $.each(data, function (key, val) {
+
+                html +=  '<div class="alert alert-danger alert-dismissible fade show" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+val+ '</div>';
+
+            });
+            el.innerHTML = html;
+        });
+
+    });
+
+    Chart.pluginService.register({
+        beforeDraw: function (chart) {
+            if (chart.config.options.elements.center) {
+                var ctx = chart.chart.ctx;
+                var centerConfig = chart.config.options.elements.center;
+                var fontStyle = centerConfig.fontStyle || 'Arial';
+                var txt = centerConfig.text;
+                var color = centerConfig.color || '#000';
+                var sidePadding = centerConfig.sidePadding || 20;
+                var sidePaddingCalculated = (sidePadding / 100) * (chart.innerRadius * 2)
+                ctx.font = "30px " + fontStyle;
+                var stringWidth = ctx.measureText(txt).width;
+                var elementWidth = (chart.innerRadius * 2) - sidePaddingCalculated;
+                var widthRatio = elementWidth / stringWidth;
+                var newFontSize = Math.floor(30 * widthRatio);
+                var elementHeight = (chart.innerRadius * 2);
+                var fontSizeToUse = Math.min(newFontSize, elementHeight);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                var centerX = ((chart.chartArea.left + chart.chartArea.right) / 2);
+                var centerY = ((chart.chartArea.top + chart.chartArea.bottom) / 2);
+                ctx.font = fontSizeToUse + "px " + fontStyle;
+                ctx.fillStyle = color;
+                ctx.fillText(txt, centerX, centerY);
+            }
+        }
+    });
+    var config = {
+        type: 'doughnut',
+        data: {
+            labels: [
+                "Used",
+                "Available",
+            ],
+            datasets: [{
+                data: [0, 100],
+                backgroundColor: [
+                    "#dc3545",
+                    "#1bc98e",
+                ],
+                hoverBackgroundColor: [
+                    "#dc3545",
+                    "#1bc98e",
+                ]
+            }]
+        },
+        options: {
+            cutoutPercentage: 80,
+            legend: {
+                display: !1
+            },
+            animation: {
+                animateRotate: 1,
+                duration: 2
+            },
+            tooltips: {
+                enabled: !0,
+                bodyFontSize: 14
+            },
+            elements: {
+                center: {
+                    text: 0,
+                    color: '#dc3545',
+                    fontStyle: 'Arial',
+                    sidePadding: 20
+                }
+            }
+        }
+    };
+
+    var config1 = {
+        type: 'doughnut',
+        data: {
+            labels: [
+                "Used",
+                "Available",
+            ],
+            datasets: [{
+                data: [0, 100],
+                backgroundColor: [
+                    "#dc3545",
+                    "#1bc98e",
+                ],
+                hoverBackgroundColor: [
+                    "#dc3545",
+                    "#1bc98e",
+                ]
+            }]
+        },
+        options: {
+            cutoutPercentage: 80,
+            legend: {
+                display: !1
+            },
+            animation: {
+                animateRotate: 1,
+                duration: 2
+            },
+            tooltips: {
+                enabled: !0,
+                bodyFontSize: 14
+            },
+            elements: {
+                center: {
+                    text: 0,
+                    color: '#dc3545',
+                    fontStyle: 'Arial',
+                    sidePadding: 20
+                }
+            }
+        }
+    };
+
+    var config2 = {
+        type: 'doughnut',
+        data: {
+            labels: [
+                "Used",
+                "Available",
+            ],
+            datasets: [{
+                data: [900, 3120],
+                backgroundColor: [
+                    "#dc3545",
+                    "#1bc98e",
+                ],
+                hoverBackgroundColor: [
+                    "#dc3545",
+                    "#1bc98e",
+                ]
+            }]
+        },
+        options: {
+            cutoutPercentage: 80,
+            legend: {
+                display: !1
+            },
+            animation: {
+                animateRotate: 1,
+                duration: 2
+            },
+            tooltips: {
+                enabled: !0,
+                bodyFontSize: 14
+            },
+            elements: {
+                center: {
+                    text: 0,
+                    color: '#dc3545',
+                    fontStyle: 'Arial',
+                    sidePadding: 20
+                }
+            }
+        }
+    };
+    var config3 = {
+        type: 'doughnut',
+        data: {
+            labels: [
+                "Used",
+                "Available",
+            ],
+            datasets: [{
+                data: [0, 100],
+                backgroundColor: [
+                    "#dc3545",
+                    "#1bc98e",
+                ],
+                hoverBackgroundColor: [
+                    "#dc3545",
+                    "#1bc98e",
+                ]
+            }]
+        },
+        options: {
+            cutoutPercentage: 80,
+            legend: {
+                display: !1
+            },
+            animation: {
+                animateRotate: 1,
+                duration: 2
+            },
+            tooltips: {
+                enabled: !0,
+                bodyFontSize: 14
+            },
+            elements: {
+                center: {
+                    text: 0,
+                    color: '#dc3545',
+                    fontStyle: 'Arial',
+                    sidePadding: 20
+                }
+            }
+        }
+    };
+
+    var ctx = document.getElementById("tempChart").getContext("2d");
+    var myChart = new Chart(ctx, config);
+    var ctx1 = document.getElementById("loadChart").getContext("2d");
+    var myChart1 = new Chart(ctx1, config1);
+    var ctx2 = document.getElementById("fanChart").getContext("2d");
+    var myChart2 = new Chart(ctx2, config2);
+    var ctx3 = document.getElementById("liquidChart").getContext("2d");
+    var myChart3 = new Chart(ctx3, config3);
+
+
+    function updateDatatempChart(value) {
+        var free = 100 - value;
+        myChart.data.datasets[0].data[0] = value;
+        myChart.data.datasets[0].data[1] = free;
+        var result = Math.round((value * 100) / 100);
+        myChart.options.elements.center.text = result + "%";
+        myChart.update();
+    }
+
+    function updateDataloadChart(value) {
+        var free = 100 - value;
+        myChart1.data.datasets[0].data[0] = value;
+        myChart1.data.datasets[0].data[1] = free;
+        var result = Math.round((value * 100) / 100);
+        myChart1.options.elements.center.text = result + "%";
+        myChart1.update();
+    }
+
+    function updateDatafanChart(value) {
+        var free = 3120 - value;
+        myChart2.data.datasets[0].data[0] = value;
+        myChart2.data.datasets[0].data[1] = free;
+        var result = Math.round((value * 100) / 3120);
+        myChart2.options.elements.center.text = result + "%";
+        myChart2.update();
+    }
+
+    function updateDataliquidChart(value) {
+        var free = 100 - value;
+        myChart3.data.datasets[0].data[0] = value;
+        myChart3.data.datasets[0].data[1] = free;
+        var result = Math.round((value * 100) / 100);
+        myChart3.options.elements.center.text = result + "%";
+        myChart3.update();
+    }
+
+
 </script>
 
 <div class="container-fluid">
@@ -6,41 +292,38 @@
         <li class="breadcrumb-item"><a href="#/">{{nzos}}</a></li>
         <li class="breadcrumb-item active">{{ type }}</li>
     </ol>
-
     <div class="container">
+        <h3 id="cpuname"></h3>
         <div class="row">
-            <div class="col">
-                <h3>{{settings_1}}</h3>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm">
-
-                            <div class="col-sm">
-
-                            </div>
-                        </div>
-                    </div>
+            <div class=col->
+                <div class="card-body align-items-center d-flex justify-content-center"><h3>{{home_1}}</h3>
                 </div>
-                <div class="col">
-                    <h3>{{settings_2}}</h3>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm">
-
-                            </div>
-                            <div class="col-sm">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <canvas id="tempChart"></canvas>
             </div>
-            <hr class="aah">
-            <div class="row">
-                <h3>{{settings_4}}</h3>
-                <div class="atv acw">
-                </div>
+            <div class=col->
+                <div class="card-body align-items-center d-flex justify-content-center"><h3>{{home_2}}</h3></div>
+                <canvas id="loadChart"></canvas>
             </div>
-
+        </div>
+        <div class="row">
+            <div class=col->
+                <div class="card-body align-items-center d-flex justify-content-center">
+                    <h3>{{home_3}}</h3>
+                </div>
+                <canvas id="liquidChart"></canvas>
+            </div>
+            <div class=col->
+                <div class="card-body align-items-center d-flex justify-content-center">
+                    <h3>{{home_4}}</h3>
+                </div>
+                <canvas id="fanChart"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg">
+                <hr class="aah">
+                <div id="errors"></div>
+            </div>
         </div>
     </div>
+</div>
