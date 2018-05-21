@@ -9,6 +9,7 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class FileManagementTest {
     @Rule
@@ -137,5 +138,69 @@ class FileManagementTest {
         FileManagement<Long> UnitTest1 = new FileManagement<>();
         String Input[] = {"main.nzprofile.test", "fan_settings","_degrees"};
         UnitTest1.arrayToList(Input[0],Input[1],Input[2]);
+    }
+
+
+    @Test
+    void showLogFile() {
+        FileManagement<Long> UnitTest1 = new FileManagement<>();
+        assertNotNull(UnitTest1.showLogFile("app_log.log"));
+    }
+
+    @Test
+    void forceWritingFile() {
+        FileManagement<Long> UnitTest1 = new FileManagement<>();
+        Long testResult = (long)1;
+        json.put("nzOS", testResult);
+        String Input[] = {"main.nzprofile.test", "color_settings","color_0","color_G"};
+        exceptions.expect(IOException.class);
+        exceptions.expectMessage(("IO exception"));
+        UnitTest1.forceWritingFile(Input[0], Input[1], testResult);
+        Long result = UnitTest1.readingFile(Input[0], Input[1],Input[2],Input[3]);
+        assertEquals(Long.valueOf(testResult), result);
+    }
+
+    @Test
+    void forceWritingFile1() {
+        FileManagement<Long> UnitTest1 = new FileManagement<>();
+        Long testResult = (long)1;
+        json.put("nzOS", testResult);
+        String Input[] = {"main.nzprofile.test", "color_settings","color_0","color_G"};
+        exceptions.expect(IOException.class);
+        exceptions.expectMessage(("IO exception"));
+        UnitTest1.forceWritingFile(Input[0], Input[1], "G",testResult);
+        Long result = UnitTest1.readingFile(Input[0], Input[1],Input[2],Input[3]);
+        assertEquals(Long.valueOf(testResult), result);
+    }
+
+
+    @Test
+    void colorLongArray() {
+        FileManagement<Long> UnitTest1 = new FileManagement<>();
+        assertNotNull(UnitTest1.colorLongArray("main.nzprofile.test"));
+
+    }
+
+    @Test
+    void arrayToList1() {
+        FileManagement<Long> UnitTest1 = new FileManagement<>();
+        String Input[] = {"main.nzprofile.test", "fan_settings","_degrees"};
+        assertNotNull(UnitTest1.arrayToList(Input[0],Input[1],Input[2]));
+    }
+
+    @Test
+    void arrayToList2() {
+        FileManagement<Long> UnitTest1 = new FileManagement<>();
+        String Input[] = {"main.nzprofile.test", "fan_settings","_degrees"};
+        assertNotNull(UnitTest1.arrayToList(Input[0],Input[1]));
+    }
+
+    @Test
+    void writingFile4() {
+        FileManagement<Long> UnitTest1 = new FileManagement<>();
+        exceptions.expect(IOException.class);
+        exceptions.expectMessage(("IO exception"));
+        UnitTest1.writingFile("main.nzprofile.test.test.test", "fan_settings");
+
     }
 }

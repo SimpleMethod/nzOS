@@ -6,6 +6,7 @@ import org.junit.rules.ExpectedException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 class ApiManagmentTest {
@@ -32,6 +33,7 @@ class ApiManagmentTest {
     @Test
     void getCpuTemps() {
         ApiManagment UnitTest1 = new ApiManagment();
+        UnitTest1.getCpuInfo();
         assertNotNull(UnitTest1.getCpuTemps());
     }
 
@@ -68,5 +70,13 @@ class ApiManagmentTest {
         exceptions.expectMessage(("The temperature can not be less than zero!"));
         ApiManagment UnitTest1 = new ApiManagment();
         UnitTest1.theardHelper();
+    }
+
+    @Test
+    void isAdmin() {
+        exceptions.expect(IllegalAccessError.class);
+        exceptions.expectMessage(("Problem except for administrator's rights"));
+        ApiManagment UnitTest1 = new ApiManagment();
+        assertTrue( UnitTest1.isAdmin());
     }
 }
