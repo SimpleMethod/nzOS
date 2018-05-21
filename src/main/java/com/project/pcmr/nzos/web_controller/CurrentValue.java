@@ -41,8 +41,8 @@ public class CurrentValue extends PreDataBase {
     }
 
     /**
-     * Metoda zwaca listę z temp. CPU.
-     * @return lusta z temp. CPU.
+     * Metoda zwraca listę z temp. CPU.
+     * @return lista z temp. CPU.
      */
     List<Temperature> GetCVTEMPS() {
         return getTEMPS();
@@ -50,7 +50,7 @@ public class CurrentValue extends PreDataBase {
 
     /**
      * Metoda zwracająca obciążenie CPU.
-     * @return obciążenie CPU.
+     * @return Listę z obciążeniem CPU.
      */
     List<Load> GetCVLOAD() {
         return getLOAD();
@@ -58,7 +58,7 @@ public class CurrentValue extends PreDataBase {
 
     /**
      * Metoda zwracająca prędkość wentylatorów.
-     * @return prędkość wentylatorów.
+     * @return Listę z prędkością wentylatorów.
      */
     List<Fan> GetCVFAN() {
         return getFANS();
@@ -81,8 +81,8 @@ public class CurrentValue extends PreDataBase {
     }
 
     /**
-     * Metoda zwracająca aktualny tyb pracy oświetlenia.
-     * @return aktualny tyb pracy oświetlenia.
+     * Metoda zwracająca aktualny tryb pracy oświetlenia.
+     * @return aktualny tryb pracy oświetlenia.
      */
     Long GetCurrentColorMode() {
         return FileMag.readingFile(getDEFAULT_FILENAME(), "color_settings", "color_mode");
@@ -113,8 +113,8 @@ public class CurrentValue extends PreDataBase {
     }
 
     /**
-     * Metoda zwracając prędkosć wentylatora dla aktualnej temp.
-     * @return  prędkosć wentylatora dla aktualnej temp.
+     * Metoda zwracając prędkość wentylatora dla aktualnej temp.
+     * @return  prędkość wentylatora dla aktualnej temp.
      */
     Long GetCurrentSetFanSpeed() {
         Long temp = Math.round(getTEMP() / 10.0) * 10;
@@ -122,8 +122,8 @@ public class CurrentValue extends PreDataBase {
     }
 
     /**
-     * Metoda zwracając prędkosć pompy dla aktualnej temp.
-     * @return  prędkosć pompy dla aktualnej temp.
+     * Metoda zwracając prędkość  pompy dla aktualnej temp.
+     * @return  prędkość  pompy dla aktualnej temp.
      */
     Long GetCurrentSetPumpSpeed() {
         Long temp = Math.round(getTEMP() / 10.0) * 10;
@@ -139,8 +139,8 @@ public class CurrentValue extends PreDataBase {
     }
 
     /**
-     * Metoda zwraca indentyfikator produktu.
-     * @return indentyfikator produktu.
+     * Metoda zwraca identyfikator produktu.
+     * @return identyfikator  produktu.
      */
     Long GetCurrentSafeCode() {
         return FileMag.readingFile(getDEFAULT_FILENAME(), "id");

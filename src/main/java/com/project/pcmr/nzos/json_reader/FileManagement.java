@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * Klasa służaca do obsługi pliku z konfiguracją.
+ *
  * @param <T> typ generyczny.
  */
 @SuppressWarnings("unchecked")
@@ -25,7 +26,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
 
 
     /**
-     * Metoda służaca do czytania pojedynczych obiektów.
+     * Metoda służąca do czytania pojedynczych obiektów.
      *
      * @param filename Nazwa pliku do odczytu.
      * @param OBJECT   Nazwa pojedynczego obiektu do odczytu.
@@ -48,7 +49,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
     }
 
     /**
-     * Metoda służaca do czytania obiektu w obiekcie.
+     * Metoda służąca do czytania obiektu w obiekcie.
      *
      * @param filename  Nazwa pliku do odczytu.
      * @param OBJECT    Nazwa obiektu do odczytu.
@@ -73,7 +74,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
     }
 
     /**
-     * Metoda służaca do czytania obiektu w obiekcie w obiekcie (Obiekto incepcja).
+     * Metoda służąca do czytania obiektu w obiekcie w obiekcie (Obiekto incepcja).
      *
      * @param filename     Nazwa pliku do odczytu.
      * @param OBJECT       Nazwa obiektu do odczytu.
@@ -100,7 +101,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
     }
 
     /**
-     * Metoda służaca do zapisania obiektu.
+     * Metoda służąca do zapisania obiektu.
      *
      * @param filename Nazwa pliku do odczytu.
      * @param OBJECT   Nazwa obiektu do zapisu.
@@ -121,7 +122,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
     }
 
     /**
-     * Metoda służaca do zapisania obiektu w obiekcie.
+     * Metoda służąca do zapisania obiektu w obiekcie.
      *
      * @param filename  Nazwa pliku do odczytu.
      * @param OBJECT    Nazwa obiektu do zapisu.
@@ -144,7 +145,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
     }
 
     /**
-     * Metoda służaca do zapisania obiektu w obiekcie w obiekcie.
+     * Metoda służąca do zapisania obiektu w obiekcie w obiekcie.
      *
      * @param filename     Nazwa pliku do odczytu.
      * @param OBJECT       Nazwa obiektu do zapisu.
@@ -171,7 +172,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
 
 
     /**
-     * Metoda służaca do zapisu pliku.
+     * Metoda służąca do zapisu pliku.
      *
      * @param filename    Nazwa pliku do odczytu.
      * @param JSON_OBJECT Wskaźnik na obiekt Json.
@@ -197,7 +198,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
     }
 
     /**
-     * Metoda służaca do zapisu pliku.
+     * Metoda służąca do zapisu pliku.
      *
      * @param filename Nazwa pliku do odczytu.
      * @param TEXT     Tekst do zapisu.
@@ -216,6 +217,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
      * Metoda służąca do odczytu barw i zapisu jej do tablicy.
      *
      * @param filename Nazwa pliku do odczytu.
+     * @return zwraca tablicę z kolorami
      */
     public byte[] colorArray(String filename) {
         byte[] CALLBACK = new byte[27];
@@ -237,7 +239,8 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
     }
 
     /**
-     *  Metoda zwracająca tablicę z barwami odczytaną z pliku z konfiguracją.
+     * Metoda zwracająca tablicę z barwami odczytaną z pliku z konfiguracją.
+     *
      * @param filename Nazwa pliku do odczytu.
      * @return Zwraca listę z kolorami.
      */
@@ -253,7 +256,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
     }
 
     /**
-     * Metoda służaca do zamiany tablicy na listę.
+     * Metoda służąca do zamiany tablicy na listę.
      *
      * @param filename  Nazwa pliku do odczytu.
      * @param OBJECT    Nazwa obiektu do pobrania.
@@ -273,7 +276,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
     }
 
     /**
-     * Metoda służaca do zamiany tablicy na listę.
+     * Metoda służąca do zamiany tablicy na listę.
      *
      * @param filename Nazwa pliku do odczytu.
      * @param OBJECT   Nazwa obiektu do pobrania.
@@ -289,9 +292,10 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
     }
 
     /**
-     *  Metoda odczytująca plik z logami błedów.
+     * Metoda odczytująca plik z logami błędów.
+     *
      * @param filename Nazwa pliku do odczytu.
-     * @return zwraca tekst w postaci linii z błędami.
+     * @return Zwraca tekst w postaci linii z błędami.
      */
     public ArrayList<String> showLogFile(String filename) {
         String fileName = DIR + "\\logs\\" + filename;
@@ -312,9 +316,10 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
 
     /**
      * Metoda zapisująca docelowy kolor w pliku konfiguracyjnym.
+     *
      * @param filename Nazwa pliku do odczytu.
-     * @param OBJECT Obiekt do edycji.
-     * @param VALUE Wartość do edycji.
+     * @param OBJECT   Obiekt do edycji.
+     * @param VALUE    Wartość do edycji.
      */
     public void forceWritingFile(String filename, String OBJECT, T VALUE) {
         try {
@@ -338,20 +343,21 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
 
     /**
      * Metoda zapisująca docelowe kolory w pliku konfiguracyjnym.
+     *
      * @param filename Nazwa pliku do odczytu.
-     * @param OBJECT Obiekt do edycji.
-     * @param Type Typ koloru do edycji.
-     * @param VALUE Wartość koloru do edycji.
+     * @param OBJECT   Obiekt do edycji.
+     * @param Type     Typ koloru do edycji.
+     * @param VALUE    Wartość koloru do edycji.
      */
-    public void forceWritingFile(String filename, String OBJECT,String Type, T VALUE) {
+    public void forceWritingFile(String filename, String OBJECT, String Type, T VALUE) {
         try {
             JSONParser parser = new JSONParser();
             Object obj = parser.parse(new FileReader(DIR + "\\" + filename));
             JSONObject jsonObject = (JSONObject) obj;
             JSONObject jsonObject1 = (JSONObject) jsonObject.get(OBJECT);
             for (int i = 0; i < 9; i++) {
-                    JSONObject jsonObject2 = (JSONObject) jsonObject1.get("color_" + i);
-                    jsonObject2.put("color_" + Type, VALUE);
+                JSONObject jsonObject2 = (JSONObject) jsonObject1.get("color_" + i);
+                jsonObject2.put("color_" + Type, VALUE);
             }
             writingFile(filename, jsonObject);
         } catch (Exception e) {

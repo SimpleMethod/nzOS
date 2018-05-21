@@ -14,7 +14,7 @@ class ExceptionApiManagment extends RuntimeException {
 
     /**
      *  Konstruktor klasy z obsługą tekstu.
-     * @param message komunikat o błedzie.
+     * @param message komunikat o błędzie.
      */
     public ExceptionApiManagment(String message) {
         super(message);
@@ -22,7 +22,7 @@ class ExceptionApiManagment extends RuntimeException {
 
     /**
      * Konstruktor klasy z obsługą tekstu i zgłaszaniem wyjątku.
-     * @param message komunikat o błedzie.
+     * @param message komunikat o błędzie.
      * @param cause wyjątek.
      */
     public ExceptionApiManagment(String message, Throwable cause) {
