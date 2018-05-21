@@ -136,5 +136,17 @@ interface InterfaceFileManagment<T> {
      * @param VALUE Wartość koloru do edycji.
      */
     void forceWritingFile(String filename, String OBJECT,String Type, T VALUE);
+
+
+
+    /**
+     * Metoda służaca do zapisu pliku.
+     *
+     * @param filename Nazwa pliku do odczytu.
+     * @param TEXT     Tekst do zapisu.
+     */
+     void writingFile(String filename, String TEXT);
 }
+
+
 

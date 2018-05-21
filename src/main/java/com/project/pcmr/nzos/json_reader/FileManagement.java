@@ -202,7 +202,7 @@ public class FileManagement<T> implements InterfaceFileManagment<T> {
      * @param filename Nazwa pliku do odczytu.
      * @param TEXT     Tekst do zapisu.
      */
-    protected void writingFile(String filename, String TEXT) {
+    public void writingFile(String filename, String TEXT) {
         final String DIR = System.getProperty("user.dir");
         try (Writer writer = new BufferedWriter(new OutputStreamWriter(
                 new FileOutputStream(DIR + "\\" + filename), "utf-8"))) {

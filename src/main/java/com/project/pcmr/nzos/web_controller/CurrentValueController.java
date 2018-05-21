@@ -370,15 +370,7 @@ public class CurrentValueController extends CurrentValue {
         a8.add(dump[24]);
         a8.add(dump[25]);
         a8.add(dump[26]);
-        result.add(a0);
-        result.add(a1);
-        result.add(a2);
-        result.add(a3);
-        result.add(a4);
-        result.add(a5);
-        result.add(a6);
-        result.add(a7);
-        result.add(a8);
+        result.add(a0);result.add(a1);result.add(a2);result.add(a3); result.add(a4);result.add(a5);result.add(a6);result.add(a7); result.add(a8);
         return result;
     }
 }
