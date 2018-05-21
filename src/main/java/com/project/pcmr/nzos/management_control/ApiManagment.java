@@ -22,7 +22,7 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
     private int counterWarning = 0;
 
     /**
-     * Metoda służaca zmiany pracy pompy.
+     * Metoda służąca zmiany pracy pompy.
      *
      * @param VALUE Wartość w zakresie 60-100.
      */
@@ -35,7 +35,7 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
     }
 
     /**
-     * Metoda służaca zmiany pracy wentylatorów.
+     * Metoda służąca zmiany pracy wentylatorów.
      *
      * @param value Wartość w zakresie 25-100.
      */
@@ -50,7 +50,7 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
     }
 
     /**
-     * Metoda służaca do zmiany braw.
+     * Metoda służąca do zmiany braw.
      *
      * @param colorMode Tryb zmiany kolorów.
      */
@@ -64,7 +64,7 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
     }
 
     /**
-     * Metoda służaca do zwracania temperatury CPU.
+     * Metoda służąca do zwracania temperatury CPU.
      *
      * @return Zwraca listę zawierającą temperatury rdzeni procesora.
      */
@@ -73,7 +73,7 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
     }
 
     /**
-     * Metoda służaca do zwracania informacji o CPU.
+     * Metoda służąca do zwracania informacji o CPU.
      */
     public void getCpuInfo() {
         Components components = JSensors.get.components();
@@ -94,7 +94,7 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
     }
 
     /**
-     * Metoda służaca do zwracania temperatury CPU.
+     * Metoda służąca do zwracania temperatury CPU.
      *
      * @return Zwraca wartość zawierającą uśrednioną temperaturę procesora.
      */
@@ -104,12 +104,12 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
     }
 
     /**
-     * Metoda służaca monitorowania pracy nzOS.
+     * Metoda służąca monitorowania pracy nzOS.
      */
     public void theardHelper() {
         getCpuInfo();
         if (!firstUsage) {
-            changingColor((int) (long)readingFile(getDEFAULT_FILENAME(), "color_settings", "color_mode"));
+            changingColor((int) (long) readingFile(getDEFAULT_FILENAME(), "color_settings", "color_mode"));
         }
         firstUsage = true;
         if (getCpuTemp() > readingFile(getDEFAULT_FILENAME(), "temperature_warning") && counterWarning == 0) {
@@ -143,10 +143,11 @@ public class ApiManagment extends Api implements InterfaceApiManagment {
     }
 
     /**
-     * Metoda służacado wyświetlania powiadomień.
+     * Metoda służaca do wyświetlania powiadomień.
      *
      * @param title    Tytuł powiadomienia
      * @param subtitle Treść powiadomienia
+     * @throws Exception Wyjatek przy powiadomieniu
      */
     public void sendNotification(String title, String subtitle) throws Exception {
         String powershell = "[reflection.assembly]::loadwithpartialname('System.Windows.Forms');[reflection.assembly]::loadwithpartialname('System.Drawing');$notify = new-object system.windows.forms.notifyicon;$notify.icon = [System.Drawing.SystemIcons]::Shield;$notify.visible = $true;$notify.showballoontip(3,'" + title + "','" + subtitle + "',[system.windows.forms.tooltipicon]::None)";

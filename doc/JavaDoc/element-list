@@ -1,0 +1,6 @@
+com.project.pcmr.nzos.data_base
+com.project.pcmr.nzos.json_reader
+com.project.pcmr.nzos.management_control
+com.project.pcmr.nzos.monitoring
+com.project.pcmr.nzos.usb_api
+com.project.pcmr.nzos.web_controller

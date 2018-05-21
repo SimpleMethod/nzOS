@@ -1,0 +1,500 @@
+<script>
+    $(document).ready(function () {
+        var fan = [];
+        var pump = [];
+        var other = [];
+
+        var jqxhr = $.getJSON("/show/nzos/colormode", function (result) {
+            $("#colormode").val(result[0]);
+        }).done(function () {
+            var jqxhr = $.getJSON("/show/nzos/colorarray", function (result) {
+                var i;
+                for (i = 0; i <= 8; i++) {
+                    $("#G" + i).val(result[i][0]);
+                    $("#R" + i).val(result[i][1]);
+                    $("#B" + i).val(result[i][2]);
+                }
+            }).done(function () {
+
+                $("#R0").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 0 + "/R/" + $("#R0").val());
+                    }, 10);
+                });
+                $("#G0").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 0 + "/G/" + $("#G0").val());
+                    }, 10);
+                });
+                $("#B0").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 0 + "/B/" + $("#B0").val());
+                    }, 10);
+                });
+                $("#R1").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 1 + "/G/" + $("#R1").val());
+                    }, 10);
+                });
+                $("#G1").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 1 + "/R/" + $("#G1").val());
+                    }, 10);
+                });
+                $("#B1").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 1 + "/B/" + $("#B1").val());
+                    }, 10);
+                });
+                $("#R2").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 2 + "/G/" + $("#R2").val());
+                    }, 10);
+
+                });
+                $("#G2").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 2 + "/R/" + $("#G2").val());
+                    }, 10);
+                });
+                $("#B2").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 2 + "/B/" + $("#B2").val());
+                    }, 10);
+                });
+
+				$("#R3").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 3 + "/G/" + $("#R3").val());
+                    }, 10);
+
+                });
+                $("#G3").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 3 + "/R/" + $("#G3").val());
+                    }, 10);
+                });
+                $("#B3").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 3 + "/B/" + $("#B3").val());
+                    }, 10);
+                });
+				
+				$("#R4").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 4 + "/G/" + $("#R4").val());
+                    }, 10);
+
+                });
+                $("#G4").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 4 + "/R/" + $("#G4").val());
+                    }, 10);
+                });
+                $("#B4").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 4 + "/B/" + $("#B4").val());
+                    }, 10);
+                });
+
+				$("#R5").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 5 + "/G/" + $("#R5").val());
+                    }, 10);
+
+                });
+                $("#G5").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 5 + "/R/" + $("#G5").val());
+                    }, 10);
+                });
+                $("#B5").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 5 + "/B/" + $("#B5").val());
+                    }, 10);
+                });
+
+				$("#R6").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 6 + "/G/" + $("#R6").val());
+                    }, 10);
+
+                });
+                $("#G6").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 6 + "/R/" + $("#G6").val());
+                    }, 10);
+                });
+                $("#B6").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 6 + "/B/" + $("#B6").val());
+                    }, 10);
+                });
+				
+				$("#R7").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 7 + "/G/" + $("#R7").val());
+                    }, 10);
+
+                });
+                $("#G7").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 7 + "/R/" + $("#G7").val());
+                    }, 10);
+                });
+                $("#B7").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 7 + "/B/" + $("#B7").val());
+                    }, 10);
+                });
+
+				$("#R8").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 8 + "/G/" + $("#R8").val());
+                    }, 10);
+
+                });
+                $("#G8").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 8 + "/R/" + $("#G8").val());
+                    }, 10);
+                });
+                $("#B8").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colorvalue/" + 8 + "/B/" + $("#B8").val());
+                    }, 10);
+                });
+				$("#colormode").change(function () {
+                    setTimeout(function () {
+                        $.get("/update/colormode/"+$("#colormode option:selected").val());
+                    }, 10);
+                });
+            });
+        });
+
+		$("#savesettings").click(function () { 
+		 var jqxhr = $.getJSON("/execution/color", function () {});
+		});
+
+    });
+</script>
+
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/">{{nzos}}</a></li>
+        <li class="breadcrumb-item active">{{ type }}</li>
+    </ol>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3>{{lighting_1}}</h3>
+                <div class="accordion" id="accordion1">
+                    <div class="card">
+                        <div class="card-header" id="dcol1">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#col1" aria-expanded="false" aria-controls="col1">
+                                    {{lighting_2}}1
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="col1" class="collapse" aria-labelledby="col1" data-parent="#accordion1">
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_3}}</span></div>
+                                    <input type="number" id="R0" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_4}}</span></div>
+                                    <input type="number" id="G0" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_5}}</span></div>
+                                    <input type="number" id="B0" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="dcol2">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#col2" aria-expanded="false" aria-controls="col2">
+                                    {{lighting_2}}2
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="col2" class="collapse" aria-labelledby="col2" data-parent="#accordion1">
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_3}}</span></div>
+                                    <input type="number" id="R1" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_4}}</span></div>
+                                    <input type="number" id="G1" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_5}}</span></div>
+                                    <input type="number" id="B1" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="dcol3">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#col3" aria-expanded="false" aria-controls="col3">
+                                    {{lighting_2}}3
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="col3" class="collapse" aria-labelledby="col3" data-parent="#accordion1">
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_3}}</span></div>
+                                    <input type="number" id="R2" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_4}}</span></div>
+                                    <input type="number" id="G2" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_5}}</span></div>
+                                    <input type="number" id="B2" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="dcol4">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#col4" aria-expanded="false" aria-controls="col4">
+                                    {{lighting_2}}4
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="col4" class="collapse" aria-labelledby="col4" data-parent="#accordion1">
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_3}}</span></div>
+                                    <input type="number" id="R3" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_4}}</span></div>
+                                    <input type="number" id="G3" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_5}}</span></div>
+                                    <input type="number" id="B3" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col">
+                <div class="accordion" id="accordion2">
+                    <div class="card">
+                        <div class="card-header" id="dcol5">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#col5" aria-expanded="false" aria-controls="col5">
+                                    {{lighting_2}}5
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="col5" class="collapse" aria-labelledby="col5" data-parent="#accordion2">
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_3}}</span></div>
+                                    <input type="number" id="R4" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_4}}</span></div>
+                                    <input type="number" id="G4" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_5}}</span></div>
+                                    <input type="number" id="B4" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="dcol6">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#col6" aria-expanded="false" aria-controls="col6">
+                                    {{lighting_2}}6
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="col6" class="collapse" aria-labelledby="col6" data-parent="#accordion2">
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_3}}</span></div>
+                                    <input type="number" id="R5" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_4}}</span></div>
+                                    <input type="number" id="G5" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_5}}</span></div>
+                                    <input type="number" id="B5" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="dcol7">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#col7" aria-expanded="false" aria-controls="col7">
+                                    {{lighting_2}}7
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="col7" class="collapse" aria-labelledby="col7" data-parent="#accordion2">
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_3}}</span></div>
+                                    <input type="number" id="R6" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_4}}</span></div>
+                                    <input type="number" id="G6" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_5}}</span></div>
+                                    <input type="number" id="B6" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="dcol8">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#col8" aria-expanded="false" aria-controls="col8">
+                                    {{lighting_2}}8
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="col8" class="collapse" aria-labelledby="col8" data-parent="#accordion2">
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_3}}</span></div>
+                                    <input type="number" id="R7" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_4}}</span></div>
+                                    <input type="number" id="G7" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_5}}</span></div>
+                                    <input type="number" id="B7" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="dcol9">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#col9" aria-expanded="false" aria-controls="col9">
+                                    {{lighting_2}}9
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="col9" class="collapse" aria-labelledby="col9" data-parent="#accordion2">
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_3}}</span></div>
+                                    <input type="number" id="R8" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_4}}</span></div>
+                                    <input type="number" id="G8" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{lighting_5}}</span></div>
+                                    <input type="number" id="B8" class="form-control" min="0" step="5" max="255"
+                                           data-bind="value:replyNumber">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="aah">
+		<div class="row">
+                <h3>{{lighting_6}}</h3>
+			  <div class="container justify-content-end">
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="colormode">{{lighting_6}}</label>
+                            </div>
+                            <select class="custom-select" id="colormode">
+                                <option value="0">{{lighting_7}}</option>
+                                <option value="2">{{lighting_8}}</option>
+								<option value="4">{{lighting_9}}</option>
+								<option value="6">{{lighting_10}}</option>
+								<option value="8">{{lighting_11}}</option>
+								<option value="10">{{lighting_12}}</option>
+								<option value="12">{{lighting_13}}</option>
+								<option value="14">{{lighting_14}}</option>
+								<option value="16">{{lighting_15}}</option>
+								<option value="18">{{lighting_16}}</option>
+								<option value="20">{{lighting_17}}</option>
+								<option value="22">{{lighting_18}}</option>
+								<option value="24">{{lighting_19}}</option>
+								<option value="26">{{lighting_20}}</option>
+								<option value="28">{{lighting_21}}</option>
+								<option value="30">{{lighting_22}}</option>
+								<option value="32">{{lighting_23}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <hr class="aah">
+                <button type="button" id="savesettings" class="btn btn-primary btn-lg ">{{save}}</button>
+                <hr class="aah" style="margin-bottom: 15px;">
+            </div>
+            
+        </div>
+    </div>
+</div>

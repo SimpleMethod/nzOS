@@ -41,7 +41,7 @@ public class CurrentValueController extends CurrentValue {
      * Metoda aktualizująca poszczególny kolor z osobna.
      * @param range numer koloru.
      * @param range2 rodzaj koloru.
-     * @param value wartość.
+     * @param value wartość koloru.
      */
     @RequestMapping("/update/colorvalue/{range}/{range2}/{value}")
     public void updateColorValue(@PathVariable Long range, @PathVariable String range2, @PathVariable Long value) {
@@ -122,7 +122,7 @@ public class CurrentValueController extends CurrentValue {
     }
 
     /**
-     * Metoda aktualizacuje pędkość pompy dla danego progu temp.
+     * Metoda aktualizacje prędkość pompy dla danego progu temp.
      * @param range próg temp.
      * @param value wartość.
      */
@@ -134,7 +134,7 @@ public class CurrentValueController extends CurrentValue {
     }
 
     /**
-     * Metoda aktualizacuje pędkość wentylatorów dla danego progu temp.
+     * Metoda aktualizacje prędkość wentylatorów dla danego progu temp.
      * @param range próg temp.
      * @param value wartość.
      */
@@ -199,7 +199,7 @@ public class CurrentValueController extends CurrentValue {
 
     /**
      * Metoda zwracająca temp. rdzeni procesora.
-     * @return rdzeni procesora.
+     * @return temp. rdzeni procesora.
      */
     @RequestMapping(value = "/show/cpu/temps", produces = "application/json", method = RequestMethod.GET)
     public List<Double> getTempsShow() {
@@ -300,8 +300,8 @@ public class CurrentValueController extends CurrentValue {
     }
 
     /**
-     * Metoda zwraca aktualną prędkość wentylatorów, pompy, wersję protokołu i indentyfikator sprzętu.
-     * @return aktualną prędkość wentylatorów, pompy, wersję protokołu i indentyfikator sprzętu.
+     * Metoda zwraca aktualną prędkość wentylatorów, pompy, wersję protokołu i identyfikator  sprzętu.
+     * @return aktualną prędkość wentylatorów, pompy, wersję protokołu i identyfikator  sprzętu.
      */
     @RequestMapping(value = "/show/nzos/dumpsettings", produces = "application/json", method = RequestMethod.GET)
     public List<Long> getVariables() {

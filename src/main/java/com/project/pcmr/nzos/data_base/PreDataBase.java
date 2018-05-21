@@ -111,7 +111,7 @@ public class PreDataBase extends FileManagement<Long> {
     }
 
     /**
-     * Metoda zwaracają czas TIMEOUT dla urządzenia.
+     * Metoda zawracają czas TIMEOUT dla urządzenia.
      * @return Zwraca czas TIMEOUT dla urządzenia.
      */
     protected static int getTIMEOUT() {
@@ -127,7 +127,7 @@ public class PreDataBase extends FileManagement<Long> {
     }
 
     /**
-     * Metoda zwaracają bajt wejściowy.
+     * Metoda zawracają  bajt wejściowy.
      * @return bajt wejściowy.
      */
     protected static byte getInEndpoint() {
@@ -143,7 +143,7 @@ public class PreDataBase extends FileManagement<Long> {
     }
 
     /**
-     * Metoda zwaracają bajt wyjściowy.
+     * Metoda zawracają bajt wyjściowy.
      * @return bajt wyjściowy.
      */
     protected static byte getOutEndpoint() {
@@ -168,7 +168,7 @@ public class PreDataBase extends FileManagement<Long> {
 
     /**
      * Metoda zwraca dump informacji odebranych od chłodzenia.
-     * @return ump informacji odebranych od chłodzenia.
+     * @return dump informacji odebranych od chłodzenia.
      */
     public static byte[] getOutDump() {
         return OUT_DUMP;
@@ -183,7 +183,7 @@ public class PreDataBase extends FileManagement<Long> {
     }
 
     /**
-     * Metoda zwracajaca informacje o wentylatorach zamontowanych w komputerze.
+     * Metoda zwracająca informacje o wentylatorach zamontowanych w komputerze.
      * @return zwraca listę z wentylatorami.
      */
     protected static List<Fan> getFANS() {
@@ -192,7 +192,7 @@ public class PreDataBase extends FileManagement<Long> {
 
     /**
      * Metoda zwraca obciążenie każdego z rdzeni procesora.
-     * @return zwraca listę użyciem rdzieni procesora.
+     * @return zwraca listę użyciem rdzeni procesora.
      */
     protected static List<Load> getLOAD() {
         return LOAD;
@@ -208,7 +208,7 @@ public class PreDataBase extends FileManagement<Long> {
 
     /**
      * Metoda zwraca identyfikator chłodzenia.
-     * @return zwraca indentyfikator chłodzenia.
+     * @return zwraca identyfikator chłodzenia.
      */
     protected static short getProductId() {
         return PRODUCT_ID;
@@ -224,7 +224,7 @@ public class PreDataBase extends FileManagement<Long> {
 
     /**
      * Metoda zwracająca nazwę procesora.
-     * @return zwraca nazwę cpu.
+     * @return zwraca nazwę CPU.
      */
     protected static String getCPUNAME() {
         return CPUNAME;
@@ -263,13 +263,12 @@ public class PreDataBase extends FileManagement<Long> {
     }
 
     /**
-     * Metoda do przypisania obciążenia rdzenii cpu.
-     * @param LOAD lista z obciążeniami rdzenii cpu.
+     * Metoda do przypisania obciążenia rdzeni CPU.
+     * @param LOAD lista z obciążeniami rdzeni CPU.
      */
     protected static void setLOAD(List<Load> LOAD) {
         PreDataBase.LOAD = LOAD;
     }
-
 
     /**
      * Metoda przypisania dumpu odebranych informacji.
@@ -288,7 +287,7 @@ public class PreDataBase extends FileManagement<Long> {
     }
 
     /**
-     * Metoda zapisująca listę z temperaturami rdzenii procesora.
+     * Metoda zapisująca listę z temperaturami rdzeni procesora.
      * @param TEMPS zmienna do przypisania temp.
      */
     protected static void setTEMPS(List<Temperature> TEMPS) {
@@ -328,7 +327,7 @@ public class PreDataBase extends FileManagement<Long> {
     }
 
     /**
-     * Metoda przypisująca temperaturę płynu chłodzniczego.
+     * Metoda przypisująca temperaturę płynu chłodniczego.
      * @param LIQUID zmienna z temperaturą płynu chłodniczego.
      */
     protected static void setLIQUID(long LIQUID) {

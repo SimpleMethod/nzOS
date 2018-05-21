@@ -33,7 +33,7 @@ public class ApiMonitoring extends  ApiManagment implements InterfaceApiMonitori
     }
 
     /**
-     * Metoda służaca do startu wątku.
+     * Metoda służąca do startu wątku.
      */
     public void startTheard() {
         logger.info("The thread has been launched");

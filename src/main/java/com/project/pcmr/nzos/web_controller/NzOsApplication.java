@@ -29,17 +29,11 @@ public class NzOsApplication {
         p.destroy();
     }
 
-
-
-
-
-
     /**
      * Główna metoda.
      * @param args argumenty wywołania.
      */
     public static void main(String[] args) {
-        PrintStream originalStream = System.out;
         PrintStream dummyStream = new PrintStream(new OutputStream(){
             public void write(int b) {
 
