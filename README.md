@@ -1,5 +1,3 @@
-**
-
 ## nzOS
 
 Alternative system for cooling management 
@@ -13,7 +11,7 @@ Main advantages:
  5. Browser interface.
  6. Support for the Polish language.
  7. Error handling 
- 8. REST API!?!
+ 8. Rest API
 
 Some photos:
 ![enter image description here](https://i.imgur.com/aKaeS60.png)
