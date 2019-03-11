@@ -25,4 +25,3 @@ Some photos:
 ![Project information](https://i.imgur.com/VkrIEXI.png)
 ![notifications in action center](https://i.imgur.com/iDHxZrB.png)
 
-![Error handling](https://i.imgur.com/LuLCetw.png)
